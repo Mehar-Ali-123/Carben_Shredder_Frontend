@@ -33,7 +33,7 @@ function SignIn() {
                   {...register("email", { required: true })}
                   type="email"
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm focus:ring focus:ring-primary focus:ring-opacity-50 placeholder:text-gray-400 focus:outline-none focus:border-primary sm:text-sm sm:leading-6 outline-none px-2"
+                  className="block w-full rounded-md border-0 py-2 text-gray-900 shadow-md focus:ring focus:ring-primary focus:ring-opacity-50 placeholder:text-gray-400 focus:outline-none focus:border-primary sm:text-sm sm:leading-6 outline-none px-2"
                 />
               </div>
               {errors.email && <p className="text-red-500 text-sm mt-1">Email address is required *</p>}
@@ -62,7 +62,7 @@ function SignIn() {
                   {...register("password", { required: true })}
                   type="password"
                   autoComplete="current-password"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm focus:ring focus:ring-primary focus:ring-opacity-50 placeholder:text-gray-400 focus:outline-none focus:border-primary sm:text-sm sm:leading-6 outline-none  px-2"
+                  className="block w-full rounded-md border-0 py-2 text-gray-900 shadow-md focus:ring focus:ring-primary focus:ring-opacity-50 placeholder:text-gray-400 focus:outline-none focus:border-primary sm:text-sm sm:leading-6 outline-none  px-2"
                 />
               </div>
               {errors.password && <p className="text-red-500 text-sm mt-1">Password is required *</p>}
@@ -71,7 +71,7 @@ function SignIn() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-text-primary px-3 py-1.5 text-sm font-semibold leading-6 bg-primary text-white shadow-sm"
+                className="flex w-full justify-center rounded-md bg-text-primary px-3 py-2 text-sm font-semibold leading-6 bg-primary text-white shadow-md"
               >
                 Sign In
               </button>

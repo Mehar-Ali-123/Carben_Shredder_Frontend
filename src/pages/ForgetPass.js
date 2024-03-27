@@ -43,7 +43,7 @@ function ForgetPass() {
                     required: "Email is required",
                     pattern: /^\S+@\S+$/i,
                   })}
-                  className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-md sm:leading-6 outline-none px-2 ${
+                  className={`block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-sm sm:leading-6 outline-none px-2 ${
                     errors.email ? "border-red-500" : ""
                   }`}
                 />
@@ -57,7 +57,7 @@ function ForgetPass() {
               <div className="text-md">
                 <button
                   type="button"
-                  className="font-semibold text-white p-2 bg-primary rounded-md mt-2 w-full"
+                  className="font-semibold text-sm border-2 border-primary p-2 text-primary rounded-md mt-2 w-full"
                   onClick={() => {
                     setOtpField(true);
                   }}
@@ -73,9 +73,9 @@ function ForgetPass() {
                     name="otp"
                     type="text"
                     autoComplete="off"
-                    placeholder="enter OTP here"
+                    placeholder="enter otp here"
                     {...register("otp", { required: "otp is required" })}
-                    className={` block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-md sm:leading-6 outline-none px-2 ${
+                    className={` block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-sm sm:leading-6 outline-none px-2 ${
                       errors.otp ? "border-red-500" : ""
                     }`}
                   />
@@ -105,7 +105,7 @@ function ForgetPass() {
                   {...register("password", {
                     required: "Password is required",
                   })}
-                  className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2  focus:ring-primary focus:ring-opacity-50 sm:text-md sm:leading-6 outline-none px-2  ${
+                  className={`block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2  focus:ring-primary focus:ring-opacity-50 text-sm sm:leading-6 outline-none px-2  ${
                     errors.password ? "border-red-500" : ""
                   }`}
                 />
@@ -117,9 +117,38 @@ function ForgetPass() {
               </div>
             </div>
             <div>
+              <div className="flex items-center justify-between">
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-md font-medium leading-6 text-gray-900"
+                >
+                 Confirm Password
+                </label>
+              </div>
+              <div className="mt-2">
+                <input
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  type="password"
+                  autoComplete="current-password"
+                  {...register("confirmPassword", {
+                    required: "Confirm Password is required",
+                  })}
+                  className={`block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2  focus:ring-primary focus:ring-opacity-50 text-sm sm:leading-6 outline-none px-2  ${
+                    errors.confirmPassword ? "border-red-500" : ""
+                  }`}
+                />
+                {errors.confirmPassword && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.confirmPassword.message}
+                  </p>
+                )}
+              </div>
+            </div>
+            <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-text-primary px-3 py-1.5 text-md font-semibold leading-6 bg-primary text-white shadow-sm"
+                className="flex w-full justify-center rounded-md bg-text-primary px-3 py-2 text-md font-semibold leading-6 bg-primary text-white shadow-sm text-sm"
               >
                 Set Password
               </button>
@@ -130,7 +159,7 @@ function ForgetPass() {
             Not a member?
             <Link
               to="/sign-up"
-              className="font-semibold leading-6 text-primary hover:text-primary px-2"
+              className="text-sm font-semibold leading-6 text-primary hover:text-primary px-2"
             >
               Sign Up
             </Link>

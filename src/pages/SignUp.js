@@ -33,7 +33,7 @@ function SignUp() {
                 id="username"
                 type="text"
                 {...register("username", { required: true })}
-                className={`block w-full py-2 mt-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none px-2 rounded-md ${
+                className={`block w-full py-2 mt-2 text-gray-700 shadow-md placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none px-2 rounded-md ${
                   errors.username ? "border-red-500" : ""
                 }`}
               />
@@ -55,7 +55,7 @@ function SignUp() {
                 id="emailAddress"
                 type="email"
                 {...register("emailAddress", { required: true })}
-                className={`block w-full py-2 mt-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none px-2 rounded-md ${
+                className={`block w-full py-2 mt-2 text-gray-700 shadow-md  placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none px-2 rounded-md ${
                   errors.emailAddress ? "border-red-500" : ""
                 }`}
               />
@@ -77,7 +77,7 @@ function SignUp() {
                 id="password"
                 type="password"
                 {...register("password", { required: true })}
-                className={`block w-full py-2 mt-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none px-2 rounded-md ${
+                className={`block w-full py-2 mt-2 text-gray-700 shadow-md  placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none px-2 rounded-md ${
                   errors.password ? "border-red-500" : ""
                 }`}
               />
@@ -99,7 +99,7 @@ function SignUp() {
                 id="passwordConfirmation"
                 type="password"
                 {...register("passwordConfirmation", { required: true })}
-                className={`block w-full py-2 mt-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none px-2 rounded-md ${
+                className={`block w-full py-2 mt-2 text-gray-700 shadow-md  placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none px-2 rounded-md ${
                   errors.passwordConfirmation ? "border-red-500" : ""
                 }`}
               />
@@ -119,7 +119,7 @@ function SignUp() {
               <select
                 id="country"
                 {...register("country", { required: true })}
-                className={`block w-full px-2 py-3 mt-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none rounded-md ${
+                className={`block w-full px-2 py-3 mt-2 text-gray-700 shadow-md  placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none rounded-md ${
                   errors.country ? "border-red-500" : ""
                 }`}
               >
@@ -184,7 +184,7 @@ function SignUp() {
           <div className="mt-6">
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-text-primary px-3 py-1.5 text-sm font-semibold leading-6 bg-primary text-white shadow-sm"
+              className="flex w-full justify-center rounded-md bg-text-primary px-3 py-1.5 text-sm font-semibold leading-6 bg-primary text-white shadow-md"
             >
               Sign Up
             </button>
