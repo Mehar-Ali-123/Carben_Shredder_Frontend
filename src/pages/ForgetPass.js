@@ -1,99 +1,136 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/images/footer-logo-2.png";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form"; // Import react-hook-form
+
 function ForgetPass() {
+  const [otpField, setOtpField] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm();
+  const email = watch("email");
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <>
-      <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img class="mx-auto h-70 w-48   " src={Logo} alt="Your Company" />
+      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+          <img className="mx-auto h-70 w-48" src={Logo} alt="Your Company" />
         </div>
 
-        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form class="space-y-6" action="#" method="POST">
+        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+          <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label
-                for="email"
-                class="block text-sm font-medium leading-6 text-gray-900"
+                htmlFor="email"
+                className="block text-md font-medium leading-6 text-gray-900"
               >
                 Email address
               </label>
-              <div class="mt-2">
+              <div className="mt-2">
                 <input
                   id="email"
                   name="email"
                   type="email"
-                  autocomplete="email"
-                  required
-                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-text-primary sm:text-sm sm:leading-6"
+                  autoComplete="email"
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: /^\S+@\S+$/i,
+                  })}
+                  className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-md sm:leading-6 outline-none px-2 ${
+                    errors.email ? "border-red-500" : ""
+                  }`}
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
 
-              <div class="text-sm">
-                <Link
-                  to="#"
-                  class="font-semibold text-primary p-1"
+              <div className="text-md">
+                <button
+                  type="button"
+                  className="font-semibold text-white p-2 bg-primary rounded-md mt-2 w-full"
+                  onClick={() => {
+                    setOtpField(true);
+                  }}
                 >
-                  Send otp
-                </Link>
+                  Send OTP
+                </button>
               </div>
-            </div>
 
+              {otpField && (
+                <div className="mt-2">
+                  <input
+                    id="otp"
+                    name="otp"
+                    type="text"
+                    autoComplete="off"
+                    placeholder="enter OTP here"
+                    {...register("otp", { required: "otp is required" })}
+                    className={` block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-md sm:leading-6 outline-none px-2 ${
+                      errors.otp ? "border-red-500" : ""
+                    }`}
+                  />
+                  {errors.otp && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.otp.message}
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
             <div>
-              <div class="flex items-center justify-between">
+              <div className="flex items-center justify-between">
                 <label
-                  for="password"
-                  class="block text-sm font-medium leading-6 text-gray-900"
+                  htmlFor="password"
+                  className="block text-md font-medium leading-6 text-gray-900"
                 >
                   Password
                 </label>
               </div>
-              <div class="mt-2">
+              <div className="mt-2">
                 <input
                   id="password"
                   name="password"
                   type="password"
-                  autocomplete="current-password"
-                  required
-                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-text-primary sm:text-sm sm:leading-6"
+                  autoComplete="current-password"
+                  {...register("password", {
+                    required: "Password is required",
+                  })}
+                  className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2  focus:ring-primary focus:ring-opacity-50 sm:text-md sm:leading-6 outline-none px-2  ${
+                    errors.password ? "border-red-500" : ""
+                  }`}
                 />
-              </div>
-            </div>
-            <div>
-              <div class="flex items-center justify-between">
-                <label
-                  for="password"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Confirm Password
-                </label>
-              </div>
-              <div class="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autocomplete="current-password"
-                  required
-                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-text-primary sm:text-sm sm:leading-6"
-                />
+                {errors.password && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.password.message}
+                  </p>
+                )}
               </div>
             </div>
             <div>
               <button
                 type="submit"
-                class="flex w-full justify-center rounded-md bg-text-primary px-3 py-1.5 text-sm font-semibold leading-6 bg-primary text-white shadow-sm     "
+                className="flex w-full justify-center rounded-md bg-text-primary px-3 py-1.5 text-md font-semibold leading-6 bg-primary text-white shadow-sm"
               >
-               Set Password
+                Set Password
               </button>
             </div>
           </form>
 
-          <p class="mt-10 text-center text-sm text-gray-500">
+          <p className="mt-10 text-center text-md text-gray-500">
             Not a member?
             <Link
               to="/sign-up"
-              class="font-semibold leading-6 text-primary hover:text-primary px-2"
+              className="font-semibold leading-6 text-primary hover:text-primary px-2"
             >
               Sign Up
             </Link>
@@ -103,4 +140,5 @@ function ForgetPass() {
     </>
   );
 }
+
 export default ForgetPass;
