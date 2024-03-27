@@ -1,5 +1,5 @@
-import React from "react"; 
-import profilePic from "../assets/images/person-2.jpg";
+import React from "react";
+import profilePic from "../assets/images/founder-img.jpeg";
 import { Link } from "react-router-dom";
 import ProfileChart from "../components/ProfileChart";
 import SubcriptionCard from "../components/SubcriptionCard";
@@ -18,8 +18,8 @@ function PersonalProfile() {
                     class=" object-cover w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
                   />
 
-                  <h1 class="text-xl font-bold">John Doe</h1>
-                  <p class="text-gray-700">Carben Shredder</p>
+                  <h1 class="text-xl font-bold">Thijin Felix</h1>
+                  <p class="text-gray-700">Carbon Shredder</p>
                   <div class="mt-6 flex flex-wrap gap-4 justify-center">
                     <Link
                       to="/edit-profile"
@@ -31,20 +31,18 @@ function PersonalProfile() {
                 </div>
                 <hr class="my-6 border-t border-gray-300" />
                 <div class="flex flex-col">
-                  <span class="text-gray-700 uppercase font-bold tracking-wider mb-2">
-                    Options to upgrade, downgrade, or cancel subscription plans.
-                    Include clear information on how changes affect billing and
-                    offset contributions.
+                  <span class="text-gray-700 text-justify font-semibolds tracking-wider mb-2">
+                  At Carbon Shredder, we are not just a service; we are a mission-driven movement. Our goal is to revolutionize the way individuals and communities engage with their carbon footprint. We're dedicated to developing a real-time carbon tracking subscription service that not only informs but empowers action towards a more sustainable world
                   </span>
                 </div>
               </div>
             </div>
-            <div class="col-span-4 sm:col-span-9"> 
+            <div class="col-span-4 sm:col-span-9">
               <div class="bg-white shadow rounded-lg p-6">
                 <h2 class="text-3xl font-bold mb-6">Progress Chart</h2>
                 <ProfileChart />
                 <h2 class="text-3xl font-bold mb-4 mt-20">Subcription Plan</h2>
-                <SubcriptionCard/>
+                <SubcriptionCard />
               </div>
             </div>
           </div>

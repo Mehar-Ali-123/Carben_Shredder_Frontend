@@ -1,14 +1,17 @@
 import React from "react";
 import profilePic from "../assets/images/person-2.jpg";
+import starterPlan from "../assets/images/starterPlan.svg";
+import mostPopular from "../assets/images/mostPopular.svg";
+import scalePlan from "../assets/images/scalePlan.svg";
 
 function SubcriptionCard() {
   return (
     <>
       <section class="text-gray-700 body-font overflow-hidden">
-        <div class="container px-5 py-12 mx-auto flex flex-wrap">
+        <div class="container px-5 py-6 mx-auto flex flex-wrap">
           <div class="lg:w-1/4 mt-48 hidden lg:block">
             <div class="mt-px         rounded-tl-lg rounded-bl-lg overflow-hidden">
-              <p class="bg-[#FBF4DB] text-gray-900 h-12 text-center px-4 flex items-center justify-start -mt-px">
+              <p class="bg-[#FBF4DB]  mt-7 text-gray-900 h-12 text-center px-4 flex items-center justify-start">
                 Fingerstache disrupt
               </p>
               <p class="text-gray-900 h-12 text-center px-4 flex items-center justify-start">
@@ -41,20 +44,22 @@ function SubcriptionCard() {
             <div class="lg:w-1/3 lg:mt-px w-full mb-10 lg:mb-0    -none rounded-lg lg:rounded-none">
               <div class="px-2 text-center h-48 flex flex-col items-center justify-center">
                 <img
-                  src={profilePic}
-                  class=" object-cover w-14 h-14 bg-gray-300 rounded-full mb-2 shrink-0"
+                  src={starterPlan}
+                  class="mt-7  object-cover w-14 h-14 bg-gray-300 rounded-full mb-2 shrink-0"
                 />
-                <h2 class=" text-4xl text-gray-900 font-medium leading-none  mb-2   ">
-                  Free
+                <p className="text-md font-semibold">Starter plan</p>
+                   <h2 class=" text-4xl text-gray-900 font-medium flex items-center justify-center leading-none  mb-2   ">
+                  $189
+                  <span class="text-gray-600 text-base ml-1">/mo</span>
                 </h2>
                 <span class="text-sm text-gray-600 py-1">Recurring every month</span>
                 <div>
-                  <button class="text-white bg-primary   py-2 px-12 w-full   rounded-lg text-center">
+                  <button class="text-white bg-primary   py-2  rounded-lg text-center w-[180px]">
                     Start Trial
                   </button>
                 </div>
               </div>
-              <p class="bg-[#FBF4DB] text-gray-600 h-12 text-center px-2 flex items-center -mt-px justify-center    ">
+              <p class="bg-[#FBF4DB] mt-7 text-gray-600 h-12 text-center px-2 flex items-center   justify-center    ">
                 Schlitz single-origin
               </p>
               <p class="text-gray-600 text-center h-12 flex items-center justify-center">
@@ -169,19 +174,21 @@ function SubcriptionCard() {
               </span>
               <div class="px-2 text-center h-48 flex flex-col items-center justify-center">
                 <img
-                  src={profilePic}
-                  class=" object-cover w-14 h-14 bg-gray-300 rounded-full mb-2 shrink-0"
+                  src={mostPopular}
+                  class="mt-7  object-cover w-14 h-14 bg-gray-300 rounded-full mb-2 shrink-0"
                 />
+                
+                <p className="text-md font-semibold">Growth plan</p>
                 <h2 class=" text-4xl text-gray-900 font-medium flex items-center justify-center leading-none  mb-2   ">
-                  $38
+                $289
                   <span class="text-gray-600 text-base ml-1">/mo</span>
                 </h2>
                 <span class="text-sm text-gray-600 py-1">Recurring every month</span>
-                <button class=" text-white bg-primary   py-2 px-12 w-full   rounded-lg text-center">
+                <button class=" text-white bg-primary   py-2   rounded-lg text-center w-[180px]">
                   Start Trial
                 </button>
               </div>
-              <p class="bg-[#FBF4DB] text-gray-600 h-12 text-center px-2 flex items-center -mt-px justify-center    ">
+              <p class="bg-[#FBF4DB]  mt-7 text-gray-600 h-12 text-center px-2 flex items-center  justify-center    ">
                 Schlitz single-origin
               </p>
               <p class="text-gray-600 text-center h-12 flex items-center justify-center">
@@ -296,23 +303,24 @@ function SubcriptionCard() {
             <div class="lg:w-1/3 w-full lg:mt-px   -none rounded-lg lg:rounded-none">
               <div class="px-2 text-center h-48 flex flex-col items-center justify-center">
                 <img
-                  src={profilePic}
-                  class=" object-cover w-14 h-14 bg-gray-300 rounded-full mb-2 shrink-0"
+                  src={scalePlan}
+                  class=" mt-7  object-cover w-14 h-14 bg-gray-300 rounded-full mb-2 shrink-0"
                 />
+                <p className="text-md font-semibold">Scale plan</p>
                 <h2 class=" text-4xl text-gray-900 font-medium flex items-center justify-center leading-none  mb-2   ">
-                  $54
+                  $499
                   <span class="text-gray-600 text-base ml-1">/mo</span>
                 </h2>
                 <span class="text-sm text-gray-600 py-1">Recurring every month</span>
                 <div>
                 <div>
-                  <button class="text-white bg-primary   py-2 px-12 w-full   rounded-lg text-center">
+                  <button class="text-white bg-primary   py-2  rounded-lg text-center w-[180px]">
                     Start Trial
                   </button>
                 </div>
                 </div>
               </div>
-              <p class="bg-[#FBF4DB] text-gray-600 h-12 text-center px-2 flex items-center -mt-px justify-center    ">
+              <p class="bg-[#FBF4DB]  mt-7 rounded-tr-lg text-gray-600 h-12 text-center px-2 flex items-center  justify-center    ">
                 Schlitz single-origin
               </p>
               <p class="text-gray-600 text-center h-12 flex items-center justify-center">
@@ -402,7 +410,7 @@ function SubcriptionCard() {
                   <path d="M18 6L6 18M6 6l12 12"></path>
                 </svg>
               </p>
-              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 flex items-center justify-center">
+              <p class="bg-[#FBF4DB] rounded-br-lg text-gray-600 text-center h-12 flex items-center justify-center">
                 <svg
                   fill="none"
                   stroke="currentColor"

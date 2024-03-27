@@ -14,7 +14,7 @@ export default function ProfileChart() {
             datasets: [
                 {
                     type: 'line',
-                    label: 'Carben 1',
+                    label: 'Profit',
                     borderColor: '#000000', // Set borderColor directly
                     borderWidth: 2,
                     fill: false,
@@ -23,7 +23,7 @@ export default function ProfileChart() {
                 },
                 {
                     type: 'bar',
-                    label: 'Carben 2',
+                    label: 'Carbon 1',
                     backgroundColor: '#f7eecf', // Set backgroundColor directly
                     data: [21, 84, 24, 75, 37, 65, 34],
                     borderColor: 'white',
@@ -31,7 +31,7 @@ export default function ProfileChart() {
                 },
                 {
                     type: 'bar',
-                    label: 'Carben 3',
+                    label: 'Carbon 2',
                     backgroundColor: '#77CFB8', // Set backgroundColor directly
                     data: [41, 52, 24, 74, 23, 21, 32]
                 }

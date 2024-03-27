@@ -17,7 +17,8 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import { useState, useEffect } from "react";
 import ForgetPass from "./pages/ForgetPass";
-import ProfileEdit from "./pages/PersonalProfile";
+import PersonalProfile from "./pages/PersonalProfile";
+import EditProfile from "./pages/EditProfile.js"
 
 function App() {
   const [Login, setLogin] = useState(false);
@@ -48,7 +49,8 @@ function App() {
           <Header />
           <Routes>
             <Route exact path="/home" element={<Home />} />
-            <Route exact path="/personal-profile" element={<ProfileEdit />} />
+            <Route exact path="/personal-profile" element={<PersonalProfile />} />
+            <Route exact path="/edit-profile" element={<EditProfile />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/calculator" element={<Calculator />} />
             <Route exact path="/contact" element={<Contact />} />

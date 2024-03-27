@@ -7,8 +7,7 @@ function SignIn() {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    // Perform form submission logic here
+    console.log(data); 
   };
 
   return (
@@ -76,7 +75,7 @@ function SignIn() {
                 Sign In
               </button>
             </div>
-            <Link to='/home'><p className="text-indigo-600">click me to go to home page</p></Link>
+            <Link to='/home'><p className="text-indigo-600">click here to go to home page</p></Link>
           </form>
 
           <p className="mt-10 text-center text-sm text-gray-500">
