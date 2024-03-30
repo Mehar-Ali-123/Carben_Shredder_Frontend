@@ -5,14 +5,21 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { PrimeReactProvider } from "primereact/api";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Provider } from "react-redux";
+import Store from "./redux/store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <PrimeReactProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </PrimeReactProvider>
+    <Provider store={Store}>
+      <PrimeReactProvider>
+        <BrowserRouter>
+          <App /> 
+          <ToastContainer />
+        </BrowserRouter>
+      </PrimeReactProvider>
+    </Provider>
   </React.StrictMode>
 );
 

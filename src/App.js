@@ -18,9 +18,18 @@ import SignUp from "./pages/SignUp";
 import { useState, useEffect } from "react";
 import ForgetPass from "./pages/ForgetPass";
 import PersonalProfile from "./pages/PersonalProfile";
-import EditProfile from "./pages/EditProfile.js"
+import EditProfile from "./pages/EditProfile.js";
+import CheckProfileData from "./pages/CheckProfileData.js"; 
+import { loadUser } from "./redux/action/user";
+import Store from "./redux/store";
 
 function App() {
+
+  useEffect(() => {
+    Store.dispatch(loadUser());
+  }, []);
+
+
   const [Login, setLogin] = useState(false);
   const location = useLocation();
 
@@ -36,6 +45,7 @@ function App() {
     }
   }, [location.pathname]);
 
+ 
   return (
     <>
       {Login ? (
@@ -43,13 +53,20 @@ function App() {
           <Route exact path="/" element={<SignIn />} />
           <Route exact path="/sign-up" element={<SignUp />} />
           <Route exact path="/forget-pass" element={<ForgetPass />} />
+          <Route exact path="/check" element={<CheckProfileData />} />
         </Routes>
       ) : (
         <div>
           <Header />
           <Routes>
+            <Route exact path="/" element={<Home />} />
             <Route exact path="/home" element={<Home />} />
-            <Route exact path="/personal-profile" element={<PersonalProfile />} />
+            <Route exact path="/check" element={<CheckProfileData />} />
+            <Route
+              exact
+              path="/personal-profile"
+              element={<PersonalProfile />}
+            />
             <Route exact path="/edit-profile" element={<EditProfile />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/calculator" element={<Calculator />} />

@@ -1,17 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/images/footer-logo-2.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { server } from "../server";
 
 function SignUp() {
+  const Navigate = useNavigate();
+  const [msg,setMessage]= useState("")
   const {
     register,
     handleSubmit,
+    reset,
+    watch,
     formState: { errors },
   } = useForm();
+  const password = watch("password");
+  const onSubmit = async (data) => {
+    try {
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("password", data.password);
+      formData.append("country", data.country || "ali");
+      formData.append("file", data.avatar[0]);
 
-  const onSubmit = (data) => {
-    console.log(data); // You can handle form submission here
+      const response = await axios.post(`${server}/create-user`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      if (response.status === 200 || 201) {
+        console.log("Sign Up successful");
+
+        reset();
+
+        toast.success("Sign Up successful! Redirecting to Login page.", {
+          autoClose: 3000, // Auto close after 3 seconds
+          onClose: () => {
+            Navigate("/"); // Corrected Navigate("/") to Navigate("/")
+          },
+        });
+      } else {
+        console.error("Sign Up failed");
+      }
+    } catch (error) {
+      console.log("Error Server:", error);
+      setMessage(error.response.data.error)
+      toast.error(error.response.data.error || error.message , {
+        autoClose: 3000,
+      });
+    }
   };
 
   return (
@@ -32,12 +73,12 @@ function SignUp() {
               <input
                 id="username"
                 type="text"
-                {...register("username", { required: true })}
+                {...register("name", { required: true })}
                 className={`block w-full py-2 mt-2 text-gray-700 shadow-md placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none px-2 rounded-md ${
                   errors.username ? "border-red-500" : ""
                 }`}
               />
-              {errors.username && (
+              {errors.name && (
                 <p className="text-red-500 text-sm mt-1">
                   Username is required
                 </p>
@@ -47,19 +88,19 @@ function SignUp() {
             <div>
               <label
                 className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200"
-                htmlFor="emailAddress"
+                htmlFor="email"
               >
                 Email Address
               </label>
               <input
-                id="emailAddress"
+                id="email"
                 type="email"
-                {...register("emailAddress", { required: true })}
+                {...register("email", { required: true })}
                 className={`block w-full py-2 mt-2 text-gray-700 shadow-md  placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none px-2 rounded-md ${
-                  errors.emailAddress ? "border-red-500" : ""
+                  errors.email ? "border-red-500" : ""
                 }`}
               />
-              {errors.emailAddress && (
+              {errors.email && (
                 <p className="text-red-500 text-sm mt-1">
                   Email Address is required
                 </p>
@@ -89,26 +130,29 @@ function SignUp() {
             </div>
 
             <div>
-              <label
-                className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200"
-                htmlFor="passwordConfirmation"
-              >
-                Confirm Password
-              </label>
-              <input
-                id="passwordConfirmation"
-                type="password"
-                {...register("passwordConfirmation", { required: true })}
-                className={`block w-full py-2 mt-2 text-gray-700 shadow-md  placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none px-2 rounded-md ${
-                  errors.passwordConfirmation ? "border-red-500" : ""
-                }`}
-              />
-              {errors.passwordConfirmation && (
-                <p className="text-red-500 text-sm mt-1">
-                  Confirm Password is required
-                </p>
-              )}
-            </div>
+            <label
+              className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200"
+              htmlFor="passwordConfirmation"
+            >
+              Confirm Password
+            </label>
+            <input
+              id="passwordConfirmation"
+              type="password"
+              {...register("passwordConfirmation", {
+                required: true,
+                validate: (value) => value === password || "Passwords do not match",
+              })}
+              className={`block w-full py-2 mt-2 text-gray-700 shadow-md placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none px-2 rounded-md ${
+                errors.passwordConfirmation ? "border-red-500" : ""
+              }`}
+            />
+            {errors.passwordConfirmation && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.passwordConfirmation.message}
+              </p>
+            )}
+          </div>
             <div>
               <label
                 className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200"
@@ -156,18 +200,17 @@ function SignUp() {
                 </svg>
                 <div className="flex text-sm text-gray-600">
                   <label
-                    htmlFor="file-upload"
+                    htmlFor="avatar"
                     className="relative cursor-pointer rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                   >
-                    <span
-                      className="bg-primary p-1 px-3 rounded-md text-white"
-                    >
+                    <span className="bg-primary p-1 px-3 rounded-md text-white">
                       Upload a file
                     </span>
                     <input
-                      id="file-upload"
-                      name="file-upload"
+                      id="avatar"
                       type="file"
+                      accept=".jpg,.jpeg,.png"
+                      {...register("avatar", { required: true })}
                       className="sr-only"
                     />
                   </label>
@@ -179,6 +222,9 @@ function SignUp() {
                   PNG, JPG, GIF up to 10MB
                 </p>
               </div>
+              {errors.avatar && (
+                <p className="text-red-500 text-sm mt-1">Image is required</p>
+              )}
             </div>
           </div>
           <div className="mt-6">
