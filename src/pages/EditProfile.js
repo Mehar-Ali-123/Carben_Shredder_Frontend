@@ -98,11 +98,19 @@ function EditProfile() {
       console.log("Update profile response:", response.data);
       window.location.reload();
     } catch (error) {
-      toast.error(error.response.data.message || "Error updating profile");
-      console.error("Error updating profile:", error.response.data);
+      let errorMessage = "Error updating profile";
+
+      if (error.response || error.response.data || error.response.data.error) {
+        errorMessage = error.response.data.error;
+      }
+
+      toast.error(errorMessage, {
+        autoClose: 3000,
+      });
+
+      console.error("Error updating profile:", error);
     }
   };
-
   return (
     <>
       {userData && (
