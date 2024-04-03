@@ -31,8 +31,9 @@ function EditProfile() {
             Authorization: `Bearer ${authToken}`,
           },
         });
-        const { user } = response.data;
+        const user = response.data?.user;
         setUserData(user);
+        console.log("userdata ", userData);
 
         // Set initial form values from fetched user data
         setValue("username", user.name);

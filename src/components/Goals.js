@@ -20,7 +20,7 @@ export default function Goals() {
             </h1>
           </div>
 
-          <div className="flex py-10 flex-row gap-16 ">
+          <div className="flex py-10 flex-row gap-16 flex-wrap md:flex-nowrap">
         
             <div className="basis-full md:basis-6/12 flex gap-6 flex-col my-auto bg-white p-9 rounded">
               <h1 className="text-3xl   leading-10">

@@ -12,7 +12,7 @@ export default function About() {
       <section className=" h-96 bg-primary bg-opacity-10">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
-            <h1 className=" text-5xl mb-20 text-black">Our mission</h1>
+            <h1 className=" text-5xl mb-20 ">Our mission</h1>
           </div>
         </div>
       </section>
@@ -22,7 +22,7 @@ export default function About() {
             {/* Our commitment to best practices */}
             <div className="bg-white rounded-lg shadow-lg p-6 ">
               <h2 className="text-2xl font-semibold mb-4">Our mission</h2>
-              <p className="text-lg mb-4">
+              <p className="text-md mb-4">
                 At Carbon Shredder, we are not just a service; we are a
                 mission-driven movement. Our goal is to revolutionize the way
                 individuals and communities engage with their carbon footprint.
@@ -36,7 +36,7 @@ export default function About() {
               <h2 className="text-2xl font-semibold mb-4">
                 Why real-time tracking matters
               </h2>
-              <p className="text-lg mb-4">
+              <p className="text-md mb-4">
                 Understanding your carbon footprint in real-time is a
                 game-changer. It transforms abstract numbers into tangible,
                 actionable insights. With real-time tracking, you can
@@ -58,7 +58,7 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="flex flex-row gap-20 py-20">
             <div className="basis-full md:basis-6/12 my-auto">
-              <h1 className="text-[40px] text-black mb-5">About Us</h1>
+              <h1 className="text-[40px]  mb-5">About Us</h1>
               <p className="text-lg ">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Sapiente itaque accusamus minima dolore quos ad cum, tenetur
@@ -99,10 +99,10 @@ export default function About() {
                 </svg>
               </div>
               <div className="flex-grow">
-                <h2 className="text-black text-xl   font-medium mb-3">
+                <h2 className=" text-xl   font-medium mb-3">
                   Continuous improvement
                 </h2>
-                <p className="leading-relaxed text-base text-black">
+                <p className="leading-relaxed text-base ">
                   We allocate 10% of our margin towards enhancing our model and
                   app. This investment ensures that our tools are not only
                   cutting-edge but also user-friendly and accurate. As our
@@ -128,10 +128,10 @@ export default function About() {
                 </svg>
               </div>
               <div className="flex-grow">
-                <h2 className="text-black text-xl   font-medium mb-3">
+                <h2 className=" text-xl   font-medium mb-3">
                   Direct impact
                 </h2>
-                <p className="leading-relaxed text-base text-black">
+                <p className="leading-relaxed text-base ">
                   The remaining 90% goes directly to carbon offsets. This high
                   level of commitment maximizes your contribution to vital
                   environmental projects. When you subscribe to our service,
@@ -157,10 +157,10 @@ export default function About() {
                 </svg>
               </div>
               <div className="flex-grow">
-                <h2 className="text-black text-xl  font-medium mb-3">
+                <h2 className=" text-xl  font-medium mb-3">
                   A Collective Effort
                 </h2>
-                <p className="leading-relaxed text-base text-black">
+                <p className="leading-relaxed text-base ">
                   our journey at Carbon Shredder is about collective action.
                   Every subscription, every piece of feedback, every shared
                   story adds up to a significant impact. By joining us, you
@@ -213,7 +213,7 @@ export default function About() {
               </p>
             </div>
           </div>
-          <p className=" mt-16 text-black  text-2xl max-w-4xl mx-auto text-center">
+          <p className=" mt-16   text-2xl max-w-4xl mx-auto text-center">
             We believe that change is not only necessary but possible. Join us
             on this journey to a more sustainable future, one footprint at a
             time.

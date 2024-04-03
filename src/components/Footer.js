@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="text-gray-600 body-font bg-primary bg-opacity-20">
+    <footer className="text-gray-600 body-font bg-primary bg-opacity-20 w-[100%] overflow-hidden">
       <div className="container px-5 pt-24 mx-auto ">
-        <div className="flex   flex-row">
-          <div className="basis-3/12 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+        <div className="flex flex-row flex-wrap md:flex-nowrap">
+          <div className="   md:mx-0 mx-auto text-center md:text-left pr-0 md:pr-24 ">
             <Link
               to="/"
               className="flex flex-col font-medium items-start md:justify-start justify-center text-gray-900"
@@ -89,8 +89,8 @@ export default function Footer() {
            </p>
           */}
           </div>
-          <div className="flex basis-9/12     md:mt-0 mt-10 md:text-left justify-start">
-            <div className=" md:basis-1/3 basis-full px-4 ">
+          <div className="flex    md:mt-0 mt-10 md:text-left justify-start flex-wrap md:flex-nowrap   w-[100%]">
+            <div className=" md:basis-1/3 basis-full  px-4 py-0 md:py-6    ">
               <h2 className=" font-bold text-gray-900 tracking-widest text-2xl mb-3">
                 Quick Links
               </h2>
@@ -159,7 +159,7 @@ export default function Footer() {
               <li className="flex gap-5">
          
                 <div>
-                  <h1 className="font-bold text-gray-900 tracking-widest text-2xl mb-3">
+                  <h1 className="font-bold text-gray-900 tracking-widest text-2xl mb-3  py-0 md:py-6">
                     Address
                   </h1>
                   <div className="flex justify-center items-start gap-3">
@@ -191,18 +191,18 @@ export default function Footer() {
              
             </ul>
           </div>
-            <div className=" md:basis-1/3 basis-full px-4">
-              <h2 className="font-bold text-gray-900 tracking-widest text-2xl mb-3">
+            <div className=" w-full md:basis-1/3 basis-full  px-4   py-6">
+              <h2 className="font-bold text-gray-900 tracking-widest text-2xl mb-3  ">
               Subscribe
               </h2>
               <div>
-              <div className="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
-                <div className="relative w-40 sm:w-auto ">
+              <div className="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-nowrap justify-center items-end md:justify-start mb-6">
+                <div className="relative w-[100%] md:w-40   ">
                   <label htmlFor="footer-field" className="leading-7 text-sm text-gray-600">Email</label>
                   <input type="text" id="footer-field" name="footer-field" className="w-full bg-white rounded-l rounded-r-0 border border-gray-300 focus:border-primary focus:ring-none text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                 </div>
                 
-                <button className="text-white bg-primary border-0 py-2 px-6  hover:bg-secondary rounded-r rounded-l-0  focus:outline-none ">Submit</button>
+                <button className="text-white bg-primary border-0 py-2 px-6  hover:bg-secondary rounded-r rounded-l-0  focus:outline-none  ">Submit</button>
               </div>
               {/*
               <p className="text-gray-500 text-sm mt-2 md:text-left text-center">Bitters chicharrones fanny pack

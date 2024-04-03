@@ -12,7 +12,7 @@ import Person3 from "../assets/images/person-3.jpg";
 export default function Testimonial() {
   return (
     <>
-      <section className="bg-white" >
+      <section className="bg-white">
         <div className="container mx-auto px-5 py-20">
           <div className="flex flex-col">
             <div className="max-w-5xl mx-auto">
@@ -24,10 +24,24 @@ export default function Testimonial() {
             <div className="pt-20">
               <Swiper
                 className="my-auto"
-                spaceBetween={50}
-                slidesPerView={2}
+                spaceBetween={30}
+                // slidesPerView={1}
                 loop
                 autoplay
+                breakpoints={{
+                  // When window width is >= 640px
+                  640: {
+                    slidesPerView: 1,
+                  },
+                  // When window width is >= 768px
+                  768: {
+                    slidesPerView: 2,
+                  },
+                  // When window width is >= 1024px
+                  1024: {
+                    slidesPerView: 3,
+                  },
+                }}
               >
                 <SwiperSlide>
                   <div className="h-full  bg-gray-100 rounded-lg shadow-lg p-8 ">

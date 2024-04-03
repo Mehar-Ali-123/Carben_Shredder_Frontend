@@ -31,7 +31,7 @@ export default function TrackYourCarbonImpact() {
             <div className="flex flex-row gap-5">
               <div className="basis-4/12">
                 <div>
-                  <p className="text-lg pb-3 font-normal text-primary">Step 1</p> 
+                  <p className="text-lg pb-3  text-primary">Step 1</p> 
                   <h1 className="text-2xl font-semibold ">
                   Accessing your personalized dashboard
                   </h1>
@@ -55,7 +55,7 @@ export default function TrackYourCarbonImpact() {
               <div className="basis-4/12">
 
               <div>
-                  <p className="text-lg pb-3 font-normal text-primary">Step 2</p> 
+                  <p className="text-lg pb-3  text-primary">Step 2</p> 
                   <h1 className="text-2xl font-semibold ">
                   Understanding your carbon footprint
                   </h1>
@@ -83,7 +83,7 @@ export default function TrackYourCarbonImpact() {
               <div className="basis-4/12">
 
               <div>
-                  <p className="text-lg pb-3 font-normal text-primary">Step 3</p> 
+                  <p className="text-lg pb-3  text-primary">Step 3</p> 
                   <h1 className="text-2xl font-semibold ">
                   Monitoring your offset efforts
                   </h1>
@@ -116,7 +116,7 @@ export default function TrackYourCarbonImpact() {
             <div className="flex flex-row gap-5">
               <div className="basis-4/12">
               <div>
-                  <p className="text-lg pb-3 font-normal text-primary">Step 4</p> 
+                  <p className="text-lg pb-3  text-primary">Step 4</p> 
                   <h1 className="text-2xl font-semibold ">
                   Certificates and reports
                   </h1>

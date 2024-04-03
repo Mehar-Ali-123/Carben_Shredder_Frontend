@@ -28,7 +28,7 @@ export default function CalculatorWorks() {
             <div className="flex flex-row gap-5">
               <div className="basis-4/12">
                 <div>
-                  <p className="text-lg pb-3 font-normal text-primary">Step 1</p> 
+                  <p className="text-lg pb-3  text-primary">Step 1</p> 
                   <h1 className="text-2xl font-semibold ">
                     Gathering Personal Information
                   </h1>
@@ -71,7 +71,7 @@ export default function CalculatorWorks() {
               <div className="basis-4/12">
 
               <div>
-                  <p className="text-lg pb-3 font-normal text-primary">Step 2</p> 
+                  <p className="text-lg pb-3  text-primary">Step 2</p> 
                   <h1 className="text-2xl font-semibold ">
                   Understanding Your Lifestyle
                   </h1>
@@ -182,7 +182,7 @@ export default function CalculatorWorks() {
               <div className="basis-4/12">
 
               <div>
-                  <p className="text-lg pb-3 font-normal text-primary">Step 3</p> 
+                  <p className="text-lg pb-3  text-primary">Step 3</p> 
                   <h1 className="text-2xl font-semibold ">
                   Calculation
                   </h1>
@@ -211,7 +211,7 @@ export default function CalculatorWorks() {
             <div className="flex flex-row gap-5">
               <div className="basis-4/12">
               <div>
-                  <p className="text-lg pb-3 font-normal text-primary">Step 4</p> 
+                  <p className="text-lg pb-3  text-primary">Step 4</p> 
                   <h1 className="text-2xl font-semibold ">
                   Estimating past and present emissions
                   </h1>

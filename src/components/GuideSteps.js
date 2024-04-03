@@ -90,7 +90,7 @@ export default function GuideSteps() {
         </div>
       */}
 
-        <div className="container mx-auto py-20 px-4">
+        <div className="container mx-auto py-20 px-4 ">
         <div className="text-center mb-10">
         <h1 className="text-black text-3xl md:text-[40px] leading-[50px] text-center ">
           How it works
@@ -99,7 +99,7 @@ export default function GuideSteps() {
           Shred your carbon
         </p>
       </div>
-          <div className="grid grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div className="bg-white rounded-lg shadow-xl relative p-7 ">
               <div
                 style={{

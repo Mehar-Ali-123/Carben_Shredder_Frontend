@@ -7,8 +7,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
-  font-family: Helvetica-Regular;
+
+body { 
+  font-family: Helvetica-Regular !important;
   background: rgb(243 244 246);
 }
 
@@ -16,10 +17,12 @@ body{
   font-family: Helvetica-Bold;
   src: url(./assets/font/Helvetica-Bold.ttf);
 }
+
 @font-face {
   font-family: Helvetica-Regular;
   src: url(./assets/font/Helvetica.ttf);
 }
+
 @font-face {
   font-family: Helvetica-light;
   src: url(./assets/font/helvetica-light-587ebe5a59211.ttf);
@@ -35,43 +38,50 @@ h6 {
 }
 
 p {
+  font-family: Helvetica-Regular;
+}
+
+span {
   font-family: Helvetica-light;
 }
+
 button,
 a {
   font-family: Helvetica-Regular;
 }
 
-.footer-link{
+.footer-link {
   font-family: Helvetica-light;
 }
+
 .navbar {
   /* background: rgba(255, 255, 255, 0.02) !important; */
   /* backdrop-filter: blur(27.5px) !important; */
   margin-bottom: -200px;
   position: relative;
   z-index: 99999999;
-  background: #FBF4DB ;
+  background: #FBF4DB;
 }
 
-.header-sticky{
+.header-sticky {
   position: sticky !important;
   top: 0px;
   right: 0px;
   left: 0px;
 }
 
-.change-color nav a{
-  color:black !important;
+.change-color nav a {
+  color: black !important;
 }
 
-.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed{
-color: #77CFB8 !important;
-}
-.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active{
-color: #77CFB8 !important;
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
+  color: #77CFB8 !important;
 }
 
-.css-1hv8oq8-MuiStepLabel-label{
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+  color: #77CFB8 !important;
+}
+
+.css-1hv8oq8-MuiStepLabel-label {
   font-family: Helvetica-light;
 }
