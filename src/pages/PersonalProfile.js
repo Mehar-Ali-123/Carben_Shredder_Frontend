@@ -24,6 +24,7 @@ function PersonalProfile() {
           },
         });
         const { user } = response.data;
+        console.log(user)
         setUserData(user);
         setLoading(false);
       } catch (error) {

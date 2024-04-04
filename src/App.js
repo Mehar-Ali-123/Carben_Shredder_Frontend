@@ -20,14 +20,14 @@ import ForgetPass from "./pages/ForgetPass";
 import PersonalProfile from "./pages/PersonalProfile";
 import EditProfile from "./pages/EditProfile.js";
 import CheckProfileData from "./pages/CheckProfileData.js"; 
-import { loadUser } from "./redux/action/user";
-import Store from "./redux/store";
+// import { loadUser } from "./redux/action/user";
+// import Store from "./redux/store";
 
 function App() {
 
-  useEffect(() => {
-    Store.dispatch(loadUser());
-  }, []);
+  // useEffect(() => {
+  //   Store.dispatch(loadUser());
+  // }, []);
 
 
   const [Login, setLogin] = useState(false);
