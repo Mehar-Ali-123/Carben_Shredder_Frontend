@@ -39,7 +39,7 @@ function PersonalProfile() {
   }
   return (
     <>
-      <div class="bg-gray-100 mt-44">
+      <div class="bg-gray-100 mt-48">
         <div class="container mx-auto py-8">
           <div class="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">
             <div class="col-span-4 sm:col-span-3">

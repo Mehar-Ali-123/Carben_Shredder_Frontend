@@ -21,7 +21,7 @@ export default function HowItWorks() {
           <h1 className="text-black text-3xl md:text-[40px] leading-[50px] text-center">How it works</h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Shred your carbon</p>
         </div> */}
-        <div class="flex flex-row gap-16 pb-10">
+        <div class="flex flex-row gap-16 pb-10 flex-wrap md:flex-nowrap">
           <div class="basis-full md:basis-6/12 flex flex-col gap-10 justify-center">
             <h1 className="h-7 w-7 rounded-full border border-primary flex justify-center items-center p-5 text-sm">
               01
@@ -54,7 +54,7 @@ export default function HowItWorks() {
             {/* <div className="h-14 w-14 mb-5 bg-primary mx-auto"></div> */}
           </div>
         </div>
-        <div class="flex flex-row gap-16 py-10">
+        <div class="flex flex-row gap-16 py-10 pb-10 flex-wrap md:flex-nowrap">
           <div class="basis-full md:basis-6/12    ">
             <img src={Step2} alt="" className="text-center" />
           </div>
@@ -74,7 +74,7 @@ export default function HowItWorks() {
             </p>
           </div>
         </div>
-        <div class="flex flex-row gap-16 py-10">
+        <div class="flex flex-row gap-16 py-10 pb-10 flex-wrap md:flex-nowrap">
           <div class="basis-full md:basis-6/12 flex flex-col gap-10 justify-center">
             <h1 className="h-7 w-7 rounded-full border border-primary flex justify-center items-center p-5 text-sm">
               03

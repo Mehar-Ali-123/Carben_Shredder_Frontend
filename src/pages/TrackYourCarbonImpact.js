@@ -3,7 +3,7 @@ import React from "react";
 export default function TrackYourCarbonImpact() {
   return (
     <>
-      <section className="h-96  bg-primary bg-opacity-10">
+      <section className="h-96  bg-primary bg-opacity-10 mt-28 md:mt-0">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
             <h1 className=" text-5xl mb-20 text-black">
@@ -27,17 +27,17 @@ export default function TrackYourCarbonImpact() {
     
           {/* Step 1:Accessing your personalized dashboard */}
           <div className="bg-white rounded-lg shadow-lg p-8  ">
-            <span className="absolute -left-[14px] h-6 w-6 rounded-full bg-primary"></span>
-            <div className="flex flex-row gap-5">
-              <div className="basis-4/12">
-                <div>
+            <span className="absolute -left-[14px] h-6 w-6 ml-3 rounded-full bg-primary"></span>
+            <div className="flex flex-row  gap-5 flex-wrap md:flex-nowrap   w-full  ">
+              <div className="md:md:basis-4/12 w-full  ">
+                <div className="w-full border-2 ">
                   <p className="text-lg pb-3  text-primary">Step 1</p> 
                   <h1 className="text-2xl font-semibold ">
                   Accessing your personalized dashboard
                   </h1>
                 </div>
               </div>
-              <div className="basis-8/12">
+              <div className="w-full  md:basis-8/12">
                 <div className="flex items-center ">
                 <p className="text-lg text-black">
                 <b> Easy Login: </b>Access your personalized dashboard with a
@@ -50,9 +50,9 @@ export default function TrackYourCarbonImpact() {
           </div>
           {/* Step 2:Understanding your carbon footprint */}
           <div className="bg-white rounded-lg shadow-lg p-8 ">
-            <span className="absolute -left-[14px] h-6 w-6 rounded-full bg-primary"></span>
-            <div className="flex flex-row gap-5">
-              <div className="basis-4/12">
+            <span className="absolute -left-[14px] h-6 w-6 ml-3 rounded-full bg-primary"></span>
+            <div className="flex flex-row  gap-5 flex-wrap md:flex-nowrap  ">
+              <div className="md:basis-4/12 w-full  ">
 
               <div>
                   <p className="text-lg pb-3  text-primary">Step 2</p> 
@@ -62,7 +62,7 @@ export default function TrackYourCarbonImpact() {
                 </div>
              
               </div>
-              <div className="basis-8/12">
+              <div className="w-full  md:basis-8/12">
               <p className="text-lg mb-4">
               <b> Real-Time Tracking: </b>The dashboard displays your current
               carbon footprint, calculated based on the information you
@@ -78,9 +78,9 @@ export default function TrackYourCarbonImpact() {
           </div>
           {/* Step 3: Monitoring your offset efforts */}
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <span className="absolute -left-[14px] h-6 w-6 rounded-full bg-primary"></span>
-            <div className="flex flex-row gap-5">
-              <div className="basis-4/12">
+            <span className="absolute -left-[14px] h-6 w-6 ml-3 rounded-full bg-primary"></span>
+            <div className="flex flex-row  gap-5 flex-wrap md:flex-nowrap  ">
+              <div className="md:basis-4/12 w-full  ">
 
               <div>
                   <p className="text-lg pb-3  text-primary">Step 3</p> 
@@ -90,7 +90,7 @@ export default function TrackYourCarbonImpact() {
                 </div>
             
               </div>
-              <div className="basis-8/12">
+              <div className="w-full  md:basis-8/12">
               <p className="text-lg mb-4">
               <b> Offset subscriptions: </b>Track your current subscription
               level (Less, Equal, More) and see how much carbon you're
@@ -111,10 +111,10 @@ export default function TrackYourCarbonImpact() {
           </div>
           {/* Step 4:Certificates and reports */}
           <div className="bg-white rounded-lg shadow-lg p-8 ">
-            <span className="absolute -left-[14px] h-6 w-6 rounded-full bg-primary"></span>
+            <span className="absolute -left-[14px] h-6 w-6 ml-3 rounded-full bg-primary"></span>
 
-            <div className="flex flex-row gap-5">
-              <div className="basis-4/12">
+            <div className="flex flex-row  gap-5 flex-wrap md:flex-nowrap  ">
+              <div className="md:basis-4/12 w-full  ">
               <div>
                   <p className="text-lg pb-3  text-primary">Step 4</p> 
                   <h1 className="text-2xl font-semibold ">
@@ -123,7 +123,7 @@ export default function TrackYourCarbonImpact() {
                 </div>
           
               </div>
-              <div className="basis-8/12">
+              <div className="w-full  md:basis-8/12">
               <p className="text-lg mb-4">
               <b> Emission reduction certificates:</b> For each period of
               offsetting, receive a certificate detailing your contribution to

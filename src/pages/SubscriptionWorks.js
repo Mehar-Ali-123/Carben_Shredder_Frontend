@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 export default function SubscriptionWorks() {
   return (
     <>
-      <section className="h-96  bg-primary bg-opacity-10">
+      <section className="h-96  bg-primary bg-opacity-10 mt-28">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
             <h1 className=" text-5xl mb-20 text-black">
@@ -90,7 +90,7 @@ export default function SubscriptionWorks() {
       </section>
     */}
       <section className="text-black body-font overflow-hidden">
-        <div className="container px-5 py-24 mx-auto max-w-5xl">
+        <div className="container px-5 py-0 pb-10 md:py-24 mx-auto max-w-5xl">
           <div className="  mb-8">
             <p className="text-lg text-black">
               <b> Shred Your Carbon Footprint:</b> our monthly carbon offset
@@ -107,7 +107,7 @@ export default function SubscriptionWorks() {
               level that suits your goals:
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-10 ">
+          <div className="grid  grid-cols-1 md:grid-cols-3 gap-10 ">
             <div className=" bg-white shadow-lg rounded-lg w-full">
               <div className="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
                 <h1 className="text-5xl text-gray-900 pb-4 mb-4 border-b border-gray-200 leading-none">

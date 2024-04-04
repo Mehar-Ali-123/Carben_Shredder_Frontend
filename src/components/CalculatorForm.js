@@ -98,7 +98,7 @@ const MultiStepForm = ({ onSubmit }) => {
     switch (step) {
       case 0:
         return (
-          <div className="flex flex-col gap-10 py-20">
+          <div className="flex flex-col gap-10 py-20 px-4">
             <FormControl fullWidth>
               <InputLabel id="age">Age</InputLabel>
               <Select
@@ -136,7 +136,7 @@ const MultiStepForm = ({ onSubmit }) => {
         );
       case 1:
         return (
-          <div className="flex flex-col gap-10 py-20">
+          <div className="flex flex-col gap-10 py-20 px-4 ">
             <FormControl fullWidth>
               <InputLabel id="age">
                 What is your primary mode of transportation?
@@ -167,7 +167,7 @@ const MultiStepForm = ({ onSubmit }) => {
         );
       case 2:
         return (
-          <div className="flex flex-col gap-10 py-20">
+          <div className="flex flex-col gap-10 py-20 px-4 ">
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">
                 How many flights do you take per year?
@@ -206,7 +206,7 @@ const MultiStepForm = ({ onSubmit }) => {
         );
       case 3:
         return (
-          <div className="flex flex-col gap-10 py-20">
+          <div className="flex flex-col gap-10 py-20 px-4  ">
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">
                 What is your diet category?
@@ -229,7 +229,7 @@ const MultiStepForm = ({ onSubmit }) => {
         );
       case 4:
         return (
-          <div className="flex flex-col gap-10 py-20">
+          <div className="flex flex-col gap-10 py-20 px-4">
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">
                 What type of home energy do you have?
@@ -288,7 +288,7 @@ const MultiStepForm = ({ onSubmit }) => {
         );
       case 5:
         return (
-          <div className="flex flex-col gap-10 py-20">
+          <div className="flex flex-col gap-10 py-20 px-4">
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">
                 Do you recycle often?
@@ -309,29 +309,38 @@ const MultiStepForm = ({ onSubmit }) => {
         );
       case 6:
         return (
-          <div className="p-10 flex flex-col justify-center items-center gap-5 ">
-            <h1>
+          <div className="p-10 flex flex-col  justify-start md:justify-center items-center gap-5 ">
+            <h1 className="text-center">
               Total adjustment factor <b>{adjustmentFactor()}%</b> <br />
             </h1>
-            <h1>
+            <h1 className="text-center">
               Adjusted monthly footprint (CO2) <b>{monthlyFootprint()}</b>
             </h1>
-            <h1>
+            <h1 className="text-center">
               Price for offsetting per month (EUR) <b>€{offsettingPrice()}</b>
             </h1>
-            <h1>
+            <h1 className="text-center">
               Carbon debt <b>{carbonDebt()}</b>
             </h1>
-            <h1>
+            <h1 className="text-center">
               Price for carbon debt (EUR) <b>€{carbonPrice()}</b>
             </h1>
-            <button
-              variant="contained"
-              className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
-              onClick={handleSubmit}
-            >
-              Ready to buy
-            </button>
+            <div className="flex gap-10 justify-between items-center mt-10">
+              <button
+                className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
+                onClick={handleBack}
+              >
+                Back
+              </button>
+
+              <button
+                variant="contained"
+                className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
+                onClick={handleSubmit}
+              >
+                Ready to buy
+              </button>
+            </div>
           </div>
         );
       default:
@@ -341,7 +350,11 @@ const MultiStepForm = ({ onSubmit }) => {
 
   return (
     <div>
-      <Stepper activeStep={activeStep} alternativeLabel>
+      <Stepper
+        className="w-full overflow-hidden flex flex-wrap gap-10 md:flex-none  "
+        activeStep={activeStep}
+        alternativeLabel
+      >
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
@@ -351,7 +364,7 @@ const MultiStepForm = ({ onSubmit }) => {
       <div>
         <div>{getStepContent(activeStep)}</div>
         {activeStep !== steps.length - 1 && (
-          <div className="flex justify-between items-center ">
+          <div className="flex justify-between items-center px-5">
             <button
               disabled={activeStep === 0}
               onClick={handleBack}

@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 export default function PartnershipWithCNaught() {
   return (
     <>
-      <section className="h-96  bg-primary bg-opacity-10">
+      <section className="h-96  bg-primary bg-opacity-10 mt-32 md:mt-0">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
             <h1 className=" text-5xl mb-20 text-black">
@@ -15,7 +15,7 @@ export default function PartnershipWithCNaught() {
       </section>
 
       <section className="text-gray-600 body-font">
-        <div className="container mx-auto px-4 pb-8 pt-20 max-w-5xl">
+        <div className="container mx-auto px-4 pb-3 md:pb-8 pt-8 md:pt-20 max-w-5xl">
           <p className="text-lg text-black">
             At Carbon Shredder, we are committed to making a significant impact
             in the fight against climate change. To achieve this, we have
@@ -24,7 +24,7 @@ export default function PartnershipWithCNaught() {
             the sources of our carbon offsets:
           </p>
           {/* Our Partnership with CNaught */}
-          <div className="py-6 mb-8">
+          <div className="py-6 mb-0 md:mb-8">
             <h2 className="text-2xl text-black font-semibold mb-4">
               Our Partnership with CNaught
             </h2>
@@ -34,7 +34,7 @@ export default function PartnershipWithCNaught() {
               have partnered with CNaught, a leading provider in the carbon
               offset market.
             </p>
-            <p className="text-lg mb-4 text-black">
+            <p className="text-lg mb-0 md:mb-4 text-black">
               <i>
                 Here's an in-depth look at how this partnership works and the
                 sources of our carbon offsets:
@@ -42,7 +42,7 @@ export default function PartnershipWithCNaught() {
             </p>
           </div>
         </div>
-        <div className="container px-5 pb-24 mx-auto">
+        <div className="container px-5 pb-24 mx-auto ">
           <div className="flex flex-wrap">
             <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6  border-primary border-opacity-60">
               <h2 className="text-lg sm:text-xl text-black font-medium title-font mb-2">
@@ -106,7 +106,7 @@ export default function PartnershipWithCNaught() {
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-10 pt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-5 md:pt-20">
             {/* Our commitment to best practices */}
             <div className="bg-white rounded-lg shadow-lg p-6 ">
               <h2 className="text-2xl font-semibold mb-4">

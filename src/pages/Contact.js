@@ -5,10 +5,10 @@ export default function Contact() {
   return (
     <>
       <section
-        className="h-96  bg-primary bg-opacity-10"
+        className="h-96  bg-primary bg-opacity-10 mt-10 md:mt-0"
         // style={{ backgroundImage: `url(${PageHeader})` }}
       >
-        <div className="conatiner mx-auto px-4 h-full">
+        <div className="conatiner mx-auto px-4 h-full ">
           <div className="flex flex-col justify-end items-center h-full">
             <h1 className=" text-5xl mb-20 text-black">
               Contact our support team
@@ -17,10 +17,10 @@ export default function Contact() {
         </div>
       </section>
       <section>
-        <div className="container mx-auto py-20 max-w-3xl">
+        <div className="container mx-auto py-20 max-w-3xl   p-4">
           <div className="flex flex-col items-center justify-center">
             <h1 className="text-2xl ">Get in Touch with Carbon Shredder</h1>
-            <p className="text-lg leading-10 text-center">
+            <p className="text-lg leading-10  text-start md:text-center">
               We're here to help you with a smaller carbon footprint. Whether
               you have questions, need support, or want to share your thoughts,
               we'd love to hear from you.
@@ -30,12 +30,12 @@ export default function Contact() {
       </section>
       <section>
         <div className="container mx-auto px-4">
-          <div className="flex flex-row py-20 gap-20">
-            <div className="basis-full md:basis-6/12 my-auto pr-10">
-              <ul className="flex flex-col gap-8 ">
-                <li className="flex gap-5">
-                  <div className="flex justify-center items-center"></div>
-                  <div>
+          <div className="flex flex-row py-0 pb-5 md:py-20 gap-20 flex-wrap md:flex-nowrap">
+            <div className="basis-full md:basis-6/12 my-auto px-0 md:pr-10">
+              <ul className="flex flex-col gap-8    w-[100%] md:w-auto">
+                <li className="flex gap-5  ">
+                  <div className="flex justify-center items-center "></div>
+                  <div className=" ">
                     <h1 className="text-2xl ">General inquiries: </h1>
                     <p className="text-lg leading-10">
                       For any general questions about Carbon Shredder, our
@@ -136,7 +136,7 @@ export default function Contact() {
               </div>
             </div>
             <div className="basis-full md:basis-6/12 ">
-              <form className="  flex flex-col ">
+              <form className="  flex flex-col">
                 <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
                   Contact form
                 </h2>

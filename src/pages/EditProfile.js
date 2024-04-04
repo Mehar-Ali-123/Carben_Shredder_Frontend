@@ -115,9 +115,9 @@ function EditProfile() {
   return (
     <>
       {userData && (
-        <div className="flex justify-center items-center my-10">
-          <div className="col-span-4 sm:col-span-3 mt-44 w-[90%]">
-            <div className="rounded-lg p-6">
+        <div className="flex justify-center items-center my-10  ">
+          <div className="col-span-4 sm:col-span-3 mt-44 w-[90%]  ">
+            <div className="rounded-lg md:p-6 px-0   ">
               <div className="flex flex-col items-center">
                 <img
                   src={`${backend_url}/${userData.avatar}`}
@@ -145,9 +145,9 @@ function EditProfile() {
                   </button>
                 </div>
               </div>
-              <hr className="my-6 border-t border-gray-300" />
-              <div className="flex flex-col">
-                <section className="max-w-4xl p-6 mx-auto w-[80%]">
+              <hr className="my-6 border-t border-gray-300 px-0 " />
+              <div className="flex flex-col   w-full mx-0   ">
+                <section className="max-w-4xl p-6 mx-auto w-full md:w-[80%]  ">
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 ">
                       <div>
@@ -237,8 +237,9 @@ function EditProfile() {
                               New Password is required *
                             </p>
                           )}
+                          <br/>
                           <label
-                            className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200"
+                            className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200 "
                             htmlFor="newPasswordConfirmation"
                           >
                             Confirm New Password

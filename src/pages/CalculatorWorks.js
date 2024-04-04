@@ -4,10 +4,10 @@ import Hero from "../components/Hero"
 export default function CalculatorWorks() {
   return (
     <>
-      <section className="h-96  bg-primary bg-opacity-10">
+      <section className="h-96  bg-primary bg-opacity-10 mt-40 md:mt-0">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
-            <h1 className=" text-5xl mb-20 text-black">
+            <h1 className=" text-5xl mb-20 text-black ">
               How our carbon footprint calculator works
             </h1>
           </div>
@@ -20,13 +20,13 @@ export default function CalculatorWorks() {
           not only estimates your current carbon footprint but also accounts for
           past emissions based on your age. Here's how it operates:
         </p>
-        <div className="grid grid-cols-1 gap-8 border-l-2 pl-16 relative">
+        <div className="grid grid-cols-1 gap-8 border-l-2 pl-16 relative mt-20 ">
     
           {/* Step 1: Gathering Personal Information */}
           <div className="bg-white rounded-lg shadow-lg p-8  ">
-            <span className="absolute -left-[14px] h-6 w-6 rounded-full bg-primary"></span>
-            <div className="flex flex-row gap-5">
-              <div className="basis-4/12">
+            <span className="absolute -left-[14px] h-6 w-6  ml-3 rounded-full bg-primary"></span>
+            <div className="flex flex-row gap-5 flex-wrap md:flex-nowrap  ">
+              <div className="md:basis-4/12 w-full  ">
                 <div>
                   <p className="text-lg pb-3  text-primary">Step 1</p> 
                   <h1 className="text-2xl font-semibold ">
@@ -34,9 +34,9 @@ export default function CalculatorWorks() {
                   </h1>
                 </div>
               </div>
-              <div className="basis-8/12">
+              <div className=" w-full  md:basis-8/12   ">
                 <div className="flex items-center mb-2">
-                  <div className="mr-4 flex-shrink-0">
+                  <div className=" mr-0 md:mr-4 flex-shrink-0">
                       {/* <svg
                       className="w-6 h-6 text-blue-500"
                       fill="none"
@@ -52,7 +52,7 @@ export default function CalculatorWorks() {
                       ></path>
                     </svg> */}
                   </div>
-                  <p className="text-lg text-black">
+                  <p className="text-lg text-black block  md:w-auto  ">
                     <b> Age and location:</b> Initially, the calculator requires
                     your age and country of residence. Your age is crucial in
                     estimating your past emissions. The calculator uses
@@ -66,9 +66,9 @@ export default function CalculatorWorks() {
           </div>
           {/* Step 2: Understanding Your Lifestyle */}
           <div className="bg-white rounded-lg shadow-lg p-8 ">
-            <span className="absolute -left-[14px] h-6 w-6 rounded-full bg-primary"></span>
-            <div className="flex flex-row gap-5">
-              <div className="basis-4/12">
+            <span className="absolute -left-[14px] h-6 w-6  ml-3 rounded-full bg-primary"></span>
+            <div className="flex flex-row gap-5 flex-wrap md:flex-nowrap">
+              <div className="md:basis-4/12 w-full  ">
 
               <div>
                   <p className="text-lg pb-3  text-primary">Step 2</p> 
@@ -78,10 +78,10 @@ export default function CalculatorWorks() {
                 </div>
              
               </div>
-              <div className="basis-8/12">
+              <div className=" w-full md:basis-8/12  ">
                 {/* Commute */}
                 <div className="flex items-center mb-2">
-                  <div className="mr-4 flex-shrink-0">
+                  <div className=" mr-0 md:mr-4 flex-shrink-0">
                         {/* <svg
                       className="w-6 h-6 text-blue-500"
                       fill="none"
@@ -104,7 +104,7 @@ export default function CalculatorWorks() {
                 </div>
                 {/* Travel */}
                 <div className="flex items-center mb-2">
-                  <div className="mr-4 flex-shrink-0">
+                  <div className="mr-4  mr-0 md:mr-4 flex-shrink-0">
                     {/* <svg
                       className="w-6 h-6 text-blue-500"
                       fill="none"
@@ -128,7 +128,7 @@ export default function CalculatorWorks() {
                 </div>
                 {/* Food */}
                 <div className="flex items-center mb-2">
-                  <div className="mr-4 flex-shrink-0">
+                  <div className="mr-4  mr-0 md:mr-4 flex-shrink-0">
                      {/* <svg
                       className="w-6 h-6 text-blue-500"
                       fill="none"
@@ -151,7 +151,7 @@ export default function CalculatorWorks() {
                 </div>
                 {/* Home */}
                 <div className="flex items-center mb-2">
-                  <div className="mr-4 flex-shrink-0">
+                  <div className="mr-4  mr-0 md:mr-4 flex-shrink-0">
                    {/* <svg
                       className="w-6 h-6 text-blue-500"
                       fill="none"
@@ -177,9 +177,9 @@ export default function CalculatorWorks() {
           </div>
           {/* Step 3: Calculation */}
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <span className="absolute -left-[14px] h-6 w-6 rounded-full bg-primary"></span>
-            <div className="flex flex-row gap-5">
-              <div className="basis-4/12">
+            <span className="absolute -left-[14px] h-6 w-6  ml-3 rounded-full bg-primary"></span>
+            <div className="flex flex-row gap-5 flex-wrap md:flex-nowrap">
+              <div className="md:basis-4/12 w-full  ">
 
               <div>
                   <p className="text-lg pb-3  text-primary">Step 3</p> 
@@ -189,7 +189,7 @@ export default function CalculatorWorks() {
                 </div>
             
               </div>
-              <div className="basis-8/12">
+              <div className=" w-full md:basis-8/12  ">
                 <p className="text-lg text-black">
                   <b> Emission Factors: </b> Each response is linked to specific
                   emission factors that represent the average emissions (in kg
@@ -206,10 +206,10 @@ export default function CalculatorWorks() {
           </div>
           {/* Step 4: Estimating past and present emissions */}
           <div className="bg-white rounded-lg shadow-lg p-8 ">
-            <span className="absolute -left-[14px] h-6 w-6 rounded-full bg-primary"></span>
+            <span className="absolute -left-[14px] h-6 w-6  ml-3 rounded-full bg-primary"></span>
 
-            <div className="flex flex-row gap-5">
-              <div className="basis-4/12">
+            <div className="flex flex-row gap-5 flex-wrap md:flex-nowrap">
+              <div className="md:basis-4/12 w-full  ">
               <div>
                   <p className="text-lg pb-3  text-primary">Step 4</p> 
                   <h1 className="text-2xl font-semibold ">
@@ -218,7 +218,7 @@ export default function CalculatorWorks() {
                 </div>
           
               </div>
-              <div className="basis-8/12">
+              <div className=" w-full md:basis-8/12  ">
                 <p className="text-lg text-black">
                   <b> Combining historical and current data: </b>The calculator
                   not only provides an estimate of your current annual carbon

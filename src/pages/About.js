@@ -18,7 +18,7 @@ export default function About() {
       </section>
       <section className="text-gray-600 body-font">
         <div className="container px-5 pb-24 mx-auto">
-          <div className="grid grid-cols-2 gap-10 pt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-20">
             {/* Our commitment to best practices */}
             <div className="bg-white rounded-lg shadow-lg p-6 ">
               <h2 className="text-2xl font-semibold mb-4">Our mission</h2>
@@ -180,7 +180,7 @@ export default function About() {
               Be part of the change
             </h1>
           </div>
-          <div className="grid grid-cols-3 gap-10">
+          <div className="grid  grid-cols-1 md:grid-cols-2  lg:grid-cols-3  gap-10">
             <div className="border border-gray-200 bg-white shadow-lg p-6 rounded-lg">
               <h2 className="text-lg text-gray-900 font-medium  mb-2">
                 Stay informed
