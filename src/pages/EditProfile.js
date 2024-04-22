@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { watch } from "react-hook-form";
 import axios from "axios";
 import { backend_url, server } from "../server";
 import { toast } from "react-toastify";
+import Loader from "../components/Loader/Loader";
 
 function EditProfile() {
+  const [loader, setLoader] = useState(false);
+  const [fileUrl,setFileUrl]=useState(null)
   const {
     register,
     handleSubmit,
@@ -16,8 +18,8 @@ function EditProfile() {
   const [userData, setUserData] = useState(null);
   const [changePassword, setChangePassword] = useState(false);
   const [file, setFile] = useState(null);
-
   const newPassword = watch("newPassword");
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -33,7 +35,6 @@ function EditProfile() {
         });
         const user = response.data?.user;
         setUserData(user);
-        console.log("userdata ", userData);
 
         // Set initial form values from fetched user data
         setValue("username", user.name);
@@ -46,11 +47,18 @@ function EditProfile() {
     fetchUserData();
   }, [setValue]);
 
+ 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+  
+    // Create a temporary URL for the selected file
+    const url = URL.createObjectURL(selectedFile);
+    setFileUrl(url);
   };
 
   const onSubmit = async (formData) => {
+    setLoader(true);
     try {
       const authToken = localStorage.getItem("authToken");
       if (!authToken) {
@@ -68,7 +76,7 @@ function EditProfile() {
       }
 
       if (file) {
-        formDataToSend.append("file", file, file.name); // Append the file with its original name
+        formDataToSend.append("file", file); // No need to append file name explicitly, FormData handles it
       }
 
       const response = await axios.put(
@@ -83,6 +91,9 @@ function EditProfile() {
       );
       toast.success("Profile updated successfully", {
         autoClose: 3000,
+        style: {
+          marginTop: "100px",
+        },
       });
 
       if (changePassword) {
@@ -92,23 +103,22 @@ function EditProfile() {
       }
       setChangePassword(false);
 
-      toast.success("Profile updated successfully", {
-        autoClose: 3000,
-      });
-
       console.log("Update profile response:", response.data);
-      window.location.reload();
+      setLoader(false);
+      // window.location.reload();
     } catch (error) {
       let errorMessage = "Error updating profile";
 
-      if (error.response || error.response.data || error.response.data.error) {
+      if (error.response && error.response.data && error.response.data.error) {
         errorMessage = error.response.data.error;
       }
-
+      setLoader(false);
       toast.error(errorMessage, {
         autoClose: 3000,
+        style: {
+          marginTop: "100px",
+        },
       });
-
       console.error("Error updating profile:", error);
     }
   };
@@ -120,9 +130,10 @@ function EditProfile() {
             <div className="rounded-lg md:p-6 px-0   ">
               <div className="flex flex-col items-center">
                 <img
-                  src={`${backend_url}/${userData.avatar}`}
+                  src={fileUrl || `${backend_url}/${userData.avatar}`}
                   className="object-cover w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
                 />
+
                 <div className="mt-6 flex flex-wrap gap-4 justify-center">
                   <label
                     htmlFor="file"
@@ -215,7 +226,33 @@ function EditProfile() {
                           </p>
                         )}
                       </div>
-                      <br />
+
+                      <div>
+                        <label
+                          className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200"
+                          htmlFor="country"
+                        >
+                          Country
+                        </label>
+                        <select
+                          id="country"
+                          {...register("country", { required: true })}
+                          className={`block w-full px-2 py-3 mt-2 text-gray-700 shadow-md  placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none rounded-md ${
+                            errors.country ? "border-red-500" : ""
+                          }`}
+                        >
+                          <option>Surabaya</option>
+                          <option>Jakarta</option>
+                          <option>Tangerang</option>
+                          <option>Bandung</option>
+                        </select>
+                        {errors.country && (
+                          <p className="text-red-500 text-sm mt-1">
+                            Country is required *
+                          </p>
+                        )}
+                      </div>
+
                       {changePassword && (
                         <div>
                           <label
@@ -237,7 +274,7 @@ function EditProfile() {
                               New Password is required *
                             </p>
                           )}
-                          <br/>
+                          <br />
                           <label
                             className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200 "
                             htmlFor="newPasswordConfirmation"
@@ -266,31 +303,6 @@ function EditProfile() {
                           )}
                         </div>
                       )}
-                      <div>
-                        <label
-                          className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200"
-                          htmlFor="country"
-                        >
-                          Country
-                        </label>
-                        <select
-                          id="country"
-                          {...register("country", { required: true })}
-                          className={`block w-full px-2 py-3 mt-2 text-gray-700 shadow-md  placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 sm:text-sm sm:leading-6 outline-none rounded-md ${
-                            errors.country ? "border-red-500" : ""
-                          }`}
-                        >
-                          <option>Surabaya</option>
-                          <option>Jakarta</option>
-                          <option>Tangerang</option>
-                          <option>Bandung</option>
-                        </select>
-                        {errors.country && (
-                          <p className="text-red-500 text-sm mt-1">
-                            Country is required *
-                          </p>
-                        )}
-                      </div>
                       <br />
                     </div>
                     <div className="mt-6">
@@ -298,7 +310,7 @@ function EditProfile() {
                         type="submit"
                         className="flex w-full justify-center rounded-md bg-text-primary px-3 py-1.5 text-sm font-semibold leading-6 bg-primary text-white shadow-md"
                       >
-                        Update Profile
+                        {loader ? <Loader /> : "  Update Profile"}
                       </button>
                     </div>
                   </form>

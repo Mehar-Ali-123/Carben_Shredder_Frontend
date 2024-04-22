@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import Logo from "../assets/images/footer-logo-2.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { server } from "../server";
 import { toast } from "react-toastify";
+import Loader from "../components/Loader/Loader";
 
 function SignIn() {
   const Navigate = useNavigate();
+  const [loader, setLoader] = useState(false);
   const {
     register,
     reset,
@@ -16,6 +17,7 @@ function SignIn() {
   } = useForm();
 
   const onSubmit = async (data) => {
+    setLoader(true);
     try {
       const response = await axios.post(`${server}/login-user`, data);
 
@@ -24,33 +26,42 @@ function SignIn() {
         reset();
 
         console.log(response.data);
-        // Extract the authToken from the response
         const { token } = response.data;
         console.log("authToken", token);
-        // Store the authToken in localStorage
         localStorage.setItem("authToken", token);
 
         toast.success("Successful Login", {
-          autoClose: 3000, // Auto close after 3 seconds
+          autoClose: 3000,
+          style: {
+            marginTop: "100px",
+          },
         });
-        Navigate("/home");
+        Navigate("/");
+        setLoader(false);
       } else {
         console.log("Error Server:");
+        setLoader(false);
       }
     } catch (error) {
       console.log("Error Server:", error.message);
+      setLoader(false);
       toast.error(error.response.data.error, {
         autoClose: 3000,
+        style: {
+          marginTop: "100px",
+        },
       });
     }
   };
   return (
     <>
-      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 mt-52">
+        {/* <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img className="mx-auto h-70 w-48" src={Logo} alt="Your Company" />
-        </div>
-
+        </div> */}
+        <p className="w-full text-center font-extrabold   text-3xl mt-5 flex justify-center gap-3">
+          <p className="text-primary">Sign In</p>to unlock Carbon Shredder.
+        </p>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div>
@@ -114,12 +125,9 @@ function SignIn() {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-text-primary px-3 py-2 text-sm font-semibold leading-6 bg-primary text-white shadow-md"
               >
-                Sign In
+                {loader ? <Loader /> : " Sign In"}
               </button>
             </div>
-            {/* <Link to="/home">
-              <p className="text-indigo-600">click here to go to home page</p>
-            </Link> */}
           </form>
 
           <p className="mt-10 text-center text-sm text-gray-500">

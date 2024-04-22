@@ -19,90 +19,100 @@ import { useState, useEffect } from "react";
 import ForgetPass from "./pages/ForgetPass";
 import PersonalProfile from "./pages/PersonalProfile";
 import EditProfile from "./pages/EditProfile.js";
-import CheckProfileData from "./pages/CheckProfileData.js"; 
-// import { loadUser } from "./redux/action/user";
-// import Store from "./redux/store";
+import ActivationPage from "./pages/ActivationPage";
+import axios from "axios";
+import { server } from "./server.js";
 
 function App() {
+  // const location = useLocation();
+  const [IsAuthenticated, setIsAuthenticated] = useState(false);
+  useEffect(() => {
+    const fetchUserAuthStatus = async () => {
+      try {
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+          throw new Error("Authentication token not found");
+        }
+
+        const response = await axios.get(`${server}/check-auth`, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        });
+        if (response.data.isAuthenticated) {
+          setIsAuthenticated(true);
+          localStorage.setItem("isAuthentication", true);
+          console.log("User is authenticated");
+        } else {
+          setIsAuthenticated(false);
+          localStorage.setItem("isAuthentication", false);
+          console.log("User is not authenticated");
+        }
+      } catch (error) {
+        console.error("Error checking authentication:", error);
+        localStorage.setItem("isAuthentication", false); 
+      }
+    };
+
+    fetchUserAuthStatus();
+  }, []);
 
   // useEffect(() => {
-  //   Store.dispatch(loadUser());
-  // }, []);
+  //   if (
+  //     location.pathname.includes("/sign-up") ||
+  //     location.pathname.includes("/forget-pass") ||
+  //     location.pathname.includes("/activation") ||
+  //     location.pathname === "/"
+  //   ) {
+  //     setLogin(true);
+  //   } else {
+  //     setLogin(false);
+  //   }
+  // }, [location.pathname]);
 
-
-  const [Login, setLogin] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    if (
-      location.pathname.includes("/sign-up") ||
-      location.pathname.includes("/forget-pass") ||
-      location.pathname === "/"
-    ) {
-      setLogin(true);
-    } else {
-      setLogin(false);
-    }
-  }, [location.pathname]);
-
- 
   return (
     <>
-      {Login ? (
+      <div>
+        <Header />
         <Routes>
-          <Route exact path="/" element={<SignIn />} />
+          <Route exact path="/" element={<Home />} />
+          {/* <Route exact path="/home" element={<Home />} /> */}
+          <Route exact path="/sign-in" element={<SignIn />} />
           <Route exact path="/sign-up" element={<SignUp />} />
           <Route exact path="/forget-pass" element={<ForgetPass />} />
-          <Route exact path="/check" element={<CheckProfileData />} />
+          <Route exact path="/activation/:slug" element={<ActivationPage />} />
+          <Route exact path="/personal-profile" element={<PersonalProfile />} />
+          <Route exact path="/edit-profile" element={<EditProfile />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/calculator" element={<Calculator />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/how-it-works" element={<HowItWorks />} />
+          <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route
+            exact
+            path="/terms-and-conditions"
+            element={<TermsAndConditions />}
+          />
+          <Route exact path="/faqs" element={<Faqs />} />
+          <Route exact path="/calculator-works" element={<CalculatorWorks />} />
+          <Route
+            exact
+            path="/subscription-works"
+            element={<SubscriptionWorks />}
+          />
+          <Route
+            exact
+            path="/track-your-carbon-impact"
+            element={<TrackYourCarbonImpact />}
+          />
+          <Route
+            exact
+            path="/partnership-with-cnaught"
+            element={<PartnershipWithCNaught />}
+          />
         </Routes>
-      ) : (
-        <div>
-          <Header />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/home" element={<Home />} />
-            <Route exact path="/check" element={<CheckProfileData />} />
-            <Route
-              exact
-              path="/personal-profile"
-              element={<PersonalProfile />}
-            />
-            <Route exact path="/edit-profile" element={<EditProfile />} />
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/calculator" element={<Calculator />} />
-            <Route exact path="/contact" element={<Contact />} />
-            <Route exact path="/how-it-works" element={<HowItWorks />} />
-            <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route
-              exact
-              path="/terms-and-conditions"
-              element={<TermsAndConditions />}
-            />
-            <Route exact path="/faqs" element={<Faqs />} />
-            <Route
-              exact
-              path="/calculator-works"
-              element={<CalculatorWorks />}
-            />
-            <Route
-              exact
-              path="/subscription-works"
-              element={<SubscriptionWorks />}
-            />
-            <Route
-              exact
-              path="/track-your-carbon-impact"
-              element={<TrackYourCarbonImpact />}
-            />
-            <Route
-              exact
-              path="/partnership-with-cnaught"
-              element={<PartnershipWithCNaught />}
-            />
-          </Routes>
-          <Footer />
-        </div>
-      )}
+        <Footer />
+      </div>
     </>
   );
 }

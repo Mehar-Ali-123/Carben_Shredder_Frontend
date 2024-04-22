@@ -7,12 +7,13 @@ import Testimonial from '../components/Testimonial'
 import Goals from '../components/Goals'
 import Impact from '../components/Impact'
 import OurMission from '../components/OurMission'
-import Illustration from "../components/Illustration.js"
-
+import Illustration from "../components/Illustration.js" 
+import PlaidIntegeration from "../components/PlaidIntegeration.js"
 export default function Home() {
   return (
     <>
     <Hero/>
+    <PlaidIntegeration/>
     <OurMission OurMission="Our mission is to offer you a comprehensive platform for tracking
               and offsetting carbon emissions, tailored to your lifestyle. We
               want to provide real-time insights into the carbon costs

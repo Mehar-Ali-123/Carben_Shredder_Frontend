@@ -1,12 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/footer-logo-2.png";
 import menuicon from "../assets/images/menu.png";
 import { Menu } from "@headlessui/react";
+import axios from "axios";
+import { server } from "../server";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [color, setColor] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const isAuthenticated = localStorage.getItem("isAuthentication");
+  console.log(isAuthenticated)
+  const Navigate = useNavigate();
 
   const changeColor = () => {
     if (window.scrollY >= 90) {
@@ -18,6 +24,26 @@ export default function Header() {
 
   window.addEventListener("scroll", changeColor);
 
+  const handleLogout = () => {
+    setShowConfirmation(true);
+  };
+
+  const confirmLogout = async () => {
+    try {
+      const authToken = localStorage.getItem("authToken");
+      if (!authToken) {
+        throw new Error("Authentication token not found");
+      }
+      const response = await axios.post(`${server}/logout`);
+localStorage.setItem("isAuthentication",false)
+localStorage.setItem("authToken", "");
+      if (response.status === 200) {  
+        Navigate("/");
+      }
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
   return (
     <>
       <header
@@ -115,12 +141,57 @@ export default function Header() {
               >
                 Connect
               </Link>
-              <Link
-                to="/personal-profile"
-                className="mr-4 text-black text-xl md:text-[18px] font-medium text-center hover:text-primary hover:underline"
-              >
-                Profile
-              </Link>
+              {isAuthenticated == "true" ? (
+                <Menu className="relative" as="div">
+                  <Link to="/how-it-works">
+                    <Menu.Button className="mr-4 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline flex flex-row items-center gap-2">
+                      <span>Profile</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                        />
+                      </svg>
+                    </Menu.Button>
+                  </Link>
+                  <Menu.Items
+                    as="div"
+                    className="absolute  bg-white flex flex-col w-72 p-3 rounded shadow-sm"
+                  >
+                    <Menu.Item>
+                      <Link
+                        to="/personal-profile"
+                        className=" text-black text-2xl md:text-lg font-medium mx-5 my-2 hover:text-primary hover:underline"
+                      >
+                        View Profile
+                      </Link>
+                    </Menu.Item>
+                    <Menu.Item>
+                      <Link
+                        onClick={handleLogout}
+                        className=" text-black text-2xl md:text-lg font-medium mx-5 my-2 hover:text-primary hover:underline"
+                      >
+                        Logout
+                      </Link>
+                    </Menu.Item>
+                  </Menu.Items>
+                </Menu>
+              ) : (
+                <Link
+                  to="/sign-in"
+                  className="mr-4 text-black text-xl md:text-[18px] font-medium text-center hover:text-primary hover:underline"
+                >
+                  Sign In
+                </Link>
+              )}
             </nav>
 
             <Link
@@ -308,12 +379,21 @@ export default function Header() {
                   onClick={() => setIsOpen(false)}
                   className="w-[100%] hover:bg-[#FBF4DB] p-2"
                 >
-                  <Link
-                    to="/personal-profile"
-                    className="text-black text-2xl  md:text-3xl font-extrabold text-start hover:text-primary hover:underline"
-                  >
-                    Profile
-                  </Link>
+                  {isAuthenticated ? (
+                    <Link
+                      to="/personal-profile"
+                      className="text-black text-2xl  md:text-3xl font-extrabold text-start hover:text-primary hover:underline"
+                    >
+                      Profile
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/sign-in"
+                      className="text-black text-2xl  md:text-3xl font-extrabold text-start hover:text-primary hover:underline"
+                    >
+                      Sign In
+                    </Link>
+                  )}
                 </li>
               </ul>
             </div>
@@ -334,6 +414,32 @@ export default function Header() {
           </button>
         </div>
       </header>
+      {showConfirmation && (
+        <div
+          onClick={() => setShowConfirmation(false)}
+          className="fixed top-0 left-0 w-full h-[100vh] flex justify-center items-center bg-black bg-opacity-50 z-50"
+        >
+          <div className="bg-primary p-6 rounded-md shadow-lg">
+            <p className="text-lg font-semibold mb-4  text-white">
+              Are you sure you want to log out?
+            </p>
+            <div className="flex justify-end gap-4">
+              <button
+                onClick={() => setShowConfirmation(false)}
+                className="text-sm text-gray-500 hover:text-gray-700 text-white"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmLogout}
+                className="text-sm text-[red]   font-semibold"
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

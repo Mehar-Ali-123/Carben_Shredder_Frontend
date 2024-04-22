@@ -1,28 +1,59 @@
-import { createReducer } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import { server } from "../../server";
 
 const initialState = {
   isAuthenticated: false,
+  isLoading: false,
+  error: null,
 };
 
-const userReducer = createReducer(initialState, (builder) => {
-  builder
-    .addCase('LoadUserRequest', (state) => {
-      state.loading = true;
-    })
-    .addCase('LoadUserSuccess', (state, action) => {
-      state.isAuthenticated = true;
-      state.loading = false;
-      state.user = action.payload;
-    })
-    .addCase('LoadUserFail', (state, action) => {
-      state.isAuthenticated = true;
-      state.loading = false;
+export const loadUser = createAsyncThunk(
+  "auth/loadUser",
+  async (_, { dispatch }) => {
+    dispatch(checkAuthRequest());
+    try {
+      const response = await axios.get(`${server}/check-auth`, {
+        withCredentials: true,
+      });
+      if (response.data.isAuthenticated) {
+        dispatch(checkAuthSuccess(true));
+        console.log("User is authenticated");
+      } else {
+        dispatch(checkAuthSuccess(false));
+        console.log("User is not authenticated");
+      }
+    } catch (error) {
+      dispatch(checkAuthFail(error));
+      console.error("Error checking authentication:", error);
+    }
+  }
+);
+
+const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    checkAuthRequest: (state) => {
+      state.isLoading = true;
+    },
+    checkAuthSuccess: (state, action) => {
+      state.isLoading = false;
+      state.isAuthenticated = action.payload;
+    },
+    checkAuthFail: (state, action) => {
+      state.isLoading = false;
       state.error = action.payload;
-      state.isAuthenticated = false;
-    })
-    .addCase('clearErrors', (state) => {
-      state.error = null;
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(loadUser.fulfilled, (state) => {
+      // Additional logic after API call is successful, if needed
     });
+  },
 });
 
-export default userReducer;
+export const { checkAuthRequest, checkAuthSuccess, checkAuthFail } =
+  authSlice.actions;
+
+export default authSlice.reducer;

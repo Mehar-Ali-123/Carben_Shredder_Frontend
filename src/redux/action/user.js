@@ -1,22 +1,17 @@
-import axios from "axios";
-import { server } from "../../server";
+import { createSlice } from "@reduxjs/toolkit";
 
-export const loadUser = () => async (dispatch) => {
-  try {
-    dispatch({
-      type: "LoadUserRequest",
-    });
-    const { data } = await axios.get(`${server}/get-profile-data`, {
-      withCredentials: true,
-    });
-    dispatch({
-      type: "LoadUserSuccess",
-      payload: data.user,
-    });
-  } catch (error) {
-    dispatch({
-      type: "LoadUserFail",
-      payload: error.response.data.message,
-    });
-  }
+const initialState = {
+  // Initial user state if needed
 };
+
+const userSlice = createSlice({
+  name: "user",
+  initialState,
+  reducers: {
+    // Reducer cases for user actions if needed
+  },
+});
+
+export const {} = userSlice.actions;
+
+export default userSlice.reducer;
