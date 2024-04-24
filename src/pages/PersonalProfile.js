@@ -79,10 +79,10 @@ function PersonalProfile() {
             </div>
             <div class="col-span-4 sm:col-span-9">
               <div class="bg-white shadow rounded-lg p-6">
-                <h2 class="text-3xl font-bold mb-6">Progress Chart</h2>
-                <ProfileChart />
-                <h2 class="text-3xl font-bold mb-4 mt-20">Subcription Plan</h2>
+              <h2 class="text-3xl font-bold mb-4 ">Subcription Plan</h2>
                 <SubcriptionCard />
+                <h2 class="text-3xl font-bold mb-6 mt-20">Progress Chart</h2>
+                <ProfileChart /> 
               </div>
             </div>
           </div>

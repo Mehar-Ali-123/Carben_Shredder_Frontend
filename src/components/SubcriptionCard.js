@@ -5,39 +5,36 @@ import mostPopular from "../assets/images/mostPopular.svg";
 import scalePlan from "../assets/images/scalePlan.svg";
 
 function SubcriptionCard() {
+  const carbonPrice = localStorage.getItem("carbonPriceTotal");
+  const totalPrice = Math.round(carbonPrice);
   return (
     <>
       <section class="text-gray-700 body-font overflow-hidden">
         <div class="container px-5 py-6 mx-auto flex flex-wrap">
           <div class="lg:w-1/4 mt-48 hidden lg:block">
             <div class="mt-px         rounded-tl-lg rounded-bl-lg overflow-hidden">
-              <p class="bg-[#FBF4DB]  mt-7 text-gray-900 h-12 text-center px-4 flex items-center justify-start">
-                Fingerstache disrupt
+              <p class="bg-[#FBF4DB]  mt-9 text-gray-900 h-12 text-sm text-center px-4 flex items-center justify-start">
+              Access carbon footprint
               </p>
-              <p class="text-gray-900 h-12 text-center px-4 flex items-center justify-start">
-                Franzen hashtag
+              <p class="text-gray-900 h-12 text-sm text-center px-4 flex items-center justify-start">
+              Personalized dashboard
               </p>
-              <p class="bg-[#FBF4DB] text-gray-900 h-12 text-center px-4 flex items-center justify-start">
-                Tilde art party
+              <p class="bg-[#FBF4DB] text-gray-900 h-12 text-sm text-center px-4 flex items-center justify-start">
+              Email support
               </p>
-              <p class="text-gray-900 h-12 text-center px-4 flex items-center justify-start">
-                Banh mi cornhole
+              <p class="text-gray-900 h-12 text-sm text-center  ps-4 flex items-center justify-start">
+              Carbon Calculator
               </p>
-              <p class="bg-[#FBF4DB] text-gray-900 h-12 text-center px-4 flex items-center justify-start">
-                Waistcoat squid hexagon
+              <p class="bg-[#FBF4DB] text-gray-900 h-12 text-sm text-center ps-4 flex items-center justify-start">
+              Carbon neutrality each month.
               </p>
-              <p class="text-gray-900 h-12 text-center px-4 flex items-center justify-start">
-                Pinterest occupy authentic
+              <p class="text-gray-900 h-12 text-sm text-center ps-4 flex items-center justify-start">
+              Reducing  overall climate debt.
               </p>
-              <p class="bg-[#FBF4DB] text-gray-900 h-12 text-center px-4 flex items-center justify-start">
-                Brooklyn helvetica
+              <p class="bg-[#FBF4DB] text-gray-900 h-12 text-sm text-center px-4 flex items-center justify-start">
+              Impact by offsetting 200%
               </p>
-              <p class="text-gray-900 h-12 text-center px-4 flex items-center justify-start">
-                Long Feature Two
-              </p>
-              <p class="bg-[#FBF4DB] text-gray-900 h-12 text-center px-4 flex items-center justify-start">
-                Feature One
-              </p>
+              
             </div>
           </div>
           <div class="flex lg:w-3/4 w-full flex-wrap    rounded-lg">
@@ -47,22 +44,36 @@ function SubcriptionCard() {
                   src={starterPlan}
                   class="mt-7  object-cover w-14 h-14 bg-gray-300 rounded-full mb-2 shrink-0"
                 />
-                <p className="text-md font-semibold">Starter plan</p>
-                   <h2 class=" text-4xl text-gray-900 font-medium flex items-center justify-center leading-none  mb-2   ">
-                  $189
+                <p className="text-md font-semibold">Basic plan</p>
+                <h2 class=" text-4xl text-gray-900 font-medium flex items-center justify-center leading-none  mb-2   ">
+                  {`$${totalPrice * 0.5}`  || "$189"}
                   <span class="text-gray-600 text-base ml-1">/mo</span>
                 </h2>
-                <span class="text-sm text-gray-600 py-1">Recurring every month</span>
+                <span class="text-sm text-gray-600 py-1">
+                  Recurring every month
+                </span>
                 <div>
                   <button class="text-white bg-primary   py-2  rounded-lg text-center w-[180px]">
-                    Start Trial
+                    Start Plan
                   </button>
                 </div>
               </div>
-              <p class="bg-[#FBF4DB] mt-7 text-gray-600 h-12 text-center px-2 flex items-center   justify-center    ">
-                Schlitz single-origin
+              <p class="bg-[#FBF4DB] mt-9 text-gray-600 h-12 text-sm text-center px-2 flex items-center   justify-center    ">
+              <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    class="w-3 h-3"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M20 6L9 17l-5-5"></path>
+                  </svg>
+                </span>
               </p>
-              <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+              <p class="text-gray-600 text-center h-12 text-sm flex items-center justify-center">
                 <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
                   <svg
                     fill="none"
@@ -77,7 +88,7 @@ function SubcriptionCard() {
                   </svg>
                 </span>
               </p>
-              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 flex items-center justify-center">
+              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 text-sm flex items-center justify-center">
                 <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
                   <svg
                     fill="none"
@@ -92,11 +103,8 @@ function SubcriptionCard() {
                   </svg>
                 </span>
               </p>
-              <p class="h-12 text-gray-600 px-6 text-center leading-relaxed flex items-center justify-center">
-                Feature
-              </p>
-              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 flex items-center justify-center">
-                <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+              <p class="h-12 text-sm  text-gray-600 px-6 text-center leading-relaxed flex items-center justify-center">
+              <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
                   <svg
                     fill="none"
                     stroke="currentColor"
@@ -110,7 +118,20 @@ function SubcriptionCard() {
                   </svg>
                 </span>
               </p>
-              <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 text-sm flex items-center justify-center">
+              <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.2"
+                  class="w-5 h-5 text-gray-500"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M18 6L6 18M6 6l12 12"></path>
+                </svg>
+              </p>
+              <p class="text-gray-600 text-center h-12 text-sm flex items-center justify-center">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -123,7 +144,7 @@ function SubcriptionCard() {
                   <path d="M18 6L6 18M6 6l12 12"></path>
                 </svg>
               </p>
-              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 flex items-center justify-center">
+              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 text-sm flex items-center justify-center">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -136,35 +157,10 @@ function SubcriptionCard() {
                   <path d="M18 6L6 18M6 6l12 12"></path>
                 </svg>
               </p>
-              <p class="text-gray-600 text-center h-12 flex items-center justify-center">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.2"
-                  class="w-5 h-5 text-gray-500"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M18 6L6 18M6 6l12 12"></path>
-                </svg>
-              </p>
-              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 flex items-center justify-center">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.2"
-                  class="w-5 h-5 text-gray-500"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M18 6L6 18M6 6l12 12"></path>
-                </svg>
-              </p>
-              <div class="p-6 text-center rounded-bl-lg"> 
+             
+              <div class="p-6 text-center rounded-bl-lg">
                 <p class="text-xs text-gray-500 mt-3">
-                  Literally you probably haven't heard of them jean shorts.
+                Ideal for individuals taking their first step in carbon offsetting up to 50%
                 </p>
               </div>
             </div>
@@ -177,21 +173,35 @@ function SubcriptionCard() {
                   src={mostPopular}
                   class="mt-7  object-cover w-14 h-14 bg-gray-300 rounded-full mb-2 shrink-0"
                 />
-                
-                <p className="text-md font-semibold">Growth plan</p>
+
+                <p className="text-md font-semibold">Standard plan</p>
                 <h2 class=" text-4xl text-gray-900 font-medium flex items-center justify-center leading-none  mb-2   ">
-                $289
+                  {`$${Math.round(totalPrice * 1)}` || " $289"}
                   <span class="text-gray-600 text-base ml-1">/mo</span>
                 </h2>
-                <span class="text-sm text-gray-600 py-1">Recurring every month</span>
+                <span class="text-sm text-gray-600 py-1">
+                  Recurring every month
+                </span>
                 <button class=" text-white bg-primary   py-2   rounded-lg text-center w-[180px]">
-                  Start Trial
+                  Start Plan
                 </button>
               </div>
-              <p class="bg-[#FBF4DB]  mt-7 text-gray-600 h-12 text-center px-2 flex items-center  justify-center    ">
-                Schlitz single-origin
+              <p class="bg-[#FBF4DB]  mt-9 text-gray-600 h-12 text-sm text-center px-2 flex items-center  justify-center    ">
+                  <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    class="w-3 h-3"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M20 6L9 17l-5-5"></path>
+                  </svg>
+                </span>
               </p>
-              <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+              <p class="text-gray-600 text-center h-12 text-sm flex items-center justify-center">
                 <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
                   <svg
                     fill="none"
@@ -206,7 +216,7 @@ function SubcriptionCard() {
                   </svg>
                 </span>
               </p>
-              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 flex items-center justify-center">
+              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 text-sm flex items-center justify-center">
                 <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
                   <svg
                     fill="none"
@@ -221,11 +231,8 @@ function SubcriptionCard() {
                   </svg>
                 </span>
               </p>
-              <p class="h-12 text-gray-600 text-center leading-relaxed flex items-center justify-center">
-                Feature
-              </p>
-              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 flex items-center justify-center">
-                <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+              <p class="h-12 text-sm text-gray-600 text-center leading-relaxed flex items-center justify-center">
+              <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
                   <svg
                     fill="none"
                     stroke="currentColor"
@@ -239,8 +246,8 @@ function SubcriptionCard() {
                   </svg>
                 </span>
               </p>
-              <p class="text-gray-600 text-center h-12 flex items-center justify-center">
-                <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 text-sm flex items-center justify-center">
+              <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
                   <svg
                     fill="none"
                     stroke="currentColor"
@@ -254,8 +261,8 @@ function SubcriptionCard() {
                   </svg>
                 </span>
               </p>
-              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 flex items-center justify-center">
-                <svg
+              <p class="text-gray-600 text-center h-12 text-sm flex items-center justify-center">
+              <svg
                   fill="none"
                   stroke="currentColor"
                   stroke-linecap="round"
@@ -267,7 +274,7 @@ function SubcriptionCard() {
                   <path d="M18 6L6 18M6 6l12 12"></path>
                 </svg>
               </p>
-              <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 text-sm flex items-center justify-center">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -279,24 +286,10 @@ function SubcriptionCard() {
                 >
                   <path d="M18 6L6 18M6 6l12 12"></path>
                 </svg>
-              </p>
-              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 flex items-center justify-center">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.2"
-                  class="w-5 h-5 text-gray-500"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M18 6L6 18M6 6l12 12"></path>
-                </svg>
-              </p>
+              </p> 
               <div class="p-6 text-center    ">
-               
                 <p class="text-xs text-gray-500 mt-3">
-                  Literally you probably haven't heard of them jean shorts.
+                Perfect for committed to fully neutralizing their carbon footprint.100% plan offsets 
                 </p>
               </div>
             </div>
@@ -306,24 +299,38 @@ function SubcriptionCard() {
                   src={scalePlan}
                   class=" mt-7  object-cover w-14 h-14 bg-gray-300 rounded-full mb-2 shrink-0"
                 />
-                <p className="text-md font-semibold">Scale plan</p>
+                <p className="text-md font-semibold">Ultimate plan</p>
                 <h2 class=" text-4xl text-gray-900 font-medium flex items-center justify-center leading-none  mb-2   ">
-                  $499
+                {`$${Math.round(totalPrice * 2)}` || "$499"}
                   <span class="text-gray-600 text-base ml-1">/mo</span>
                 </h2>
-                <span class="text-sm text-gray-600 py-1">Recurring every month</span>
+                <span class="text-sm text-gray-600 py-1">
+                  Recurring every month
+                </span>
                 <div>
-                <div>
-                  <button class="text-white bg-primary   py-2  rounded-lg text-center w-[180px]">
-                    Start Trial
-                  </button>
-                </div>
+                  <div>
+                    <button class="text-white bg-primary   py-2  rounded-lg text-center w-[180px]">
+                      Start Plan
+                    </button>
+                  </div>
                 </div>
               </div>
-              <p class="bg-[#FBF4DB]  mt-7 rounded-tr-lg text-gray-600 h-12 text-center px-2 flex items-center  justify-center    ">
-                Schlitz single-origin
+              <p class="bg-[#FBF4DB]  mt-9 rounded-tr-lg text-gray-600 h-12 text-sm text-center px-2 flex items-center  justify-center    ">
+                  <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    class="w-3 h-3"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M20 6L9 17l-5-5"></path>
+                  </svg>
+                </span>
               </p>
-              <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+              <p class="text-gray-600 text-center h-12 text-sm flex items-center justify-center">
                 <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
                   <svg
                     fill="none"
@@ -338,7 +345,7 @@ function SubcriptionCard() {
                   </svg>
                 </span>
               </p>
-              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 flex items-center justify-center">
+              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 text-sm flex items-center justify-center">
                 <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
                   <svg
                     fill="none"
@@ -353,10 +360,22 @@ function SubcriptionCard() {
                   </svg>
                 </span>
               </p>
-              <p class="h-12 text-gray-600 text-center leading-relaxed flex items-center justify-center">
-                Feature
+              <p class="h-12 text-sm text-gray-600 text-center leading-relaxed flex items-center justify-center">
+              <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    class="w-3 h-3"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M20 6L9 17l-5-5"></path>
+                  </svg>
+                </span>
               </p>
-              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 flex items-center justify-center">
+              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 text-sm flex items-center justify-center">
                 <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
                   <svg
                     fill="none"
@@ -371,62 +390,39 @@ function SubcriptionCard() {
                   </svg>
                 </span>
               </p>
-              <p class="text-gray-600 text-center h-12 flex items-center justify-center">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.2"
-                  class="w-5 h-5 text-gray-500"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M18 6L6 18M6 6l12 12"></path>
-                </svg>
+              <p class="text-gray-600 text-center h-12 text-sm flex items-center justify-center">
+              <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    class="w-3 h-3"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M20 6L9 17l-5-5"></path>
+                  </svg>
+                </span>
               </p>
-              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 flex items-center justify-center">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.2"
-                  class="w-5 h-5 text-gray-500"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M18 6L6 18M6 6l12 12"></path>
-                </svg>
-              </p>
-              <p class="text-gray-600 text-center h-12 flex items-center justify-center">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.2"
-                  class="w-5 h-5 text-gray-500"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M18 6L6 18M6 6l12 12"></path>
-                </svg>
-              </p>
-              <p class="bg-[#FBF4DB] rounded-br-lg text-gray-600 text-center h-12 flex items-center justify-center">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.2"
-                  class="w-5 h-5 text-gray-500"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M18 6L6 18M6 6l12 12"></path>
-                </svg>
-              </p>
+              <p class="bg-[#FBF4DB] text-gray-600 text-center h-12 text-sm flex items-center justify-center">
+              <span class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    class="w-3 h-3"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M20 6L9 17l-5-5"></path>
+                  </svg>
+                </span>
+              </p> 
               <div class="p-6 text-center    ">
-                
                 <p class="text-xs text-gray-500 mt-3">
-                  Literally you probably haven't heard of them jean shorts.
+                Eco-friendly folks looking to make a bigger difference by reducing their climate impact
                 </p>
               </div>
             </div>

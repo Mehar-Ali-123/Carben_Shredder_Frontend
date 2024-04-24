@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Stepper, Step, StepLabel, Select, MenuItem } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
+import { useNavigate } from "react-router-dom";
 
 const MultiStepForm = ({ onSubmit }) => {
+  const Navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
   const [values, setValues] = useState({
     age: "",
@@ -74,14 +76,15 @@ const MultiStepForm = ({ onSubmit }) => {
   };
   const carbonPrice = () => {
     const total = (carbonDebt() * 20).toFixed(2);
-    return isNaN(total) ? 0 : total;
+    const parsedTotal = isNaN(total) ? 0 : parseFloat(total);
+    localStorage.setItem("carbonPriceTotal", parsedTotal);
+    return parsedTotal;
   };
 
   // const countryPercentage = values.country * (percentage / 100);
 
   const handleSubmit = () => {
-    // onSubmit(values);
-    alert("You are ready to buy your Footprint !");
+    Navigate("/personal-profile");
   };
 
   const steps = [
@@ -309,38 +312,111 @@ const MultiStepForm = ({ onSubmit }) => {
         );
       case 6:
         return (
-          <div className="p-10 flex flex-col  justify-start md:justify-center items-center gap-5 ">
-            <h1 className="text-center">
-              Total adjustment factor <b>{adjustmentFactor()}%</b> <br />
-            </h1>
-            <h1 className="text-center">
-              Adjusted monthly footprint (CO2) <b>{monthlyFootprint()}</b>
-            </h1>
-            <h1 className="text-center">
-              Price for offsetting per month (EUR) <b>€{offsettingPrice()}</b>
-            </h1>
-            <h1 className="text-center">
-              Carbon debt <b>{carbonDebt()}</b>
-            </h1>
-            <h1 className="text-center">
-              Price for carbon debt (EUR) <b>€{carbonPrice()}</b>
-            </h1>
-            <div className="flex gap-10 justify-between items-center mt-10">
-              <button
-                className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
-                onClick={handleBack}
-              >
-                Back
-              </button>
+          <div>
+            {/* <div className="p-10 flex flex-col  justify-start md:justify-center items-center gap-5 ">
+              <h1 className="text-center">
+                Total adjustment factor <b>{adjustmentFactor()}%</b> <br />
+              </h1>
+              <h1 className="text-center">
+                Adjusted monthly footprint (CO2) <b>{monthlyFootprint()}</b>
+              </h1>
+              <h1 className="text-center">
+                Price for offsetting per month ( $ ) <b>${offsettingPrice()}</b>
+              </h1>
+              <h1 className="text-center">
+                Carbon debt <b>{carbonDebt()}</b>
+              </h1>
+              <h1 className="text-center">
+                Price for carbon debt ( $ ) <b>${carbonPrice()}</b>
+              </h1>
+              <div className="flex gap-10 justify-between items-center mt-10">
+                <button
+                  className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
+                  onClick={handleBack}
+                >
+                  Back
+                </button>
 
-              <button
-                variant="contained"
-                className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
-                onClick={handleSubmit}
-              >
-                Ready to buy
-              </button>
+                <button
+                  variant="contained"
+                  className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
+                  onClick={handleSubmit}
+                >
+                  Ready to buy
+                </button>
+              </div>
+            </div>  */}
+            
+            <div className="flex gap-3 justify-center mt-20">
+              <div className="flex gap-3 flex-col">
+                <p className=" w-[220px]  md:w-[350px]   bg-primary p-2 font-bold rounded-sm ">
+                  Description
+                </p>
+                <p className=" w-[220px]  md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
+                  Total adjustment factor
+                </p>
+                <p className=" w-[220px]  md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
+                  Adjusted monthly footprint (CO2)
+                </p>
+                <p className=" w-[220px]  md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
+                  Price for offsetting per month ( $ )
+                </p>
+                <p className=" w-[220px]  md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
+                  Carbon debt
+                </p>
+                <p className=" w-[220px]  md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
+                  Price for carbon debt
+                </p>
+                <button
+                  variant="contained"
+                  className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm   justify-center items-center w-[220px]  md:w-[350px] text-xs md:text-sm mt-5"
+                  onClick={handleSubmit}
+                >
+                  Ready to buy
+                </button>
+              </div>
+              <div className="text-center flex gap-3 flex-col">
+                <p className="w-[100px]  md:w-[150px]   bg-primary p-2  font-bold rounded-sm">
+                  Value
+                </p>
+                <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
+                {adjustmentFactor()}%
+                </p>
+                <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
+                {monthlyFootprint()}
+                </p>
+                <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
+                ${offsettingPrice()}
+                </p>
+                <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
+                {carbonDebt()}
+                </p>
+                <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
+                ${carbonPrice()}
+                </p>
+                <button
+                  className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm  justify-center items-center w-[100px]  md:w-[150px]  text-xs md:text-sm mt-5"
+                  onClick={handleBack}
+                >
+                  Back
+                </button>
+              </div>
             </div>
+            {/* <div className="flex gap-5 justify-center items-center mt-10 px-2"> 
+                <button
+                  variant="contained"
+                  className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm   justify-center items-center w-[220px]  md:w-[350px] text-xs md:text-sm"
+                  onClick={handleSubmit}
+                >
+                  Ready to buy
+                </button>
+                <button
+                  className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm  justify-center items-center w-[150px]"
+                  onClick={handleBack}
+                >
+                  Back
+                </button>
+              </div> */}
           </div>
         );
       default:
