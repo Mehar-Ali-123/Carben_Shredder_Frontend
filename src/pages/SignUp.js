@@ -92,9 +92,9 @@ function SignUp() {
         {/* <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img className="mx-auto h-70 w-48" src={Logo} alt="Your Company" />
         </div> */}
-         <p className="w-full text-center font-extrabold   text-3xl mt-5  flex justify-center gap-3" >
+         <h1 className="w-full text-center font-extrabold   text-3xl mt-5  flex justify-center gap-3" >
           <p className="text-primary">Sign Up</p> Carbon Shredder.
-        </p>
+        </h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mt-10">
             <div>

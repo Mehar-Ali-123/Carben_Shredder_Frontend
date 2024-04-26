@@ -1,5 +1,6 @@
 import React from "react";
 import Hero from "../components/Hero";
+import { Link } from "react-router-dom";
 
 export default function SubscriptionWorks() {
   return (
@@ -8,7 +9,7 @@ export default function SubscriptionWorks() {
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
             <h1 className=" text-5xl mb-20 text-black">
-            How our carbon subscription works
+              How our carbon subscription works
             </h1>
           </div>
         </div>
@@ -107,13 +108,13 @@ export default function SubscriptionWorks() {
               level that suits your goals:
             </p>
           </div>
-          <div className="grid  grid-cols-1 md:grid-cols-3 gap-10 ">
-            <div className=" bg-white shadow-lg rounded-lg w-full">
-              <div className="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
-                <h1 className="text-5xl text-gray-900 pb-4 mb-4 border-b border-gray-200 leading-none">
-                  Basic shredder
+          <div className="grid  grid-cols-1 md:grid-cols-3 gap-10">
+            <div className=" bg-white shadow-lg rounded-lg w-full transform transition-transform duration-300 ease-in-out hover:scale-105">
+              <div className="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col justify-between  relative overflow-hidden">
+                <h1 className="text-5xl text-gray-900 pb-4 mb-4 border-b border-gray-200  leading-none  text-center">
+                  <span> Basic shredder </span>
                 </h1>
-                <p className="text-sm text-black my-3 ">
+                <p className="text-sm text-black my-3  text-center ">
                   Ideal for individuals taking their first step in carbon
                   offsetting. This plan offsets up to 50% of your estimated
                   monthly carbon emissions.
@@ -166,15 +167,31 @@ export default function SubscriptionWorks() {
                   </span>
                   Email support for any queries
                 </p>
+                <Link to="/personal-profile">
+                  <button className="flex gap-3 justify-center items-center bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded w-full">
+                    Start Plan
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      className="w-4 h-4 ml-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </button> 
+                </Link>
               </div>
             </div>
-            <div className=" bg-white shadow-lg rounded-lg w-full">
-              <div className="h-full p-6 rounded-lg border-2 border-primary flex flex-col relative overflow-hidden">
-                <h1 className="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
+            <div className=" bg-white shadow-lg rounded-lg w-full transform transition-transform duration-300 ease-in-out hover:scale-105">
+              <div className="h-full p-6 rounded-lg border-2 border-primary flex flex-col justify-between  relative overflow-hidden">
+                <h1 className="text-5xl text-gray-900  leading-none  text-center flex items-center pb-4 mb-4 border-b border-gray-200">
                   <span>Standard shredder</span>
                 </h1>
 
-                <p className="text-sm text-black my-3">
+                <p className="text-sm text-black my-3  text-center">
                   Perfect for those committed to fully neutralizing their carbon
                   footprint. This plan offsets 100% of your estimated monthly
                   emissions.
@@ -212,15 +229,31 @@ export default function SubscriptionWorks() {
                   with the added benefit of achieving carbon neutrality each
                   month.
                 </p>
+                <Link to="/personal-profile">
+                  <button className="flex gap-3 justify-center items-center bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded w-full">
+                    Start Plan
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      className="w-4 h-4 ml-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </button> 
+                </Link>
               </div>
             </div>
-            <div className="bg-white shadow-lg rounded-lg w-full">
-              <div className="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
-                <h1 className="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
+            <div className="bg-white shadow-lg rounded-lg w-full transform transition-transform duration-300 ease-in-out hover:scale-105">
+              <div className="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden justify-between ">
+                <h1 className="text-5xl text-gray-900  leading-none  text-center flex items-center pb-4 mb-4 border-b border-gray-200">
                   <span>Ultimate shredder</span>
                 </h1>
 
-                <p className="text-sm text-black my-3">
+                <p className="text-sm text-black my-3  text-center">
                   For the environmentally conscious looking to make a greater
                   impact. This plan offsets more than your monthly emissions,
                   contributing to reducing your overall climate debt.
@@ -274,12 +307,28 @@ export default function SubscriptionWorks() {
                   but with the focus on making a more substantial impact by
                   offsetting 200% of your monthly emissions.
                 </p>
+                <Link to="/personal-profile ">
+                  <button className="flex gap-3 justify-center items-center bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded w-full ">
+                    Start Plan
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      className="w-4 h-4 ml-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </button> 
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <Hero/>
+      <Hero />
     </>
   );
 }

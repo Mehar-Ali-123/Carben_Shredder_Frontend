@@ -54,17 +54,24 @@ localStorage.setItem("authToken", "");
         }
       >
         <div className="container-fluid mx-0 flex flex-wrap p-3 flex-col md:flex-row items-center justify-between   w-[100%] py-1 ">
-          <div className="hidden lg:flex   container-fluid mx-0  flex-wrap p-3 flex-col md:flex-row items-center justify-between   w-[100%] py-1 ">
-            <nav className="hidden lg:flex  flex-col lg:flex-row   mt-3 lg:mt-0 lg:w-[45%] lg:items-center lg:justify-center ">
+          <div className="  hidden lg:flex   container-fluid mx-0  flex-wrap p-3 flex-col md:flex-row items-center justify-between   w-[100%] py-1 ">
+          <Link
+              to="/"
+              className="flex title-font w-[200px] font-medium items-center justify-center text-gray-900 mb-4 md:mb-0  "
+            >
+              <img src={Logo} className="w-[95px] h-[95px]" alt="Logo" />
+            </Link>
+
+            <nav className="hidden lg:flex mx-auto   flex-col lg:flex-row   mt-3 lg:mt-0 lg:w-[45%] lg:items-center lg:justify-center ">
               <Link
                 to="/"
-                className="mr-4 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline mx-0 px-0"
+                className="mr-5 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline mx-0 px-0"
               >
-                Home
+               <span> Home</span>
               </Link>
               <Menu className="relative" as="div">
                 <Link to="/how-it-works">
-                  <Menu.Button className="mr-4 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline flex flex-row items-center gap-2">
+                  <Menu.Button className="mr-5 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline flex flex-row items-center gap-2">
                     <span>How it works</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +79,7 @@ localStorage.setItem("authToken", "");
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-6 h-6"
+                      className="w-5 h-5"
                     >
                       <path
                         strokeLinecap="round"
@@ -131,28 +138,28 @@ localStorage.setItem("authToken", "");
 
               <Link
                 to="/about"
-                className="mr-4 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline"
+                className="mr-5 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline"
               >
-                Our mission
+               <span className="hover:text-primary hover:underline"> Our Mission </span>
               </Link>
               <Link
                 to="/contact"
-                className="mr-4 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline"
+                className="mr-5 text-black text-2xl md:text-[18px] font-medium text-center "
               >
-                Connect
+              <span className="hover:text-primary hover:underline">Connect</span>
               </Link>
               {isAuthenticated == "true" ? (
                 <Menu className="relative" as="div">
-                  <Link to="/how-it-works">
-                    <Menu.Button className="mr-4 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline flex flex-row items-center gap-2">
-                      <span>Profile</span>
+                  <Link  >
+                    <Menu.Button className="mr-5 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline flex flex-row items-center gap-2">
+                      <span className="hover:text-primary hover:underline">Profile</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        className="w-6 h-6"
+                        className="w-5 h-5"
                       >
                         <path
                           strokeLinecap="round"
@@ -187,21 +194,15 @@ localStorage.setItem("authToken", "");
               ) : (
                 <Link
                   to="/sign-in"
-                  className="mr-4 text-black text-xl md:text-[18px] font-medium text-center hover:text-primary hover:underline"
+                  className="mr-5 text-black text-xl md:text-[18px] font-medium text-center"
                 >
-                  Sign In
+                 <span className=" hover:text-primary hover:underline"> Sign In</span>
                 </Link>
               )}
             </nav>
 
-            <Link
-              to="/"
-              className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
-            >
-              <img src={Logo} className="w-[90px] h-[90px]" alt="Logo" />
-            </Link>
-
-            <div className="w-[45%] flex justify-end">
+          
+            <div className="w-[200px] flex justify-end ">
               <Link to="/calculator">
                 <button className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center">
                   Start shredding
@@ -282,7 +283,7 @@ localStorage.setItem("authToken", "");
                 <li className="w-[100%] hover:bg-[#FBF4DB] p-2">
                   <Menu className="relative" as="div">
                     <Link to="/how-it-works">
-                      <Menu.Button className="mr-4 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline flex flex-row items-center gap-2">
+                      <Menu.Button className="mr-5 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline flex flex-row items-center gap-2">
                         <span>How it works</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -290,7 +291,7 @@ localStorage.setItem("authToken", "");
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="currentColor"
-                          className="w-6 h-6"
+                          className="w-5 h-5"
                         >
                           <path
                             strokeLinecap="round"

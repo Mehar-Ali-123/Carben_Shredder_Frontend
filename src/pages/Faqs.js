@@ -7,19 +7,15 @@ export default function Faqs() {
       <section className="h-96  bg-primary bg-opacity-10">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
-            <h1 className=" text-5xl mb-20 text-black">
-              Frequently asked questions
+            
+            <h1 className="text-black text-3xl md:text-5xl leading-[50px] text-center capitalize mb-20 ">
+              Frequently asked <span className="text-primary">questions</span>
             </h1>
           </div>
         </div>
       </section>
-      <div className="container mx-auto px-5 py-20">
-        <div className="flex flex-col">
-          <div className="max-w-5xl mx-auto">
-            <h1 className="text-black text-3xl md:text-[40px] leading-[50px] text-center ">
-              Frequently asked <span className="text-primary">questions</span>
-            </h1>
-          </div>
+      <div className="container mx-auto px-5 py-10">
+        <div className="flex flex-col"> 
           <div className="flex flex-row ">
             <div className="basis-full  py-10 flex flex-col max-w-4xl mx-auto">
               <Disclosure
@@ -37,7 +33,7 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring items-center  `}
                     >
-                      <span>1. What is Carbon Shredder?</span>
+                      <span className="capitalize">1. What is Carbon Shredder?</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -80,7 +76,7 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring   `}
                     >
-                      <span>
+                      <span className="capitalize">
                         2. How does the carbon footprint calculator work?
                       </span>
                       <svg
@@ -126,7 +122,7 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring   `}
                     >
-                      <span>
+                      <span className="capitalize">
                         3. What are carbon offsets, and how do they work?
                       </span>
                       <svg
@@ -172,7 +168,7 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring   `}
                     >
-                      <span>4. How do I choose a subscription plan?</span>
+                      <span className="capitalize">4. How do I choose a subscription plan?</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -214,7 +210,7 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring   `}
                     >
-                      <span>5. Is my financial information secure?</span>
+                      <span className="capitalize">5. Is my financial information secure?</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -255,7 +251,7 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring   `}
                     >
-                      <span>6. Can I change or cancel my subscription?</span>
+                      <span className="capitalize">6. Can I change or cancel my subscription?</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -296,7 +292,7 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring   `}
                     >
-                      <span>
+                      <span className="capitalize">
                         7. How do you ensure the effectiveness of the offset
                         projects?
                       </span>

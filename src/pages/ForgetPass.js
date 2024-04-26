@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form"; // Import react-hook-form
 import axios from "axios"; // Import Axios for API calls
 import { server } from "../server";
 import Loader from "../components/Loader/Loader";
+import { toast } from "react-toastify";
 
 function ForgetPass() {
   const [otpField, setOtpField] = useState(false);
@@ -12,6 +13,7 @@ function ForgetPass() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
     watch,
     setValue,
@@ -43,9 +45,22 @@ function ForgetPass() {
         confirmPassword: data.confirmPassword,
       });
       console.log(response.data);
+      reset(); 
+      toast.success("Successfully Changed password", {
+        autoClose: 1000,
+        style: {
+          marginTop: "100px",
+        },
+      });
       setLoader(false)
     } catch (error) {
       console.error("Error setting new password:", error);
+      toast.error("Error setting new password", {
+        autoClose: 3000,
+        style: {
+          marginTop: "100px",
+        },
+      });
       setLoader(false)
     }
   };
@@ -53,10 +68,10 @@ function ForgetPass() {
   return (
     <>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 mt-52">
-        <p className="w-full text-center font-extrabold text-3xl mt-5 flex justify-center gap-3">
+        <h1 className="w-full text-center font-extrabold text-3xl mt-5 flex justify-center gap-3">
           <p className="text-primary">Set Password</p>
           <p>to unlock Carbon Shredder.</p>
-        </p>
+        </h1>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           {!otpField ? (
             <form className="space-y-6" onSubmit={handleSubmit(handleSendOtp)}>

@@ -1,9 +1,10 @@
 import React from "react";
-import CalculatorForm from "../components/CalculatorForm";
+import CalculatorForm from "../components/CalculatorForm"; 
 
 export default function Calculator() {
   return (
-    <>
+    <> 
+
       <section className=" h-96 bg-primary bg-opacity-10">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">

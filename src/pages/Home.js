@@ -9,18 +9,13 @@ import Impact from '../components/Impact'
 import OurMission from '../components/OurMission'
 import Illustration from "../components/Illustration.js" 
 import PlaidIntegeration from "../components/PlaidIntegeration.js"
+import { Helmet } from 'react-helmet-async'
 export default function Home() {
   return (
-    <>
+    <> 
     <Hero/>
     <PlaidIntegeration/>
-    <OurMission OurMission="Our mission is to offer you a comprehensive platform for tracking
-              and offsetting carbon emissions, tailored to your lifestyle. We
-              want to provide real-time insights into the carbon costs
-              associated with your decisions. Join us on our journey to improve
-              the accuracy of our carbon footprint estimates and provide you
-              with the right information to make informed decisions based on the
-              true (carbon included) cost of products and services"/>
+    <OurMission OurMission="Our mission is to offer customers ease of mind by providing an easy way to track and offset carbon emissions, tailored to your lifestyle."/>
     <GuideSteps/>
     <StartedSection/>
     <Impact/>

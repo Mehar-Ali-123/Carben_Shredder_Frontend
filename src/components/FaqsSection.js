@@ -1,7 +1,18 @@
 import { Disclosure } from "@headlessui/react";
 import Cal from "../assets/images/cal.png";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function FaqsSection() {
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: false,
+    });
+  }, []);
   return (
     <>
       <div className="container mx-auto px-5 py-20">
@@ -11,9 +22,9 @@ export default function FaqsSection() {
               Frequently asked <span className="text-primary">questions</span>
             </h1>
           </div>
-          <div className="flex flex-row ">
+          <div className="flex flex-row "  data-aos="zoom-out">
             <div className="basis-full  py-10 flex flex-col max-w-4xl mx-auto">
-              <Disclosure
+              {/* <Disclosure
                 className="border rounded-lg my-3"
                 as="div"
                 // style={{
@@ -196,7 +207,62 @@ export default function FaqsSection() {
                     </Disclosure.Panel>
                   </>
                 )}
+              </Disclosure> */}
+
+
+              <Disclosure
+                className="border rounded-lg my-3"
+                as="div"
+                // style={{
+                //   boxShadow:
+                //     "10px 10px 40px 0px rgba(0, 0, 0, 0.05), -10px -10px 40px 0px rgba(0, 0, 0, 0.05)",
+                // }}
+              >
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button
+                      className={`${
+                        open ? " text-black" : ""
+                      } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring  bg-primary bg-opacity-10 `}
+                    >
+                      <span>Want to know more?</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className={`${
+                          open ? " transform rotate-180" : ""
+                        } h-5 w-5 text-primary  `}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                        />
+                      </svg>
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="px-4  pt-4 text-base text-gray-500 bg-primary bg-opacity-10">
+                    <div className="pb-4 flex gap-3 justify-center items-center">
+                    <Link
+                        to="/faqs"
+                        className="text-primary underline p-2 border-2 border-primary  px-16 rounded-lg "
+                      >
+                        FAQ's
+                      </Link>
+                      <Link
+                        to="/contact"
+                        className="text-primary underline p-2 border-2 border-primary  px-16 rounded-lg "
+                      >
+                       Connect
+                      </Link>
+                    </div>
+                    </Disclosure.Panel>
+                  </>
+                )}
               </Disclosure>
+              
             </div>
             {/* <div className="basis-full md:basis-5/12">
               <img src={Cal} alt="" />

@@ -1,26 +1,26 @@
 import React from "react";
 import Hero from "../components/Hero";
-
+import  contactHero from "../assets/images/contactHero.jpg"
 export default function Contact() {
   return (
     <>
       <section
-        className="h-96  bg-primary bg-opacity-10 mt-10 md:mt-0"
-        // style={{ backgroundImage: `url(${PageHeader})` }}
+        className="h-96  bg-primary bg-opacity-10 mt-10 md:mt-0 bg-no-repeat "
+       
       >
         <div className="conatiner mx-auto px-4 h-full ">
           <div className="flex flex-col justify-end items-center h-full">
-            <h1 className=" text-5xl mb-20 text-black">
+            <h1 className=" text-5xl mb-20 text-black capitalize">
               Contact our support team
             </h1>
           </div>
         </div>
       </section>
       <section>
-        <div className="container mx-auto py-20 max-w-3xl   p-4">
+        <div className="container mx-auto py-20 max-w-4xl   p-4">
           <div className="flex flex-col items-center justify-center">
-            <h1 className="text-2xl ">Get in Touch with Carbon Shredder</h1>
-            <p className="text-lg leading-10  text-start md:text-center">
+              <h1 className="text-2xl capitalize   ">Get In Touch With Our Support Team Here At Carbon Shredder.</h1>
+            <p className="text-lg py-5 text-start md:text-center">
               We're here to help you with a smaller carbon footprint. Whether
               you have questions, need support, or want to share your thoughts,
               we'd love to hear from you.
@@ -36,7 +36,7 @@ export default function Contact() {
                 <li className="flex gap-5  ">
                   <div className="flex justify-center items-center "></div>
                   <div className=" ">
-                    <h1 className="text-2xl ">General inquiries: </h1>
+                      <h1 className="text-2xl capitalize">General inquiries: </h1>
                     <p className="text-lg leading-10">
                       For any general questions about Carbon Shredder, our
                       services, or how we can assist you, please feel free to
@@ -47,7 +47,7 @@ export default function Contact() {
                 <li className="flex gap-5">
                   <div className="flex justify-center items-center"></div>
                   <div>
-                    <h1 className="text-2xl ">Support requests: </h1>
+                      <h1 className="text-2xl capitalize ">Support requests: </h1>
                     <p className="text-lg leading-10">
                       If you're encountering issues or need assistance with our
                       calculator or subscription service, our dedicated team is
@@ -58,7 +58,7 @@ export default function Contact() {
                 <li className="flex gap-5">
                   <div className="flex justify-center items-center"></div>
                   <div>
-                    <h1 className="text-2xl ">Feedback and suggestions: </h1>
+                      <h1 className="text-2xl capitalize ">Feedback and suggestions: </h1>
                     <p className="text-lg leading-10">
                       Your feedback is invaluable to us. If you have
                       suggestions, ideas, or feedback on how we can improve,
@@ -69,7 +69,7 @@ export default function Contact() {
                 <li className="flex gap-5">
                   <div className="flex justify-center items-center"></div>
                   <div>
-                    <h1 className="text-2xl ">Stay connected: </h1>
+                      <h1 className="text-2xl capitalize ">Stay connected: </h1>
                     <p className="text-lg leading-10">
                       Follow us on our social media channels to stay updated on
                       the latest news, tips, and insights in carbon reduction
@@ -135,9 +135,9 @@ export default function Contact() {
                 </span>
               </div>
             </div>
-            <div className="basis-full md:basis-6/12 ">
+            <div className="basis-full md:basis-6/12  bg-[#DBEDEA] p-4 rounded-lg">
               <form className="  flex flex-col">
-                <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
+                <h2 className="text-gray-900 text-lg mb-1 font-medium title-font capitalize">
                   Contact form
                 </h2>
                 <p className="leading-relaxed mb-5 text-black">
@@ -225,7 +225,7 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <h1 className="text-2xl ">Address</h1>
+                      <h1 className="text-2xl capitalize ">Address</h1>
                     <p className="text-lg leading-10">
                       Cecilia Chapman 711-2880 Nulla St.
                     </p>
@@ -249,7 +249,7 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <h1 className="text-2xl ">Phone</h1>
+                      <h1 className="text-2xl capitalize ">Phone</h1>
                     <p className="text-lg leading-10">+1 (866)-838-5838</p>
                   </div>
                 </li>
@@ -271,7 +271,7 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <h1 className="text-2xl ">Email</h1>
+                      <h1 className="text-2xl capitalize ">Email</h1>
                     <p className="text-lg leading-10">
                       info@carbonshredder.com
                     </p>

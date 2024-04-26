@@ -1,9 +1,9 @@
 import React from "react";
-import Hero from "../components/Hero"
+import Hero from "../components/Hero" 
 
 export default function CalculatorWorks() {
   return (
-    <>
+    <> 
       <section className="h-96  bg-primary bg-opacity-10 mt-40 md:mt-0">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
@@ -53,7 +53,7 @@ export default function CalculatorWorks() {
                     </svg> */}
                   </div>
                   <p className="text-lg text-black block  md:w-auto  ">
-                    <b> Age and location:</b> Initially, the calculator requires
+                    <b> Age And Location:</b> Initially, the calculator requires
                     your age and country of residence. Your age is crucial in
                     estimating your past emissions. The calculator uses
                     age-specific data to determine the average emissions you
@@ -195,8 +195,8 @@ export default function CalculatorWorks() {
                   emission factors that represent the average emissions (in kg
                   CO2 equivalent) associated with each activity or choice.
                 </p>
-                <p className="text-lg text-black">
-                  <b> Baseline and Adjustments:</b> The tool starts with a
+                <p className="text-lg text-black pt-2">
+                  <b> Baseline And Adjustments:</b> The tool starts with a
                   baseline of average per capita emissions for your country. It
                   then adjusts this baseline based on your age, historical
                   emissions data, and current lifestyle choices.
@@ -220,12 +220,12 @@ export default function CalculatorWorks() {
               </div>
               <div className=" w-full md:basis-8/12  ">
                 <p className="text-lg text-black">
-                  <b> Combining historical and current data: </b>The calculator
+                  <b> Combining Historical And Current Data: </b>The calculator
                   not only provides an estimate of your current annual carbon
                   footprint but also integrates the historical emissions based
                   on your age.
                 </p>
-                <p className="text-lg text-black">
+                <p className="text-lg text-black pt-2">
                   <b> Final Footprint: </b>The result is a comprehensive
                   estimation of your total carbon footprint, expressed in
                   equivalent tons of carbon dioxide (tCO2e).

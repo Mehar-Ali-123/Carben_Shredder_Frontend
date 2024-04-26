@@ -1,18 +1,23 @@
-import React, { useEffect, useState } from "react";
-import profilePic from "../assets/images/founder-img.jpeg";
+import React, { useContext, useEffect, useState } from "react";
+import profilePic from "../assets/images/unknownAvatar.png";
 import { Link } from "react-router-dom";
 import ProfileChart from "../components/ProfileChart";
 import SubcriptionCard from "../components/SubcriptionCard";
 import axios from "axios";
 import { backend_url, server } from "../server";
+import LoaderContext from "../components/LoaderContext.js/LoaderContext";
+import { toast } from "react-toastify";
 
 function PersonalProfile() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
+  // const { isLoading, setIsLoading } = useContext(LoaderContext);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
+        console.log(loading);
         const authToken = localStorage.getItem("authToken");
         if (!authToken) {
           throw new Error("Authentication token not found");
@@ -24,11 +29,19 @@ function PersonalProfile() {
           },
         });
         const { user } = response.data;
-        console.log(user)
+        console.log(user);
         setUserData(user);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching user data:", error);
+        if (error) {
+          toast.error("Please login to continue", {
+            autoClose: 3000,
+            style: {
+              marginTop: "100px",
+            },
+          });
+        }
         setLoading(false);
       }
     };
@@ -36,7 +49,7 @@ function PersonalProfile() {
     fetchData();
   }, []);
   if (loading) {
-    return <div>Loading...</div>;
+    return <></>;
   }
   return (
     <>
@@ -47,20 +60,25 @@ function PersonalProfile() {
               <div class="bg-white shadow rounded-lg p-6">
                 <div class="flex flex-col items-center">
                   <img
-                    src={`${backend_url}/${userData.avatar}`}
-                    class=" object-cover w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
+                    src={
+                      userData
+                        ? `${backend_url}/${userData.avatar}`
+                        : profilePic
+                    }
+                    className="object-cover w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
+                    alt="Profile Pic"
                   />
 
                   <h1 class="text-xl font-bold">
-                    {userData.name || "Thijin Felix"}
+                    {userData ? userData.name : "Unknown"}
                   </h1>
                   <p class="text-gray-700">Carbon Shredder</p>
                   <div class="mt-6 flex flex-wrap gap-4 justify-center">
                     <Link
-                      to="/edit-profile"
+                      to={userData ? "/edit-profile" : "/sign-in"}
                       class="  text-white py-2 text-sm rounded-md w-44 text-center bg-primary px-4"
                     >
-                      Edit Profile     
+                      {userData ? "Edit Profile" : "Please Login"}
                     </Link>
                   </div>
                 </div>
@@ -79,10 +97,10 @@ function PersonalProfile() {
             </div>
             <div class="col-span-4 sm:col-span-9">
               <div class="bg-white shadow rounded-lg p-6">
-              <h2 class="text-3xl font-bold mb-4 ">Subcription Plan</h2>
+                <h2 class="text-3xl font-bold mb-4 ">Subcription Plan</h2>
                 <SubcriptionCard />
                 <h2 class="text-3xl font-bold mb-6 mt-20">Progress Chart</h2>
-                <ProfileChart /> 
+                <ProfileChart />
               </div>
             </div>
           </div>

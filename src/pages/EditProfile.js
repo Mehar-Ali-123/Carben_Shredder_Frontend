@@ -124,10 +124,14 @@ function EditProfile() {
   };
   return (
     <>
+   
       {userData && (
         <div className="flex justify-center items-center my-10  ">
           <div className="col-span-4 sm:col-span-3 mt-44 w-[90%]  ">
-            <div className="rounded-lg md:p-6 px-0   ">
+          <h1 className="w-full text-center font-extrabold   text-3xl mt-5 flex justify-center gap-3">
+          <p className="text-primary">Edit</p>your Carbon Shredder profile.
+        </h1>
+            <div className="rounded-lg md:p-6 px-0  mt-10 ">
               <div className="flex flex-col items-center">
                 <img
                   src={fileUrl || `${backend_url}/${userData.avatar}`}

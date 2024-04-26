@@ -2,11 +2,12 @@ import React from "react";
 import Step1 from "../assets/images/step-1.png";
 import Step2 from "../assets/images/step-2.png";
 import Step3 from "../assets/images/microplatics.png";
+import { Link } from "react-router-dom";
 
 export default function GuideSteps() {
   return (
     <>
-      <section className="bg-primary bg-opacity-10">
+      <section className="bg-primary bg-opacity-10 text-center">
       {/* 
         <div className="container mx-auto py-20 px-4">
           <div className="text-center">
@@ -100,7 +101,7 @@ export default function GuideSteps() {
         </p>
       </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div className="bg-white rounded-lg shadow-xl relative p-7 ">
+            <div className="bg-white rounded-lg shadow-xl relative p-7  hover:border-2 hover:border-primary">
               <div
                 style={{
                   backgroundImage: `linear-gradient(rgba(255, 255, 255, 08), rgba(255, 255, 255, 0.8)), url(${Step1})`,
@@ -110,33 +111,23 @@ export default function GuideSteps() {
                 <span className="h-7 w-7 rounded-full border border-primary flex justify-center items-center p-5 text-sm bg-white absolute top-[-15px] left-[-15px]">
                   01
                 </span>
-                <h1 className="text-3xl md:text-[40px]  leading-[50px] mb-6">
+                <h1 className="text-3xl leading-[50px] mb-6 capitalize">
                   Estimate your carbon footprint
                 </h1>
                 <p className="text-lg">
-                  Take a simple quiz to estimate your carbon footprint based on
-                  your current and past lifestyle choices. The calculator
-                  adjusts a country-specific baseline to your choices in four
-                  key areas:
-                  <br />
-                  <br />
-                  1) Commute,
-                  <br />
-                  2) Travel,
-                  <br />
-                  3) Food, and
-                  <br />
-                  4) Home.
-                  <br />
-                  <br />
-                  Your carbon footprint measures the total amount of greenhouse
+                Take a quiz to estimate your carbon footprint based on your choices in four areas: Commute, Travel, Food, and Home. Your carbon footprint is the total amount of greenhouse gas emissions, expressed in equivalent tons of carbon dioxide, caused by you.
+                  <br /> 
+                  <br /> 
+                  {/* Your carbon footprint measures the total amount of greenhouse
                   gas emissions, both direct and indirect, caused by you. It is
-                  expressed in equivalent tons of carbon dioxide.
+                  expressed in equivalent tons of carbon dioxide. */}
+                 <p className="text-center text-primary underline text-xl">  <Link to="/calculator"><span>Learn more</span></Link></p> 
+          
                 </p>
                 {/*  <img src={Step1} className="text-center w-[90%]" alt="" />*/}
               </div>
             </div>
-            <div className="bg-white rounded-lg shadow-xl relative p-7 ">
+            <div className="bg-white rounded-lg shadow-xl relative p-7  hover:border-2 hover:border-primary">
               <div
                 style={{
                   backgroundImage: `linear-gradient(rgba(255, 255, 255, 08), rgba(255, 255, 255, 0.8)), url(${Step2})`,
@@ -146,20 +137,17 @@ export default function GuideSteps() {
                 <span className="h-7 w-7 rounded-full border border-primary flex justify-center items-center p-5 text-sm bg-white absolute top-[-15px] left-[-15px]">
                   02
                 </span>
-                <h1 className="text-3xl md:text-[40px]  leading-[50px] mb-6">
+                <h1 className="text-3xl   leading-[50px] mb-6 capitalize">
                 Shred your carbon footprint by subscribing to our monthly carbon
                 offset service.
               </h1>
               <p className="text-lg">
-                We partner with CNaught to purchase a diversified portfolio of
-                high-quality carbon credits that maximizes impact and mitigates
-                risk. CNaught's portfolio follows the science-based best
-                practices laid out in Oxford’s Principles for Carbon Offsetting.
+              Subscribe to monthly carbon offsets
               </p>
+              <p className="text-center text-primary underline text-xl">  <Link to="/personal-profile"><span>Learn more</span></Link></p> 
               </div>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-xl relative p-7 ">
+            </div> 
+            <div className="bg-white rounded-lg shadow-xl relative p-7  hover:border-2 hover:border-primary">
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(255, 255, 255, 08), rgba(255, 255, 255, 0.8)), url(${Step3})`,
@@ -169,13 +157,18 @@ export default function GuideSteps() {
               <span className="h-7 w-7 rounded-full border border-primary flex justify-center items-center p-5 text-sm bg-white absolute top-[-15px] left-[-15px]">
                 03
               </span>
-              <h1 className="text-3xl md:text-[40px]  leading-[50px] mb-6">
+              <h1 className="text-3xl capitalize leading-[50px] mb-6">
                 Track your carbon footprint and offsets.
               </h1>
               <p className="text-lg">
                 Keep track of your carbon footprint and determine the impact of
                 your offset efforts in your personalized carbon dashboard.
               </p>
+<br/>
+              <p className="text-lg">
+              Track Impact
+              </p>
+              <p className="text-center text-primary underline text-xl">  <Link to="/track-your-carbon-impact"><span>Learn more</span></Link></p> 
             </div>
           </div>
           </div>

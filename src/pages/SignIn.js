@@ -21,7 +21,7 @@ function SignIn() {
     try {
       const response = await axios.post(`${server}/login-user`, data);
 
-      if (response.status === 200 || 201) {
+      if (response.status === 200 || response.status === 201) { 
         console.log("Login successful");
         reset();
 
@@ -31,12 +31,15 @@ function SignIn() {
         localStorage.setItem("authToken", token);
 
         toast.success("Successful Login", {
-          autoClose: 3000,
+          autoClose: 1000,
           style: {
             marginTop: "100px",
           },
         });
         Navigate("/");
+      setTimeout(()=>{
+        window.location.reload();
+      },[1000])
         setLoader(false);
       } else {
         console.log("Error Server:");
@@ -59,9 +62,9 @@ function SignIn() {
         {/* <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img className="mx-auto h-70 w-48" src={Logo} alt="Your Company" />
         </div> */}
-        <p className="w-full text-center font-extrabold   text-3xl mt-5 flex justify-center gap-3">
+        <h1 className="w-full text-center font-extrabold   text-3xl mt-5 flex justify-center gap-3">
           <p className="text-primary">Sign In</p>to unlock Carbon Shredder.
-        </p>
+        </h1>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div>

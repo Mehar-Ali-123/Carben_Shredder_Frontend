@@ -1,15 +1,25 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Tab } from "@headlessui/react";
 import GlobeImg from "../assets/images/globe-image.png";
 import Project1 from "../assets/images/project-1.jpg";
 import Project2 from "../assets/images/project-2.jpeg";
 import Project3 from "../assets/images/project-3.png";
 import Project4 from "../assets/images/project-4.jpeg";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function Impact() {
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: false,
+    });
+  }, []);
+
   return (
     <>
-      <div className="overflow-hidden w-[100%]">
+      <div className="overflow-hidden w-[100%] bg-none">
         {/*<section className="text-gray-600 ">
         <div className="container px-5 pt-24 mx-auto">
     
@@ -103,7 +113,7 @@ export default function Impact() {
         </div>
       </section>*/}
 
-        <section className="text-gray-600">
+        <section className="text-gray-600" data-aos="zoom-in" >
           <div className="flex flex-col text-center w-full pt-20 pb-52 bg-primary bg-opacity-10">
             <h1 className="text-black text-3xl md:text-[40px] leading-[50px] text-center ">
               How it works
@@ -120,6 +130,12 @@ export default function Impact() {
                 src={GlobeImg}
               />
               <div className=" flex flex-col md:items-start md:text-left items-center text-center">
+              {/* <h1 className="text-black  text-2xl   ">
+              Our CNaught Partnership Helps You Offset Your Footprint
+        </h1> */}
+               <h1 className="text-black  text-3xl py-2   ">
+            Offset Portfolio:
+        </h1>
                 <p className=" text-black text-lg leading-relaxed">
                   We partner with CNaught to purchase a diversified portfolio of
                   high-quality carbon credits that is designed to maximize
@@ -134,7 +150,7 @@ export default function Impact() {
           </div>
         </section>
 
-        <section className="py-24">
+        <section className="py-24" data-aos="fade-right" >
           <div className="container mx-auto px-4">
             <Tab.Group>
               <div className="flex flex-row items-center flex-wrap">
