@@ -22,7 +22,7 @@ export default function FaqsSection() {
               Frequently asked <span className="text-primary">questions</span>
             </h1>
           </div>
-          <div className="flex flex-row "  data-aos="zoom-out">
+          <div className="flex flex-row "  data-aos="zoom-in">
             <div className="basis-full  py-10 flex flex-col max-w-4xl mx-auto">
               {/* <Disclosure
                 className="border rounded-lg my-3"

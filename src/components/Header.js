@@ -11,7 +11,7 @@ export default function Header() {
   const [color, setColor] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const isAuthenticated = localStorage.getItem("isAuthentication");
-  console.log(isAuthenticated)
+  console.log(isAuthenticated);
   const Navigate = useNavigate();
 
   const changeColor = () => {
@@ -35,9 +35,9 @@ export default function Header() {
         throw new Error("Authentication token not found");
       }
       const response = await axios.post(`${server}/logout`);
-localStorage.setItem("isAuthentication",false)
-localStorage.setItem("authToken", "");
-      if (response.status === 200) {  
+      localStorage.setItem("isAuthentication", false);
+      localStorage.setItem("authToken", "");
+      if (response.status === 200) {
         Navigate("/");
       }
     } catch (error) {
@@ -55,19 +55,18 @@ localStorage.setItem("authToken", "");
       >
         <div className="container-fluid mx-0 flex flex-wrap p-3 flex-col md:flex-row items-center justify-between   w-[100%] py-1 ">
           <div className="  hidden lg:flex   container-fluid mx-0  flex-wrap p-3 flex-col md:flex-row items-center justify-between   w-[100%] py-1 ">
-          <Link
+            <Link
               to="/"
               className="flex title-font w-[200px] font-medium items-center justify-center text-gray-900 mb-4 md:mb-0  "
             >
               <img src={Logo} className="w-[95px] h-[95px]" alt="Logo" />
             </Link>
-
-            <nav className="hidden lg:flex mx-auto   flex-col lg:flex-row   mt-3 lg:mt-0 lg:w-[45%] lg:items-center lg:justify-center ">
+            <nav className="hidden lg:flex mx-auto   flex-col lg:flex-row   mt-3 lg:mt-0 lg:w-[55%] lg:items-center lg:justify-center ">
               <Link
                 to="/"
                 className="mr-5 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline mx-0 px-0"
               >
-               <span> Home</span>
+                <span> Home</span>
               </Link>
               <Menu className="relative" as="div">
                 <Link to="/how-it-works">
@@ -140,19 +139,26 @@ localStorage.setItem("authToken", "");
                 to="/about"
                 className="mr-5 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline"
               >
-               <span className="hover:text-primary hover:underline"> Our Mission </span>
+                <span className="hover:text-primary hover:underline">
+                  {" "}
+                  Our Mission{" "}
+                </span>
               </Link>
               <Link
                 to="/contact"
                 className="mr-5 text-black text-2xl md:text-[18px] font-medium text-center "
               >
-              <span className="hover:text-primary hover:underline">Connect</span>
+                <span className="hover:text-primary hover:underline">
+                  Connect
+                </span>
               </Link>
               {isAuthenticated == "true" ? (
                 <Menu className="relative" as="div">
-                  <Link  >
+                  <Link>
                     <Menu.Button className="mr-5 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline flex flex-row items-center gap-2">
-                      <span className="hover:text-primary hover:underline">Profile</span>
+                      <span className="hover:text-primary hover:underline">
+                        Profile
+                      </span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -196,14 +202,16 @@ localStorage.setItem("authToken", "");
                   to="/sign-in"
                   className="mr-5 text-black text-xl md:text-[18px] font-medium text-center"
                 >
-                 <span className=" hover:text-primary hover:underline"> Sign In</span>
+                  <span className=" hover:text-primary hover:underline">
+                    {" "}
+                    Sign In
+                  </span>
                 </Link>
               )}
             </nav>
 
-          
             <div className="w-[200px] flex justify-end ">
-              <Link to="/calculator">
+              <Link to="/start-shredding">
                 <button className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center">
                   Start shredding
                   <svg
@@ -222,32 +230,53 @@ localStorage.setItem("authToken", "");
             </div>
           </div>
 
-          <div className="flex justify-between items-center w-[100%] lg:hidden">
-            <button className="hidden md:flex   text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center">
-              Start shredding
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-4 h-4 ml-1"
-                viewBox="0 0 24 24"
+          <div className="   flex justify-between items-center w-[100%] lg:hidden">
+         
+            <div className="flex md:hidden  w-auto md:w-[20%]  justify-center">
+              <Link
+                to="/"
+                className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
               >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
+                <img src={Logo} className="w-[90px] h-[90px]" alt="Logo" />
+              </Link>
+            </div>
+            <div className=" flex md:hidden  w-[40%]  justify-end">
+              <button onClick={() => setIsOpen(!isOpen)}>
+                <img src={menuicon} alt="Menu Icon" className="w-10  " />
+              </button>
+            </div>
 
-            <Link
-              to="/"
-              className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
-            >
-              <img src={Logo} className="w-[90px] h-[90px]" alt="Logo" />
-            </Link>
-
-            <button onClick={() => setIsOpen(!isOpen)}>
-              <img src={menuicon} alt="Menu Icon" className="w-10  " />
-            </button>
+          <div className=" hidden md:flex  w-[40%]  justify-start">
+              <button onClick={() => setIsOpen(!isOpen)}>
+                <img src={menuicon} alt="Menu Icon" className="w-10  " />
+              </button>
+            </div> 
+            <div className="hidden md:flex  w-auto md:w-[20%]  justify-center">
+              <Link
+                to="/"
+                className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+              >
+                <img src={Logo} className="w-[90px] h-[90px]" alt="Logo" />
+              </Link>
+            </div> 
+            <div className="hidden md:flex justify-end w-[40%]  ">
+            <Link to="/start-shredding">
+              <button className=" hidden md:flex   text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center">
+                Start shredding
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  className="w-4 h-4 ml-1"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+              </Link>
+            </div>
             <div
               style={{
                 position: "fixed",
@@ -262,12 +291,15 @@ localStorage.setItem("authToken", "");
                 alignItems: "start",
               }}
             >
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-2 absolute text-start px-11 bg-[#FBF4DB] w-[100%] font-semibold text-[30px]"
+             <Link className="p-2 absolute text-start px-11 bg-[#FBF4DB] w-[100%] font-semibold text-[30px] flex justify-between items-center"   onClick={() => setIsOpen(false)}>
+             <button className=""
               >
-                Back
-              </button>
+                Back    
+              </button> 
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+</svg>
+              </Link>
               <ul className="flex flex-col gap-5 md:gap-10 items-start p-10 w-[100%] mt-10">
                 <li
                   onClick={() => setIsOpen(false)}
@@ -283,15 +315,15 @@ localStorage.setItem("authToken", "");
                 <li className="w-[100%] hover:bg-[#FBF4DB] p-2">
                   <Menu className="relative" as="div">
                     <Link to="/how-it-works">
-                      <Menu.Button className="mr-5 text-black text-2xl md:text-[18px] font-medium text-center hover:text-primary hover:underline flex flex-row items-center gap-2">
-                        <span>How it works</span>
+                      <Menu.Button className="text-black text-2xl  md:text-3xl font-extrabold text-start hover:text-primary hover:underline mr-5   md:text-[18px]    flex flex-row items-center gap-2">
+                        How it works
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="currentColor"
-                          className="w-5 h-5"
+                          className="w-5 h-5 "
                         >
                           <path
                             strokeLinecap="round"
@@ -399,6 +431,7 @@ localStorage.setItem("authToken", "");
               </ul>
             </div>
           </div>
+          <Link to="/start-shredding" className="w-[100%]">
           <button className="flex md:hidden w-[100%] mt-4  text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center">
             Start shredding
             <svg
@@ -413,6 +446,7 @@ localStorage.setItem("authToken", "");
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </button>
+          </Link>
         </div>
       </header>
       {showConfirmation && (

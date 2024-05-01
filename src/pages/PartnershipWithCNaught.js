@@ -7,14 +7,14 @@ export default function PartnershipWithCNaught() {
       <section className="h-96  bg-primary bg-opacity-10 mt-32 md:mt-0">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
-            <h1 className=" text-5xl mb-20 text-black">
+            <h1 className=" text-5xl mb-20 text-black text-center">
               How we source carbon offsets: Partnership with CNaught
             </h1>
           </div>
         </div>
       </section>
 
-      <section className="text-gray-600 body-font">
+      <section className="text-gray-600 body-font text-center">
         <div className="container mx-auto px-4 pb-3 md:pb-8 pt-8 md:pt-20 max-w-5xl">
           <p className="text-lg text-black">
             At Carbon Shredder, we are committed to making a significant impact

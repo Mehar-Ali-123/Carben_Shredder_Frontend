@@ -1,16 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import Hero from "../components/Hero";
-import  contactHero from "../assets/images/contactHero.jpg"
+import axios from "axios";
+import { useForm } from "react-hook-form";
+import { server } from "../server";
+import { toast } from "react-toastify";
 export default function Contact() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post(`${server}/contact`, data);
+      console.log(response.data);
+      toast.success("Message Sent Successfully", {
+        autoClose: 2000,
+        style: {
+          marginTop: "100px",
+        },
+      });
+      reset();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Message not Sent, Try Again", {
+        autoClose: 2000,
+        style: {
+          marginTop: "100px",
+        },
+      });
+    }
+  };
+
   return (
     <>
-      <section
-        className="h-96  bg-primary bg-opacity-10 mt-10 md:mt-0 bg-no-repeat "
-       
-      >
+      <section className="h-96  bg-primary bg-opacity-10 mt-10 md:mt-0 bg-no-repeat ">
         <div className="conatiner mx-auto px-4 h-full ">
           <div className="flex flex-col justify-end items-center h-full">
-            <h1 className=" text-5xl mb-20 text-black capitalize">
+            <h1 className=" text-5xl mb-20 text-black capitalize text-center">
               Contact our support team
             </h1>
           </div>
@@ -19,7 +48,9 @@ export default function Contact() {
       <section>
         <div className="container mx-auto py-20 max-w-4xl   p-4">
           <div className="flex flex-col items-center justify-center">
-              <h1 className="text-2xl capitalize   ">Get In Touch With Our Support Team Here At Carbon Shredder.</h1>
+            <h1 className="text-2xl capitalize   ">
+              Get In Touch With Our Support Team Here At Carbon Shredder.
+            </h1>
             <p className="text-lg py-5 text-start md:text-center">
               We're here to help you with a smaller carbon footprint. Whether
               you have questions, need support, or want to share your thoughts,
@@ -29,14 +60,14 @@ export default function Contact() {
         </div>
       </section>
       <section>
-        <div className="container mx-auto px-4">
+        <div className="container-fluid lg:container mx-auto px-4">
           <div className="flex flex-row py-0 pb-5 md:py-20 gap-20 flex-wrap md:flex-nowrap">
             <div className="basis-full md:basis-6/12 my-auto px-0 md:pr-10">
               <ul className="flex flex-col gap-8    w-[100%] md:w-auto">
                 <li className="flex gap-5  ">
                   <div className="flex justify-center items-center "></div>
                   <div className=" ">
-                      <h1 className="text-2xl capitalize">General inquiries: </h1>
+                    <h1 className="text-2xl capitalize">General inquiries: </h1>
                     <p className="text-lg leading-10">
                       For any general questions about Carbon Shredder, our
                       services, or how we can assist you, please feel free to
@@ -47,7 +78,7 @@ export default function Contact() {
                 <li className="flex gap-5">
                   <div className="flex justify-center items-center"></div>
                   <div>
-                      <h1 className="text-2xl capitalize ">Support requests: </h1>
+                    <h1 className="text-2xl capitalize ">Support requests: </h1>
                     <p className="text-lg leading-10">
                       If you're encountering issues or need assistance with our
                       calculator or subscription service, our dedicated team is
@@ -58,7 +89,9 @@ export default function Contact() {
                 <li className="flex gap-5">
                   <div className="flex justify-center items-center"></div>
                   <div>
-                      <h1 className="text-2xl capitalize ">Feedback and suggestions: </h1>
+                    <h1 className="text-2xl capitalize ">
+                      Feedback and suggestions:{" "}
+                    </h1>
                     <p className="text-lg leading-10">
                       Your feedback is invaluable to us. If you have
                       suggestions, ideas, or feedback on how we can improve,
@@ -69,7 +102,7 @@ export default function Contact() {
                 <li className="flex gap-5">
                   <div className="flex justify-center items-center"></div>
                   <div>
-                      <h1 className="text-2xl capitalize ">Stay connected: </h1>
+                    <h1 className="text-2xl capitalize ">Stay connected: </h1>
                     <p className="text-lg leading-10">
                       Follow us on our social media channels to stay updated on
                       the latest news, tips, and insights in carbon reduction
@@ -136,14 +169,7 @@ export default function Contact() {
               </div>
             </div>
             <div className="basis-full md:basis-6/12  bg-[#DBEDEA] p-4 rounded-lg">
-              <form className="  flex flex-col">
-                <h2 className="text-gray-900 text-lg mb-1 font-medium title-font capitalize">
-                  Contact form
-                </h2>
-                <p className="leading-relaxed mb-5 text-black">
-                  Fill out our easy-to-use contact form on this page. We aim to
-                  respond to all inquiries promptly.
-                </p>
+              <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
                 <div className="relative mb-4">
                   <label
                     htmlFor="name"
@@ -154,9 +180,16 @@ export default function Contact() {
                   <input
                     type="text"
                     id="name"
-                    name="name"
-                    className="w-full bg-white rounded border border-gray-300 focus:border-primary focus:ring-none text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    {...register("name", { required: "Name is required" })}
+                    className={`w-full bg-white rounded border ${
+                      errors.name ? "border-red-500" : "border-gray-300"
+                    } focus:border-primary focus:ring-none text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
                   />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.name.message}
+                    </p>
+                  )}
                 </div>
                 <div className="relative mb-4">
                   <label
@@ -168,10 +201,24 @@ export default function Contact() {
                   <input
                     type="email"
                     id="email"
-                    name="email"
-                    className="w-full bg-white rounded border border-gray-300 focus:border-primary focus:ring-none text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^\S+@\S+$/i,
+                        message: "Invalid email address",
+                      },
+                    })}
+                    className={`w-full bg-white rounded border ${
+                      errors.email ? "border-red-500" : "border-gray-300"
+                    } focus:border-primary focus:ring-none text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.email.message}
+                    </p>
+                  )}
                 </div>
+                {/* Message textarea with error handling */}
                 <div className="relative mb-4">
                   <label
                     htmlFor="message"
@@ -181,14 +228,28 @@ export default function Contact() {
                   </label>
                   <textarea
                     id="message"
-                    name="message"
-                    className="w-full bg-white rounded border border-gray-300 focus:border-primary focus:ring-none h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                    {...register("message", {
+                      required: "Message is required",
+                    })}
+                    className={`w-full bg-white rounded border ${
+                      errors.message ? "border-red-500" : "border-gray-300"
+                    } focus:border-primary focus:ring-none h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out`}
                     defaultValue={""}
                   />
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.message.message}
+                    </p>
+                  )}
                 </div>
-                <button className="text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg">
+                {/* Submit button */}
+                <button
+                  type="submit"
+                  className="text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg"
+                >
                   Submit
                 </button>
+                {/* Optional message about terms */}
                 <p className="text-xs text-gray-500 mt-3">
                   By clicking "Submit", you agree to our Terms of Service and
                   Privacy Policy.
@@ -198,87 +259,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
-      {/* <section></section> */}
       <Hero />
-      {/* <div className="basis-full md:basis-6/12 my-auto">
-              <ul className="flex flex-col gap-8 ">
-                <li className="flex gap-5">
-                  <div className="flex justify-center items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                      <h1 className="text-2xl capitalize ">Address</h1>
-                    <p className="text-lg leading-10">
-                      Cecilia Chapman 711-2880 Nulla St.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex gap-5">
-                  <div className="flex justify-center items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                      <h1 className="text-2xl capitalize ">Phone</h1>
-                    <p className="text-lg leading-10">+1 (866)-838-5838</p>
-                  </div>
-                </li>
-                <li className="flex gap-5">
-                  <div className="flex justify-center items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                      <h1 className="text-2xl capitalize ">Email</h1>
-                    <p className="text-lg leading-10">
-                      info@carbonshredder.com
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div> */}
     </>
   );
 }

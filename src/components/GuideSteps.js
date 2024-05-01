@@ -100,7 +100,7 @@ export default function GuideSteps() {
           Shred your carbon
         </p>
       </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             <div className="bg-white rounded-lg shadow-xl relative p-7  hover:border-2 hover:border-primary">
               <div
                 style={{

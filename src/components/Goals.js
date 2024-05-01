@@ -21,7 +21,7 @@ export default function Goals() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-10">
             <div className="flex justify-center items-center">
-              <h1 className="text-3xl   leading-10 ">
+              <h1 className="text-2xl md:text-3xl   leading-10 text-center">
                 Track & Offset Your Carbon Emissions
               </h1>
             </div>
@@ -69,7 +69,7 @@ export default function Goals() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-10">
             <div className="flex justify-center items-center">
-              <h1 className="text-3xl   leading-10 ">
+              <h1 className="text-2xl md:text-3xl text-center  leading-10 ">
                 Our Core Values That Drive Positive Impact
               </h1>
             </div>

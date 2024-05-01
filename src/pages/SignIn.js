@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -8,7 +8,7 @@ import Loader from "../components/Loader/Loader";
 
 function SignIn() {
   const Navigate = useNavigate();
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(false); 
   const {
     register,
     reset,
@@ -21,14 +21,19 @@ function SignIn() {
     try {
       const response = await axios.post(`${server}/login-user`, data);
 
-      if (response.status === 200 || response.status === 201) { 
+      if (response.status === 200 || response.status === 201) {
         console.log("Login successful");
         reset();
-
         console.log(response.data);
+
         const { token } = response.data;
+        const { user } = response.data;
+
         console.log("authToken", token);
         localStorage.setItem("authToken", token);
+
+        localStorage.setItem("userName", user.name);
+        localStorage.setItem("userEmail", user.email);
 
         toast.success("Successful Login", {
           autoClose: 1000,
@@ -37,9 +42,9 @@ function SignIn() {
           },
         });
         Navigate("/");
-      setTimeout(()=>{
-        window.location.reload();
-      },[1000])
+        setTimeout(() => {
+          window.location.reload();
+        }, [1000]);
         setLoader(false);
       } else {
         console.log("Error Server:");
@@ -56,6 +61,7 @@ function SignIn() {
       });
     }
   };
+
   return (
     <>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 mt-52">

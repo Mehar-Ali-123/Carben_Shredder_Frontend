@@ -6,7 +6,7 @@ export default function TrackYourCarbonImpact() {
       <section className="h-96  bg-primary bg-opacity-10 mt-28 md:mt-0">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
-            <h1 className=" text-5xl mb-20 text-black">
+            <h1 className=" text-5xl mb-20 text-black text-center">
             How to track your carbon impact
             </h1>
           </div>
@@ -30,7 +30,7 @@ export default function TrackYourCarbonImpact() {
             <span className="absolute -left-[14px] h-6 w-6 ml-3 rounded-full bg-primary"></span>
             <div className="flex flex-row  gap-5 flex-wrap md:flex-nowrap   w-full  ">
               <div className="md:md:basis-4/12 w-full  ">
-                <div className="w-full border-2 ">
+                <div className="w-full ">
                   <p className="text-lg pb-3  text-primary">Step 1</p> 
                   <h1 className="text-2xl font-semibold ">
                   Accessing your personalized dashboard
@@ -92,17 +92,17 @@ export default function TrackYourCarbonImpact() {
               </div>
               <div className="w-full  md:basis-8/12">
               <p className="text-lg mb-4">
-              <b> Offset subscriptions: </b>Track your current subscription
+              <b> Offset Subscriptions: </b>Track your current subscription
               level (Less, Equal, More) and see how much carbon you're
               offsetting each month.
             </p>
             <p className="text-lg mb-4">
-              <b> Progress over time: </b>Monitor the progress you’ve made in
+              <b> Progress Over Time: </b>Monitor the progress you’ve made in
               reducing your “climate debt” by offsetting more than your
               monthly emissions.
             </p>
             <p className="text-lg mb-4">
-              <b> Offset impact:</b> Understand the impact of your offsets
+              <b> Offset Impact:</b> Understand the impact of your offsets
               with detailed information on the projects you're supporting
               through your subscription.
             </p>
@@ -125,12 +125,12 @@ export default function TrackYourCarbonImpact() {
               </div>
               <div className="w-full  md:basis-8/12">
               <p className="text-lg mb-4">
-              <b> Emission reduction certificates:</b> For each period of
+              <b> Emission Reduction Certificates:</b> For each period of
               offsetting, receive a certificate detailing your contribution to
               carbon offset projects.
             </p>
             <p className="text-lg mb-4">
-              <b> Detailed reports:</b> Access comprehensive reports that
+              <b> Detailed Reports:</b> Access comprehensive reports that
               break down your emissions and offsetting activities, perfect for
               personal record-keeping or sharing with others.
             </p>

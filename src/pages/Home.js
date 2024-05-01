@@ -10,10 +10,11 @@ import OurMission from '../components/OurMission'
 import Illustration from "../components/Illustration.js" 
 import PlaidIntegeration from "../components/PlaidIntegeration.js"
 import { Helmet } from 'react-helmet-async'
+import StartShredding from '../components/StartShredding.js'
 export default function Home() {
   return (
     <> 
-    <Hero/>
+    <Hero/> 
     <PlaidIntegeration/>
     <OurMission OurMission="Our mission is to offer customers ease of mind by providing an easy way to track and offset carbon emissions, tailored to your lifestyle."/>
     <GuideSteps/>

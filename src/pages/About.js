@@ -176,7 +176,7 @@ export default function About() {
             </h1>
           </div>
         <div className="  flex justify-center ">
-        <div className="  w-[70%] grid grid-cols-1 md:grid-cols-3  place-items-center gap-10">
+        <div className="  w-[95%] lg:w-[70%] grid grid-cols-1 md:grid-cols-3  place-items-center gap-10">
             <div className="  duration-300 font-mono text-white group cursor-pointer relative overflow-hidden bg-primary w-28 h-48 dark:bg-[#22272B] rounded-3xl p-4 hover:w-80 hover:h-80   hover:bg-[#B2D650]">
               <h3 className="text-xl text-center">Stay informed</h3>
               <div className="gap-4 relative">
@@ -231,7 +231,7 @@ export default function About() {
               </div>
               <div className="invisible group-hover:visible absolute duration-300 -left-64 mt-14 group-hover:left-0 p-5 w-full text-center">
                 <p className="text-md">
-                  {" "}
+                 
                   Your journey with Carbon Shredder is a story worth sharing.
                   Engage with our community, spread the word, and inspire others
                   to join the movement.

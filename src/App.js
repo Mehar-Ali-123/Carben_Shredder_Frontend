@@ -23,6 +23,7 @@ import ActivationPage from "./pages/ActivationPage";
 import axios from "axios";
 import { server } from "./server.js";
 import LoaderContext from "./components/LoaderContext.js/LoaderContext.js"; 
+import StartShredding from "./components/StartShredding.js";
  
 function App() {
   // const location = useLocation();
@@ -94,7 +95,8 @@ function App() {
               exact
               path="/personal-profile"
               element={<PersonalProfile />}
-            />
+            /> 
+            <Route exact path="/start-shredding" element={<StartShredding />} />
             <Route exact path="/edit-profile" element={<EditProfile />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/calculator" element={<Calculator />} />

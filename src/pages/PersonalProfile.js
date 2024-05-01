@@ -7,11 +7,12 @@ import axios from "axios";
 import { backend_url, server } from "../server";
 import LoaderContext from "../components/LoaderContext.js/LoaderContext";
 import { toast } from "react-toastify";
+import ErrorModal from "../components/ErrorModal";
 
 function PersonalProfile() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
-  // const { isLoading, setIsLoading } = useContext(LoaderContext);
+  const [errorModalOpen, setErrorModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +34,7 @@ function PersonalProfile() {
         setUserData(user);
         setLoading(false);
       } catch (error) {
+        setErrorModalOpen(true);
         console.error("Error fetching user data:", error);
         if (error) {
           toast.error("Please login to continue", {
@@ -48,6 +50,11 @@ function PersonalProfile() {
 
     fetchData();
   }, []);
+
+  const closeModal = () => {
+    setErrorModalOpen(false);
+  };
+
   if (loading) {
     return <></>;
   }
@@ -55,8 +62,8 @@ function PersonalProfile() {
     <>
       <div class="bg-gray-100 mt-48">
         <div class="container mx-auto py-8">
-          <div class="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">
-            <div class="col-span-4 sm:col-span-3">
+          <div class="grid grid-cols-4 lg:grid-cols-12 gap-6 px-4">
+            <div class="col-span-4 lg:col-span-3">
               <div class="bg-white shadow rounded-lg p-6">
                 <div class="flex flex-col items-center">
                   <img
@@ -84,7 +91,7 @@ function PersonalProfile() {
                 </div>
                 <hr class="my-6 border-t border-gray-300" />
                 <div class="flex flex-col">
-                  <span class="text-gray-700 text-justify font-semibolds tracking-wider mb-2">
+                  <span class="text-gray-700 text-center   font-semibolds tracking-wider mb-2">
                     At Carbon Shredder, we are not just a service; we are a
                     mission-driven movement. Our goal is to revolutionize the
                     way individuals and communities engage with their carbon
@@ -95,7 +102,7 @@ function PersonalProfile() {
                 </div>
               </div>
             </div>
-            <div class="col-span-4 sm:col-span-9">
+            <div class="col-span-4 lg:col-span-9">
               <div class="bg-white shadow rounded-lg p-6">
                 <h2 class="text-3xl font-bold mb-4 ">Subcription Plan</h2>
                 <SubcriptionCard />
@@ -106,6 +113,8 @@ function PersonalProfile() {
           </div>
         </div>
       </div>
+
+      <ErrorModal isOpen={errorModalOpen} closeModal={closeModal} />
     </>
   );
 }

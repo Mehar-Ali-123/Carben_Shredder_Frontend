@@ -113,7 +113,7 @@ export default function Impact() {
         </div>
       </section>*/}
 
-        <section className="text-gray-600" data-aos="zoom-in" >
+        <section className="text-gray-600" >
           <div className="flex flex-col text-center w-full pt-20 pb-52 bg-primary bg-opacity-10">
             <h1 className="text-black text-3xl md:text-[40px] leading-[50px] text-center ">
               How it works
@@ -125,6 +125,7 @@ export default function Impact() {
           <div className="container mx-auto  max-w-4xl -mt-28">
             <div className="flex px-5  md:flex-row flex-col items-center bg-white gap-10 rounded-lg shadow-lg p-10">
               <img
+              data-aos="zoom-in" 
                 className="object-cover object-center rounded w-52"
                 alt="hero"
                 src={GlobeImg}
@@ -154,7 +155,7 @@ export default function Impact() {
           <div className="container mx-auto px-4">
             <Tab.Group>
               <div className="flex flex-row items-center flex-wrap">
-                <div className="basis-full md:basis-4/12">
+                <div className="basis-full lg:basis-4/12">
                   <Tab.List className="flex flex-col gap-5">
                     <Tab as={Fragment}>
                       {({ selected }) => (
@@ -210,7 +211,7 @@ export default function Impact() {
                     </Tab>
                   </Tab.List>
                 </div>
-                <div className="basis-full md:basis-8/12 px-0 md:px-10 mt-7">
+                <div className="basis-full lg:basis-8/12 px-0 md:px-10 mt-7">
                   <Tab.Panels>
                     <Tab.Panel>
                       <h1 className="text-2xl">Emissions Reductions</h1>
