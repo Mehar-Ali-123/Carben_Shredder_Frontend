@@ -22,15 +22,16 @@ import EditProfile from "./pages/EditProfile.js";
 import ActivationPage from "./pages/ActivationPage";
 import axios from "axios";
 import { server } from "./server.js";
-import LoaderContext from "./components/LoaderContext.js/LoaderContext.js"; 
+import LoaderContext from "./components/LoaderContext.js/LoaderContext.js";
 import StartShredding from "./components/StartShredding.js";
- 
+import PlaidIntegration from "./components/PlaidIntegeration.js";
+import SubcriptionPage from "./pages/SubcriptionPage.js";
+import CnaughtCreateSubaccount from "./components/CnaughtCreationSuccess.js";
+
 function App() {
   // const location = useLocation();
   const [IsAuthenticated, setIsAuthenticated] = useState(false);
   const { isLoading, setIsLoading } = useContext(LoaderContext);
- 
-
 
   useEffect(() => {
     const fetchUserAuthStatus = async () => {
@@ -52,6 +53,8 @@ function App() {
         } else {
           setIsAuthenticated(false);
           localStorage.setItem("isAuthentication", false);
+          localStorage.setItem("userName", "unknown");
+          localStorage.setItem("userEmail", "unknown");
           console.log("User is not authenticated");
         }
       } catch (error) {
@@ -77,61 +80,52 @@ function App() {
   // }, [location.pathname]);
 
   return (
-    <> 
-        <div>
-          <Header />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            {/* <Route exact path="/home" element={<Home />} /> */}
-            <Route exact path="/sign-in" element={<SignIn />} />
-            <Route exact path="/sign-up" element={<SignUp />} />
-            <Route exact path="/forget-pass" element={<ForgetPass />} />
-            <Route
-              exact
-              path="/activation/:slug"
-              element={<ActivationPage />}
-            />
-            <Route
-              exact
-              path="/personal-profile"
-              element={<PersonalProfile />}
-            /> 
-            <Route exact path="/start-shredding" element={<StartShredding />} />
-            <Route exact path="/edit-profile" element={<EditProfile />} />
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/calculator" element={<Calculator />} />
-            <Route exact path="/contact" element={<Contact />} />
-            <Route exact path="/how-it-works" element={<HowItWorks />} />
-            <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route
-              exact
-              path="/terms-and-conditions"
-              element={<TermsAndConditions />}
-            />
-            <Route exact path="/faqs" element={<Faqs />} />
-            <Route
-              exact
-              path="/calculator-works"
-              element={<CalculatorWorks />}
-            />
-            <Route
-              exact
-              path="/subscription-works"
-              element={<SubscriptionWorks />}
-            />
-            <Route
-              exact
-              path="/track-your-carbon-impact"
-              element={<TrackYourCarbonImpact />}
-            />
-            <Route
-              exact
-              path="/partnership-with-cnaught"
-              element={<PartnershipWithCNaught />}
-            />
-          </Routes>
-          <Footer />
-        </div> 
+    <>
+      <div>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          {/* <Route exact path="/home" element={<Home />} /> */}
+          <Route exact path="/sign-in" element={<SignIn />} />
+          <Route exact path="/sign-up" element={<SignUp />} />
+          <Route exact path="/forget-pass" element={<ForgetPass />} />
+          <Route exact path="/activation/:slug" element={<ActivationPage />} />
+          <Route exact path="/personal-profile" element={<PersonalProfile />} />
+          <Route exact path="/start-shredding" element={<StartShredding />} />
+          <Route exact path="/edit-profile" element={<EditProfile />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/calculator" element={<Calculator />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/how-it-works" element={<HowItWorks />} />
+          <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route
+            exact
+            path="/terms-and-conditions"
+            element={<TermsAndConditions />}
+          />
+          <Route exact path="/faqs" element={<Faqs />} />
+          <Route exact path="/calculator-works" element={<CalculatorWorks />} />
+          <Route
+            exact
+            path="/subscription-works"
+            element={<SubscriptionWorks />}
+          />
+          <Route
+            exact
+            path="/track-your-carbon-impact"
+            element={<TrackYourCarbonImpact />}
+          />
+          <Route
+            exact
+            path="/partnership-with-cnaught"
+            element={<PartnershipWithCNaught />}
+          />
+          <Route exact path="/plaid-connect" element={<PlaidIntegration />} />
+          <Route exact path="/subcription-plan" element={<SubcriptionPage />} />
+          <Route exact path="/success-payment" element={<CnaughtCreateSubaccount />} />
+        </Routes>
+        <Footer />
+      </div>
     </>
   );
 }

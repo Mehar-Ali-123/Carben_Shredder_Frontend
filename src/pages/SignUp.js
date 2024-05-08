@@ -6,10 +6,11 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { server } from "../server";
 import Loader from "../components/Loader/Loader";
+import countryOptions from "../data";
 
 function SignUp() {
   const Navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState(null); 
+  const [selectedImage, setSelectedImage] = useState(null);
   const [loader, setLoader] = useState(false);
   const {
     register,
@@ -19,7 +20,7 @@ function SignUp() {
     formState: { errors },
   } = useForm();
   const password = watch("password");
-  
+
   const getCurrentDate = () => {
     const date = new Date();
     const day = date.getDate();
@@ -62,8 +63,8 @@ function SignUp() {
 
         toast.success("Sign Up successful! Redirecting to Login page.", {
           autoClose: 3000,
-          style: { 
-            marginTop:"100px" , 
+          style: {
+            marginTop: "100px",
           },
           onClose: () => {
             Navigate("/sign-in");
@@ -79,8 +80,8 @@ function SignUp() {
       setLoader(false);
       toast.error(error.response.data.error || error.message, {
         autoClose: 3000,
-        style: { 
-          marginTop:"100px" , 
+        style: {
+          marginTop: "100px",
         },
       });
     }
@@ -92,7 +93,7 @@ function SignUp() {
         {/* <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img className="mx-auto h-70 w-48" src={Logo} alt="Your Company" />
         </div> */}
-         <h1 className="w-full text-center font-extrabold   text-3xl mt-5  flex justify-center gap-3" >
+        <h1 className="w-full text-center font-extrabold   text-3xl mt-5  flex justify-center gap-3">
           <p className="text-primary">Sign Up</p> Carbon Shredder.
         </h1>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -142,7 +143,6 @@ function SignUp() {
             </div>
 
             <div>
-              
               <label
                 className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200"
                 htmlFor="password"
@@ -203,10 +203,12 @@ function SignUp() {
                   errors.country ? "border-red-500" : ""
                 }`}
               >
-                <option>Surabaya</option>
-                <option>Jakarta</option>
-                <option>Tangerang</option>
-                <option>Bandung</option>
+                <option value="">Select a country</option>
+                {countryOptions.map((country, index) => (
+                  <option key={index} value={country.label}>
+                    {country.label}
+                  </option>
+                ))}
               </select>
               {errors.country && (
                 <p className="text-red-500 text-sm mt-1">Country is required</p>
@@ -277,7 +279,7 @@ function SignUp() {
               type="submit"
               className="flex w-full justify-center rounded-md bg-text-primary px-3 py-1.5 text-sm font-semibold leading-6 bg-primary text-white shadow-md"
             >
-             {loader ? <Loader /> : " Sign Up"}
+              {loader ? <Loader /> : " Sign Up"}
             </button>
           </div>
         </form>

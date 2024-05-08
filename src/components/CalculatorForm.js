@@ -3,6 +3,7 @@ import { Stepper, Step, StepLabel, Select, MenuItem } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import { useNavigate } from "react-router-dom";
+import countryOptions from "../data";
 
 const MultiStepForm = ({ onSubmit }) => {
   const Navigate = useNavigate();
@@ -84,7 +85,7 @@ const MultiStepForm = ({ onSubmit }) => {
   // const countryPercentage = values.country * (percentage / 100);
 
   const handleSubmit = () => {
-    Navigate("/personal-profile");
+    Navigate("/subcription-plan");
   };
 
   const steps = [
@@ -121,18 +122,25 @@ const MultiStepForm = ({ onSubmit }) => {
               </Select>
             </FormControl>
 
-            <FormControl fullWidth>
+            <FormControl  fullWidth>
               <InputLabel id="Country">Country of Residence</InputLabel>
               <Select
                 name="country"
                 value={values.country}
                 onChange={handleChange}
                 label="Country of Residence"
+                MenuProps={{ PaperProps: { style: { maxHeight: 300, width: 250 } } }}
+              
               >
-                <MenuItem value="0.18">Albania</MenuItem>
-                <MenuItem value="0.308">Argentina</MenuItem>
-                <MenuItem value="0.208">Armenia</MenuItem>
-                <MenuItem value="1.192">Australia</MenuItem>
+                {countryOptions.map((option) => (
+                  <MenuItem
+                  
+                    key={option.value}
+                    value={option.value}
+                  >
+                    {option.label}
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
           </div>
@@ -346,7 +354,7 @@ const MultiStepForm = ({ onSubmit }) => {
                 </button>
               </div>
             </div>  */}
-            
+
             <div className="flex gap-3 justify-center mt-20">
               <div className="flex gap-3 flex-col">
                 <p className=" w-[220px]  md:w-[350px]   bg-primary p-2 font-bold rounded-sm ">
@@ -380,19 +388,19 @@ const MultiStepForm = ({ onSubmit }) => {
                   Value
                 </p>
                 <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
-                {adjustmentFactor()}%
+                  {adjustmentFactor()}%
                 </p>
                 <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
-                {monthlyFootprint()}
+                  {monthlyFootprint()}
                 </p>
                 <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
-                ${offsettingPrice()}
+                  ${offsettingPrice()}
                 </p>
                 <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
-                {carbonDebt()}
+                  {carbonDebt()}
                 </p>
                 <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
-                ${carbonPrice()}
+                  ${carbonPrice()}
                 </p>
                 <button
                   className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm  justify-center items-center w-[100px]  md:w-[150px]  text-xs md:text-sm mt-5"

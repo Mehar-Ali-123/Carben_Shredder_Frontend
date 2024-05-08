@@ -8,7 +8,7 @@ import Loader from "../components/Loader/Loader";
 
 function SignIn() {
   const Navigate = useNavigate();
-  const [loader, setLoader] = useState(false); 
+  const [loader, setLoader] = useState(false);
   const {
     register,
     reset,
@@ -24,7 +24,7 @@ function SignIn() {
       if (response.status === 200 || response.status === 201) {
         console.log("Login successful");
         reset();
-        console.log(response.data);
+        console.log("login data ", response.data);
 
         const { token } = response.data;
         const { user } = response.data;
@@ -34,7 +34,14 @@ function SignIn() {
 
         localStorage.setItem("userName", user.name);
         localStorage.setItem("userEmail", user.email);
-
+        if (
+          user.cnughtCreatedSubaccunt?.[0]?.subaccountId ||
+          user.cnughtCreatedSubaccunt?.subaccountId
+        ) {
+          localStorage.setItem("isSubaccountCnaught", true);
+        } else {
+          localStorage.setItem("isSubaccountCnaught", false);
+        }
         toast.success("Successful Login", {
           autoClose: 1000,
           style: {

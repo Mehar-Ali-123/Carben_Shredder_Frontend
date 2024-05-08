@@ -37,6 +37,8 @@ export default function Header() {
       const response = await axios.post(`${server}/logout`);
       localStorage.setItem("isAuthentication", false);
       localStorage.setItem("authToken", "");
+      localStorage.setItem("userName", "unknown");
+      localStorage.setItem("userEmail", "unknown");
       if (response.status === 200) {
         Navigate("/");
       }

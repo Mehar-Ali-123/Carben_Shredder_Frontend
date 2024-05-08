@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import profilePic from "../assets/images/person-2.jpg";
 import starterPlan from "../assets/images/starterPlan.svg";
 import mostPopular from "../assets/images/mostPopular.svg";
@@ -6,11 +6,16 @@ import scalePlan from "../assets/images/scalePlan.svg";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import { server } from "../server";
+import { useNavigate } from "react-router-dom";
 function SubcriptionCard() {
   const carbonPrice = localStorage.getItem("carbonPriceTotal");
   const totalPrice = Math.round(carbonPrice);
-
-  const handlePayment = async (paymentPrice,imgUrl) => {
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const isAuthentication = localStorage.getItem("isAuthentication");
+  console.log("isAuthentication cars", isAuthentication);
+  const [error, setError] = useState(null);
+  const Navigate = useNavigate();
+  const handlePayment = async (paymentPrice) => {
     try {
       const authToken = localStorage.getItem("authToken");
       if (!authToken) {
@@ -20,9 +25,10 @@ function SubcriptionCard() {
       const response = await axios.post(
         `${server}/create-checkout-session`,
         {
-          payAmount: paymentPrice, 
-          productName: "Subcription Price",
-          productDescription: "At Carbon Shredder, we are not just a service; we are a mission-driven movement. Our goal is to revolutionize the way individuals and communities engage with their carbon footprint. ",
+          payAmount: paymentPrice,
+          productName: "Carbon Offsets",
+          productDescription:
+            "At Carbon Shredder, we are not just a service; we are a mission-driven movement. Our goal is to revolutionize the way individuals and communities engage with their carbon footprint. ",
         },
         {
           headers: {
@@ -33,6 +39,11 @@ function SubcriptionCard() {
       );
 
       const sessionId = response.data.sessionId;
+      localStorage.setItem("clientSecret", sessionId);
+
+      localStorage.setItem("ammountPayToStripe", paymentPrice);
+
+      console.log("sessionId", sessionId);
 
       const stripe = await loadStripe(
         "pk_test_51P9aNiGTvJh4FKHd25BY9XydIeWKKTyUjG8SNQMN3uia9lnk6AZRinJ2LyWYwmKD1klt0Ts3wr29CjoO6TODOVgW00SRfJQoEx"
@@ -46,12 +57,13 @@ function SubcriptionCard() {
         throw new Error(
           `Error redirecting to checkout: ${result.error.message}`
         );
+      } else {
       }
     } catch (error) {
       console.error("Error handling payment:", error);
+      setError("An error occurred during payment");
     }
   };
-
   return (
     <>
       <section className="text-gray-700 body-font overflow-hidden">
@@ -98,9 +110,11 @@ function SubcriptionCard() {
                 </span>
                 <div>
                   <button
-                    onClick={() => {
-                      handlePayment(totalPrice * 0.5 );
-                    }}
+                    onClick={() =>
+                      isAuthentication == "true"
+                        ? handlePayment(totalPrice * 0.5)
+                        : setShowConfirmation(true)
+                    }
                     className="text-white bg-primary   py-2  rounded-lg text-center w-[180px]"
                   >
                     Start Plan
@@ -233,9 +247,11 @@ function SubcriptionCard() {
                   Recurring every month
                 </span>
                 <button
-                  onClick={() => {
-                    handlePayment(totalPrice * 1);
-                  }}
+                  onClick={() =>
+                    isAuthentication == "true"
+                      ? handlePayment(totalPrice * 1)
+                      : setShowConfirmation(true)
+                  }
                   className=" text-white bg-primary   py-2   rounded-lg text-center w-[180px]"
                 >
                   Start Plan
@@ -366,9 +382,11 @@ function SubcriptionCard() {
                 <div>
                   <div>
                     <button
-                      onClick={() => {
-                        handlePayment(totalPrice * 2);
-                      }}
+                      onClick={() =>
+                        isAuthentication == "true"
+                          ? handlePayment(totalPrice * 2)
+                          : setShowConfirmation(true)
+                      }
                       className="text-white bg-primary   py-2  rounded-lg text-center w-[180px]"
                     >
                       Start Plan
@@ -491,6 +509,35 @@ function SubcriptionCard() {
           </div>
         </div>
       </section>
+      {showConfirmation && (
+        <div
+          onClick={() => setShowConfirmation(false)}
+          className="fixed top-0 left-0 w-full h-[100vh] flex justify-center items-center bg-black bg-opacity-50 z-50"
+        >
+          <div className="bg-primary px-10 py-6 rounded-md shadow-lg">
+            <p className="text-lg font-semibold mb-4  text-white">
+              Please Login To Continue
+            </p>
+            <div className="flex justify-end gap-4">
+              <button
+                onClick={() => setShowConfirmation(false)}
+                className="text-sm text-gray-500 hover:text-gray-700 text-white"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  Navigate("/sign-in");
+                  setShowConfirmation(false);
+                }}
+                className="text-sm text-[red]   font-semibold"
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

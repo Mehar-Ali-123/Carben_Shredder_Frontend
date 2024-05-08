@@ -16,6 +16,7 @@ function PlaidIntegration() {
   console.log("User Email:", userEmail);
 
   async function fetchLinkToken() {
+    
     try {
       const response = await axios.post(`${server}/api/create-link-token`, {
         user: { _id: "1" },
@@ -29,8 +30,7 @@ function PlaidIntegration() {
       console.error("Error fetching Link token:", error);
     }
   }
-
-  // Exchange public token for access token
+ 
   async function exchangeToken(publicToken) {
     try {
       const response = await axios.post(`${server}/plaid/exchange-token`, {
@@ -39,7 +39,8 @@ function PlaidIntegration() {
       if (response.data.success) {
         setAccessToken(response.data.accessToken);
         retrieveAccounts(response.data.accessToken);
-        authAccountData(response.data.accessToken); 
+        authAccountData(response.data.accessToken);
+        transactionData(response.data.accessToken);
       } else {
         console.error(
           "Error exchanging Plaid public token:",
@@ -86,7 +87,18 @@ function PlaidIntegration() {
     } catch (error) {
       console.error("Error retrieving accounts data Auth:", error);
     }
-  } 
+  }
+  async function transactionData(accessToken) {
+    try {
+      const response = await axios.post(`${server}/transactions/get`, {
+        accessToken: accessToken,
+      });
+      const responseData = response.data;
+      console.log("Accounts data tranaction:", responseData);
+    } catch (error) {
+      console.error("Error retrieving tranaction data :", error);
+    }
+  }
 
   function onSuccess(publicToken, metadata) {
     console.log("Plaid Link success:", publicToken, metadata);
@@ -109,13 +121,12 @@ function PlaidIntegration() {
   }, []);
   return (
     <>
-      <div data-aos="zoom-in">
+      <div className="mb-10 mt-64" data-aos="zoom-in">
         <h1 className="text-black text-3xl md:text-[40px] leading-[50px] text-center mt-24">
-          Get Unlock Bank Linking just one click
+          Bank Linking
         </h1>
-        <div className="grid  grid-cols-1 md:grid-cols-2 px-5 md:px-20">
+        <div className="grid  grid-cols-1 md:grid-cols-2 px-5 text-center md:px-20">
           <div className="  flex justify-center items-center">
-         
             <svg
               className="w-[90%] h-[90%]"
               width="3000"
@@ -1158,7 +1169,6 @@ function PlaidIntegration() {
                     </PlaidLink>
                   </div>
                 </div>
-             
               </>
             ) : (
               <div className="">
@@ -1170,7 +1180,7 @@ function PlaidIntegration() {
                   connection, simplifying carbon footprint tracking with
                   real-time data sync and informed decision-making
                 </p>
-                <div className="flex gap-7">
+                <div className="flex justify-center gap-3">
                   <button
                     className="flex gap-3 justify-center items-center bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded"
                     onClick={fetchLinkToken}
@@ -1209,8 +1219,7 @@ function PlaidIntegration() {
               </div>
             )}
 
-            <p className="flex gap-9"> 
-            </p>
+            <p className="flex gap-9"></p>
           </div>
         </div>
       </div>

@@ -1,5 +1,7 @@
+import PlaidIntegration from "axios";
 import React from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
+import PlaidIntegeration from "../components/PlaidIntegeration"
 function StartShredding() {
   return (
     <>
@@ -41,7 +43,8 @@ function StartShredding() {
                   your carbon footprint with more accuracy.
                 </p>
                 <p className="text-center text-primary underline  ">
-                  <Link to="/calculator">
+              
+                  <Link to="/plaid-connect">
                     <button className="bg-primary   border-primary text-white p-2 px-16 rounded-lg group-hover:bg-white group-hover:text-primary">
                       Start
                     </button>
@@ -70,7 +73,7 @@ function StartShredding() {
             </div>
           </div>
         </div>
-      </section>
+      </section>  
     </>
   );
 }

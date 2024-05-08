@@ -4,10 +4,11 @@ import axios from "axios";
 import { backend_url, server } from "../server";
 import { toast } from "react-toastify";
 import Loader from "../components/Loader/Loader";
+import countryOptions from "../data";
 
 function EditProfile() {
   const [loader, setLoader] = useState(false);
-  const [fileUrl,setFileUrl]=useState(null)
+  const [fileUrl, setFileUrl] = useState(null);
   const {
     register,
     handleSubmit,
@@ -47,11 +48,10 @@ function EditProfile() {
     fetchUserData();
   }, [setValue]);
 
- 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     setFile(selectedFile);
-  
+
     // Create a temporary URL for the selected file
     const url = URL.createObjectURL(selectedFile);
     setFileUrl(url);
@@ -124,13 +124,12 @@ function EditProfile() {
   };
   return (
     <>
-   
       {userData && (
         <div className="flex justify-center items-center my-10  ">
           <div className="col-span-4 sm:col-span-3 mt-44 w-[90%]  ">
-          <h1 className="w-full text-center font-extrabold   text-3xl mt-5 flex justify-center gap-3">
-          <p className="text-primary">Edit</p>your Carbon Shredder profile.
-        </h1>
+            <h1 className="w-full text-center font-extrabold   text-3xl mt-5 flex justify-center gap-3">
+              <p className="text-primary">Edit</p>your Carbon Shredder profile.
+            </h1>
             <div className="rounded-lg md:p-6 px-0  mt-10 ">
               <div className="flex flex-col items-center">
                 <img
@@ -245,10 +244,12 @@ function EditProfile() {
                             errors.country ? "border-red-500" : ""
                           }`}
                         >
-                          <option>Surabaya</option>
-                          <option>Jakarta</option>
-                          <option>Tangerang</option>
-                          <option>Bandung</option>
+                          <option value="">Select a country</option>
+                          {countryOptions.map((country, index) => (
+                            <option key={index} value={country.label}>
+                              {country.label}
+                            </option>
+                          ))}
                         </select>
                         {errors.country && (
                           <p className="text-red-500 text-sm mt-1">
