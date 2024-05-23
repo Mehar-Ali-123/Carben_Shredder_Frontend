@@ -5,22 +5,33 @@ import { server } from "../server";
 import plaidImg from "../assets/images/icon-6.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+
 function PlaidIntegration() {
   const [linkTokenData, setLinkTokenData] = useState(null);
   const [accessToken, setAccessToken] = useState(null);
   const [authData, setAuthData] = useState("");
   const userName = localStorage.getItem("userName");
   const userEmail = localStorage.getItem("userEmail");
-
+  const authToken = localStorage.getItem("authToken");
+  const Navigate = useNavigate();
   console.log("User Name:", userName);
   console.log("User Email:", userEmail);
 
   async function fetchLinkToken() {
-    
     try {
-      const response = await axios.post(`${server}/api/create-link-token`, {
-        user: { _id: "1" },
-      });
+      const response = await axios.post(
+        `${server}/api/create-link-token`,
+        {
+          user: { _id: "1" },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
       if (response.data.success) {
         setLinkTokenData(response.data);
       } else {
@@ -28,15 +39,35 @@ function PlaidIntegration() {
       }
     } catch (error) {
       console.error("Error fetching Link token:", error);
+      toast.error(error.response.data.error || error.message, {
+        autoClose: 3000,
+        style: {
+          marginTop: "100px",
+        },
+      });
     }
   }
- 
+
   async function exchangeToken(publicToken) {
     try {
-      const response = await axios.post(`${server}/plaid/exchange-token`, {
-        publicToken: publicToken,
-      });
+      const response = await axios.post(
+        `${server}/plaid/exchange-token`,
+        {
+          publicToken: publicToken,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
       if (response.data.success) {
+        localStorage.setItem("plaidAccessToken", response.data.accessToken);
+        savePlaidAccessToken(
+          "1",
+          response.data.accessToken,
+          response.data.itemId
+        );
         setAccessToken(response.data.accessToken);
         retrieveAccounts(response.data.accessToken);
         authAccountData(response.data.accessToken);
@@ -51,13 +82,40 @@ function PlaidIntegration() {
       console.error("Error exchanging Plaid public token:", error);
     }
   }
+  async function savePlaidAccessToken(userId, accessToken, itemId) {
+    try {
+      const response = await axios.post(
+        `${server}/save-plaid-access-token`,
+        {
+          userId: userId,
+          accessToken: accessToken,
+          itemId: itemId,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
 
-  // Retrieve accounts using access token
+      console.log("data saved of plaid to mongo ", response.data);
+    } catch (error) {
+      console.error("Error saving Plaid access token:", error); // Handle error
+    }
+  }
   async function retrieveAccounts(accessToken) {
     try {
-      const response = await axios.post(`${server}/plaid/retrieve-accounts`, {
-        accessToken: accessToken,
-      });
+      const response = await axios.post(
+        `${server}/plaid/retrieve-accounts`,
+        {
+          accessToken: accessToken,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
       if (response.data.success) {
         console.log("Accounts data:", response.data.accountsData);
       } else {
@@ -69,11 +127,19 @@ function PlaidIntegration() {
   }
   async function authAccountData(accessToken) {
     try {
-      const response = await axios.post(`${server}/plaid/auth`, {
-        accessToken: accessToken,
-        name: userName,
-        email: userEmail,
-      });
+      const response = await axios.post(
+        `${server}/plaid/auth`,
+        {
+          accessToken: accessToken,
+          name: userName,
+          email: userEmail,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
       const responseData = response.data;
       if (responseData.accounts && responseData.numbers) {
         console.log("Accounts data Auth:", responseData);
@@ -90,9 +156,17 @@ function PlaidIntegration() {
   }
   async function transactionData(accessToken) {
     try {
-      const response = await axios.post(`${server}/transactions/get`, {
-        accessToken: accessToken,
-      });
+      const response = await axios.post(
+        `${server}/transactions/get`,
+        {
+          accessToken: accessToken,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
       const responseData = response.data;
       console.log("Accounts data tranaction:", responseData);
     } catch (error) {
@@ -119,13 +193,37 @@ function PlaidIntegration() {
       once: false,
     });
   }, []);
+
+  const isAuthentication = localStorage.getItem("isAuthentication");
+  const isBankLinked = true;
+  const handleNavigateLinkedBanks = () => {
+    if (isAuthentication === "true") {
+      if (isBankLinked) {
+        Navigate("/linked-transactions-data");
+      } else {
+        toast.error("Please link your bank to access this page", {
+          autoClose: 3000,
+          style: {
+            marginTop: "100px",
+          },
+        });
+      }
+    } else {
+      toast.error("Please login to continue", {
+        autoClose: 3000,
+        style: {
+          marginTop: "100px",
+        },
+      });
+    }
+  };
   return (
     <>
       <div className="mb-10 mt-64" data-aos="zoom-in">
-        <h1 className="text-black text-3xl md:text-[40px] leading-[50px] text-center mt-24">
+        <h1 className="md:text-[2rem] leading-[30px] md:leading-[50px]  uppercase text-center mt-24">
           Bank Linking
         </h1>
-        <div className="grid  grid-cols-1 md:grid-cols-2 px-5 text-center md:px-20">
+        <div className="grid  grid-cols-1 md:grid-cols-2 px-5 text-start md:px-20">
           <div className="  flex justify-center items-center">
             <svg
               className="w-[90%] h-[90%]"
@@ -1150,6 +1248,7 @@ function PlaidIntegration() {
                 </g>
               </g>
             </svg>
+            {/* <img width="400px" height="800px" className="object-cover" src="https://cdn.vectorstock.com/i/500p/09/70/reduce-carbon-dioxide-emission-co2-level-vector-41990970.avif"/> */}
           </div>
           <div className="max-w-md mx-auto mt-8 flex justify-center items-center">
             {linkTokenData && linkTokenData.linkToken ? (
@@ -1158,7 +1257,7 @@ function PlaidIntegration() {
                   <div className=" ">
                     <img className="w-[100%] h-[90%]  " src={plaidImg} />{" "}
                   </div>
-                  <div className="border-2 flex justify-center  border-primary rounded-lg overflow-hidden">
+                  <div className="border-2 flex justify-center  border-primary  rounded-3xl overflow-hidden">
                     <PlaidLink
                       className="w-full border-primary hover:bg-black"
                       token={linkTokenData.linkToken.link_token}
@@ -1172,17 +1271,17 @@ function PlaidIntegration() {
               </>
             ) : (
               <div className="">
-                <h1 className="text-2xl">
+                <h1 className="text-2xl leading-[30px] capitalize">
                   Track carbon emissions with open-source tech
                 </h1>
-                <p className="py-10 text-lg">
+                <p className="py-8 text-lg">
                   Quickly link your Carbon Shredder to Plaid for instant bank
                   connection, simplifying carbon footprint tracking with
                   real-time data sync and informed decision-making
                 </p>
-                <div className="flex justify-center gap-3">
+                <div className="flex flex-col md:flex-row md:justify-start md:items-center justify-center gap-3">
                   <button
-                    className="flex gap-3 justify-center items-center bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded"
+                    className="flex gap-3 justify-center items-center bg-primary hover:bg-secondary text-white font-bold py-2 px-4  rounded-3xl"
                     onClick={fetchLinkToken}
                   >
                     Bank Linking
@@ -1198,7 +1297,10 @@ function PlaidIntegration() {
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                   </button>
-                  <button className="flex gap-3 bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded">
+                  <button
+                    className="flex gap-3 justify-center items-center bg-primary hover:bg-secondary text-white font-bold py-2 px-4  rounded-3xl"
+                    onClick={handleNavigateLinkedBanks}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"

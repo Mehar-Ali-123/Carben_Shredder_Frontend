@@ -81,7 +81,7 @@ function PersonalProfile() {
         <div class="container mx-auto py-8">
           <div class="grid grid-cols-4 lg:grid-cols-12 gap-6 px-4">
             <div class="col-span-4 lg:col-span-3">
-              <div class="bg-white shadow rounded-lg p-6">
+              <div class="bg-white hover:bg-[#DAECEA] rounded-lg p-6">
                 <div class="flex flex-col items-center">
                   <img
                     src={
@@ -100,30 +100,33 @@ function PersonalProfile() {
                   <div class="mt-6 flex flex-wrap gap-4 justify-center">
                     <Link
                       to={userData ? "/edit-profile" : "/sign-in"}
-                      class="  text-white py-2 text-sm rounded-md w-44 text-center bg-primary px-4"
+                      class="  text-white py-2 text-sm rounded-3xl w-44 text-center bg-primary px-4"
                     >
                       {userData ? "Edit Profile" : "Please Login"}
                     </Link>
                   </div>
                 </div>
-                <hr class="my-6 border-t border-gray-300" />
+                <hr class="my-3 border-t border-gray-300" />
                 <div class="flex flex-col">
-                  <span class="text-gray-700 text-justify   font-semibolds tracking-wider mb-2">
-                    At Carbon Shredder, we are not just a service; we are a
-                    mission-driven movement. Our goal is to revolutionize the
-                    way individuals and communities engage with their carbon
-                    footprint. We're dedicated to developing a real-time carbon
-                    tracking subscription service that not only informs but
-                    empowers action towards a more sustainable world
+                  <span class="text-gray-700 font-bold text-sm  uppercase text-center tracking-wider mb-2   ">
+                    Welcome to Your Carbon Impact Dashboard!
+                    <p className="text-center text-sm capitalize  mt-5 font-normal">
+                      Your go-to space for tracking and visualising your
+                      environmental footprint. Monitor your emissions, set
+                      goals, and take actionable steps towards a greener
+                      lifestyle. Start making a difference today!
+                    </p>
                   </span>
                 </div>
               </div>
             </div>
 
             <div class="col-span-4 lg:col-span-9 lg:p-5">
-              <h1 class="text-3xl font-bold mb-6 ">Carbon Offsets History</h1>
+              <h1 class="md:text-[2rem] leading-[30px] md:leading-[50px] text-start uppercase mb-6 ">
+                Carbon Offsets History
+              </h1>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-10 gap-3">
-                <div class="bg-white shadow rounded-xl w-full h-[150px] p-4 flex flex-col justify-center items-start gap-2">
+                <div class="bg-white hover:bg-[#DAECEA] rounded-xl w-full h-[150px] p-4 flex flex-col justify-center items-start gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 53.7 67.76"
@@ -141,9 +144,11 @@ function PersonalProfile() {
                   <h2 className="text-2xl font-semibold tracking-wide">
                     {roundedAmount} tone
                   </h2>
-                  <span className="tracking-wide">Total CO2e offset</span>
+                  <span className="tracking-wide text-gray-600">
+                    Total CO2e offset
+                  </span>
                 </div>
-                <div class="bg-white shadow rounded-xl w-full h-[150px] p-4 flex flex-col justify-center items-start gap-2">
+                <div class="bg-white hover:bg-[#DAECEA] rounded-xl w-full h-[150px] p-4 flex flex-col justify-center items-start gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     enable-background="new 0 0 64 64"
@@ -178,9 +183,11 @@ function PersonalProfile() {
                   <h2 className="text-2xl font-semibold tracking-wide">
                     {(userData && userData.cnughtCreatedOrder?.length) || "0"}
                   </h2>
-                  <span className="tracking-wide">Orders Fulfilled</span>
+                  <span className="tracking-wide text-gray-600">
+                    Orders Fulfilled
+                  </span>
                 </div>
-                <div class="bg-white shadow rounded-xl w-full h-[150px] p-4 flex flex-col justify-center items-start gap-2">
+                <div class="bg-white hover:bg-[#DAECEA] rounded-xl w-full h-[150px] p-4 flex flex-col justify-center items-start gap-2">
                   <img src={iconCards} width={50} height={50} alt="icon" />
                   <h2 className="text-2xl font-semibold tracking-wide">
                     {(userData &&
@@ -190,9 +197,11 @@ function PersonalProfile() {
                       "0"}
                     kg
                   </h2>
-                  <span className="tracking-wide">Current CO2e offset</span>
+                  <span className="tracking-wide text-gray-600">
+                    Current CO2e offset
+                  </span>
                 </div>
-                <div class="bg-white shadow rounded-xl w-full h-[150px] p-4 flex flex-col justify-center items-start gap-2">
+                <div class="bg-white hover:bg-[#DAECEA] rounded-xl w-full h-[150px] p-4 flex flex-col justify-center items-start gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 168 168"
@@ -242,7 +251,9 @@ function PersonalProfile() {
                       "0"}
                     $
                   </h2>
-                  <span className="tracking-wide">Current Plan</span>
+                  <span className="tracking-wide text-gray-600">
+                    Current Plan
+                  </span>
                 </div>
               </div>
               <div className="flex  justify-center md:justify-between items-center flex-col md:flex-row gap-5">
@@ -299,8 +310,8 @@ function PersonalProfile() {
               <ProfileChart /> */}
               <div className="flex justify-center items-center">
                 <svg
-                width="40%"
-                height="50%"
+                  width="40%"
+                  height="50%"
                   xmlns="http://www.w3.org/2000/svg"
                   enable-background="new 0 0 1080 1080"
                   viewBox="0 0 1080 1080"

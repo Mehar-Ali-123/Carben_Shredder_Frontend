@@ -16,7 +16,7 @@ export default function Testimonial() {
         <div className="container mx-auto px-5 py-20">
           <div className="flex flex-col">
             <div className="max-w-5xl mx-auto">
-              <h1 className="text-black text-3xl md:text-[40px] leading-[50px] text-center ">
+              <h1 className=" text-[#101110] md:text-[2rem] leading-[30px] text-center uppercase   ">
                 Learn from our shredder members
               </h1>
             </div>
@@ -24,10 +24,10 @@ export default function Testimonial() {
             <div className="pt-20">
               <Swiper
                 className="my-auto"
-                spaceBetween={30}
+                spaceBetween={30} 
                 // slidesPerView={1}
                 loop
-                autoplay
+                autoplay={{ delay: 3000 }} 
                 breakpoints={{
                   // When window width is >= 640px
                   640: {
@@ -100,10 +100,10 @@ export default function Testimonial() {
                       />
                       <span className="flex-grow flex flex-col pl-4">
                         <span className="title-font font-medium text-black">
-                          Holden Caulfield
+                        Thijn Felix
                         </span>
                         <span className="text-gray-500 text-sm">
-                          UI DEVELOPER
+                        Founder
                         </span>
                       </span>
                     </a>

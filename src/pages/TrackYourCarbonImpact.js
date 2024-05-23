@@ -2,19 +2,19 @@ import React from "react";
 
 export default function TrackYourCarbonImpact() {
   return (
-    <> 
-      <section className="h-96  bg-primary bg-opacity-10 mt-28 md:mt-0">
+    <>  
+      <section className="h-80 md:96 bg-primary bg-opacity-10 mt-5  md:mt-15 lg:mt-0">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
-            <h1 className=" text-5xl mb-20 text-black text-center">
+            <h1 className="md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase mb-10 ">
             How to track your carbon impact
             </h1>
           </div>
         </div>
       </section>
-      <section>
+      <section> 
         <div className="container mx-auto px-4 py-24 max-w-5xl">
-          <p className="text-lg text-black pb-10">
+          <p className="text-lg  text-[#101110] pb-10">
             At Carbon Shredder we believe in empowering our customers with the
             tools and information they need to make a real impact on the
             environment. Our personalised carbon dashboard and tracking system

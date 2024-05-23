@@ -89,18 +89,15 @@ function SignUp() {
 
   return (
     <>
-      <section className="max-w-4xl p-6 mx-auto mt-52">
-        {/* <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img className="mx-auto h-70 w-48" src={Logo} alt="Your Company" />
-        </div> */}
-        <h1 className="w-full text-center font-extrabold   text-3xl mt-5  flex justify-center gap-3">
-          <p className="text-primary">Sign Up</p> Carbon Shredder.
+      <section className="max-w-4xl p-6 mx-auto mt-52"> 
+        <h1 className="w-full  md:text-[2rem] leading-[40px] text-center uppercase    text-3xl mt-5 ">
+          <span className="text-primary">Sign Up</span> Carbon Shredder.
         </h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mt-10">
             <div>
               <label
-                className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200"
+                className="text-md font-medium leading-6 text-gray-900 "
                 htmlFor="username"
               >
                 Username
@@ -122,7 +119,7 @@ function SignUp() {
 
             <div>
               <label
-                className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200"
+                className="text-md font-medium leading-6 text-gray-900 "
                 htmlFor="email"
               >
                 Email Address
@@ -144,7 +141,7 @@ function SignUp() {
 
             <div>
               <label
-                className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200"
+                className="text-md font-medium leading-6 text-gray-900 "
                 htmlFor="password"
               >
                 Password
@@ -166,7 +163,7 @@ function SignUp() {
 
             <div>
               <label
-                className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200"
+                className="text-md font-medium leading-6 text-gray-900 "
                 htmlFor="passwordConfirmation"
               >
                 Confirm Password
@@ -191,7 +188,7 @@ function SignUp() {
             </div>
             <div>
               <label
-                className="text-md font-medium leading-6 text-gray-900 dark:text-gray-200"
+                className="text-md font-medium leading-6 text-gray-900 "
                 htmlFor="country"
               >
                 Country
@@ -268,12 +265,13 @@ function SignUp() {
                 <p className="text-sm font-medium leading-6 text-gray-900">
                   PNG, JPG, GIF up to 10MB
                 </p>
-              </div>
-              {errors.avatar && (
+                {errors.avatar && (
                 <p className="text-red-500 text-sm mt-1">Image is required</p>
               )}
+              </div> 
             </div>
           </div>
+         
           <div className="mt-6">
             <button
               type="submit"

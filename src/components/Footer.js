@@ -1,16 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/images/footer-logo-2.png";
 import { Link } from "react-router-dom";
-
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { server } from "../server";
 export default function Footer() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const [message, setMessage] = React.useState(null);
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post(`${server}/subscribe`, {
+        email: data.email,
+      });
+      setMessage(response.data.message);
+      reset();
+    } catch (error) {
+      setMessage(error.response.data.message);
+    }
+  };
   return (
-    <footer className="text-gray-600 body-font bg-primary bg-opacity-20 w-[100%] overflow-hidden">
+    <footer className="text-gray-800 body-font bg-primary bg-opacity-20 w-[100%] overflow-hidden">
       <div className="container px-5 pt-24 mx-auto ">
         <div className="flex flex-row flex-wrap md:flex-nowrap">
           <div className="   md:mx-0 mx-auto text-center md:text-left pr-0 md:pr-24 ">
             <Link
               to="/"
-              className="flex flex-col font-medium items-start md:justify-start justify-center text-gray-900"
+              className="flex flex-col font-medium items-start md:justify-start justify-center text-gray-800"
             >
               <img src={Logo} className="w-32 " alt="Logo" />
             </Link>
@@ -40,18 +61,6 @@ export default function Footer() {
                 </svg>
               </a>
               <a className="ml-3 text-gray-500">
-                {/* <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-7 h-7"
-                viewBox="0 0 24 24"
-              >
-                <rect width={20} height={20} x={2} y={2} rx={5} ry={5} />
-                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
-              </svg> */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -82,23 +91,17 @@ export default function Footer() {
                 </svg>
               </a>
             </span>
-            {/**
-           <p className="mt-4 w-[80%] text-gray-600 font-medium">
-           We envision a future where individuals and businesses are equipped
-           to make informed choices that positively impact the environment
-           </p>
-          */}
           </div>
           <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3    md:mt-0 mt-10  md:text-left w-[100%]">
-            <div className=" lg:basis-1/3 basis-full  px-4 py-0 md:py-6    ">
-              <h2 className=" font-bold text-gray-900 tracking-widest text-2xl mb-3">
+            <div className=" lg:basis-1/3 basis-full  px-0 md:px-4 py-0 md:py-6    ">
+              <h2 className=" font-bold text-gray-800 tracking-widest text-2xl mb-3">
                 Quick Links
               </h2>
               <nav className="list-none pb-10">
                 <li>
                   <Link
                     to="/"
-                    className="text-gray-600   text-xl footer-link hover:text-primary hover:underline"
+                    className="mb-3 text-gray-800   text-[14px] uppercase  tracking-[2px] footer-link hover:text-primary hover:underline"
                   >
                     Home
                   </Link>
@@ -106,7 +109,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/how-it-works"
-                    className="text-gray-600   text-xl footer-link hover:text-primary hover:underline"
+                    className="mb-3 text-gray-800   text-[14px] uppercase  tracking-[2px] footer-link hover:text-primary hover:underline"
                   >
                     How it works
                   </Link>
@@ -114,7 +117,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/faqs"
-                    className="text-gray-600   text-xl footer-link hover:text-primary hover:underline"
+                    className="mb-3 text-gray-800   text-[14px] uppercase  tracking-[2px] footer-link hover:text-primary hover:underline"
                   >
                     Faq's
                   </Link>
@@ -122,7 +125,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/about"
-                    className="text-gray-600   text-xl footer-link hover:text-primary hover:underline"
+                    className="mb-3 text-gray-800   text-[14px] uppercase  tracking-[2px] footer-link hover:text-primary hover:underline"
                   >
                     Our mission
                   </Link>
@@ -130,24 +133,15 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/contact"
-                    className="text-gray-600   text-xl footer-link hover:text-primary hover:underline"
+                    className="mb-3 text-gray-800   text-[14px] uppercase  tracking-[2px] footer-link hover:text-primary hover:underline"
                   >
                     Connect
                   </Link>
                 </li>
-                {/* <li>
-                  <Link
-                    to="/terms-and-conditions"
-                    className="text-gray-600   text-xl"
-                  >
-                    Terms & Conditions
-
-                  </Link>
-                </li> */}
                 <li>
                   <Link
                     to="/privacy-policy"
-                    className="text-gray-600   text-xl footer-link hover:text-primary hover:underline"
+                    className="mb-3 text-gray-800   text-[14px] uppercase  tracking-[2px] footer-link hover:text-primary hover:underline"
                   >
                     Privacy Policy
                   </Link>
@@ -158,30 +152,11 @@ export default function Footer() {
               <ul className="flex flex-col gap-8 ">
                 <li className="flex gap-5">
                   <div>
-                    <h1 className="font-bold text-gray-900 tracking-widest text-2xl mb-0  py-0 md:pb-3 md:pt-6   ">
+                    <h1 className="font-bold text-gray-800 tracking-widest text-2xl mb-0  py-0 md:pb-3 md:pt-6   ">
                       Address
                     </h1>
                     <div className="flex justify-center items-center gap-2  ">
-                      <p className="text-lg pr-10">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="w-8 h-8 "
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-                          />
-                        </svg>{" "}
+                      <p className=" pr-10 text-[15px] tracking-[2px]">
                         Emission Reduction <br /> OÜ Sakala tn 7-2 10141
                         Kesklinna linnaosa Tallinn, Harju maakond Estonia
                       </p>
@@ -190,37 +165,51 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="   w-full lg:basis-1/3 basis-full  px-4   py-6">
-              <h2 className="font-bold text-gray-900 tracking-widest text-2xl mb-3  ">
+
+            <div className="   w-full  lg:basis-1/3 basis-full  px-0 md:px-4   py-6">
+              <h2 className="font-bold text-gray-800 tracking-widest text-2xl mb-3  ">
                 Subscribe
               </h2>
-              <div>
-                <div className="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-nowrap justify-center items-end md:justify-start mb-6">
-                  <div className="relative w-[100%] md:w-40   ">
-                    <label
-                      htmlFor="footer-field"
-                      className="leading-7 text-sm text-gray-600"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="text"
-                      id="footer-field"
-                      name="footer-field"
-                      className="w-full bg-white rounded-l rounded-r-0 border border-gray-300 focus:border-primary focus:ring-none text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                    />
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="w-full   ">
+                  <div className=" flex flex-col    w-full">
+                    <div className="flex w-full rounded-3xl border-2 border-primary overflow-hidden ">
+                      <input
+                        {...register("email", { required: true })}
+                        placeholder="@gmail.com"
+                        type="text"
+                        id="footer-field"
+                        name="email"
+                        className={`w-full bg-white rounded-l rounded-r-0 border border-gray-300 focus:border-primary focus:ring-none text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out placeholder-gray-300 ${
+                          errors.email && "border-red-500"
+                        }`}
+                      />
+                      <button
+                        type="submit"
+                        className="text-white bg-primary border-0 py-2 px-6  hover:bg-secondary rounded-r rounded-l-0  focus:outline-none  "
+                      >
+                        Submit
+                      </button>
+                    </div>
+                    {errors.email && (
+                      <span className="text-red-500 ps-3">
+                        Email is required*
+                      </span>
+                    )}
+                    {errors.email ? null : (
+                      <p
+                        className={`mt-2 ps-3 ${
+                          message && message.includes("already")
+                            ? "text-red-500"
+                            : "text-green-500"
+                        }`}
+                      >
+                        {message}
+                      </p>
+                    )}
                   </div>
-
-                  <button className="text-white bg-primary border-0 py-2 px-6  hover:bg-secondary rounded-r rounded-l-0  focus:outline-none  ">
-                    Submit
-                  </button>
                 </div>
-                {/*
-              <p className="text-gray-500 text-sm mt-2 md:text-left text-center">Bitters chicharrones fanny pack
-              <br className="lg:block hidden" />waistcoat green juice
-              </p>
-            */}
-              </div>
+              </form>
             </div>
           </div>
         </div>

@@ -72,11 +72,9 @@ function SignIn() {
   return (
     <>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 mt-52">
-        {/* <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img className="mx-auto h-70 w-48" src={Logo} alt="Your Company" />
-        </div> */}
-        <h1 className="w-full text-center font-extrabold   text-3xl mt-5 flex justify-center gap-3">
-          <p className="text-primary">Sign In</p>to unlock Carbon Shredder.
+        <h1 className="w-full   md:text-[2rem] leading-[40px] text-center uppercase    text-3xl mt-5  ">
+          <span className="text-primary w-auto">Sign In </span>to unlock Carbon
+          Shredder.
         </h1>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>

@@ -339,7 +339,7 @@ const MultiStepForm = ({ onSubmit }) => {
               </h1>
               <div className="flex gap-10 justify-between items-center mt-10">
                 <button
-                  className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
+                  className="inline-flex    text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
                   onClick={handleBack}
                 >
                   Back
@@ -347,7 +347,7 @@ const MultiStepForm = ({ onSubmit }) => {
 
                 <button
                   variant="contained"
-                  className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
+                  className="inline-flex    text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
                   onClick={handleSubmit}
                 >
                   Ready to buy
@@ -357,39 +357,39 @@ const MultiStepForm = ({ onSubmit }) => {
 
             <div className="flex gap-3 justify-center mt-20">
               <div className="flex gap-3 flex-col">
-                <p className=" w-[220px]  md:w-[350px]   bg-primary p-2 font-bold rounded-sm ">
+                <p className=" w-[220px] capitalize   md:w-[350px]   bg-primary p-2 font-bold rounded-sm ">
                   Description
                 </p>
-                <p className=" w-[220px]  md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
+                {/* <p className=" w-[220px] capitalize   md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
                   Total adjustment factor
+                </p> */}
+                <p className=" w-[220px] capitalize   md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
+                Estimated monthly footprint (tonne CO2)
                 </p>
-                <p className=" w-[220px]  md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
-                  Adjusted monthly footprint (CO2)
+                <p className=" w-[220px] capitalize   md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
+                Price to offset one tonne of CO2
                 </p>
-                <p className=" w-[220px]  md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
-                  Price for offsetting per month ( $ )
+                <p className=" w-[220px] capitalize   md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
+                Carbon debt (tonne CO2)
                 </p>
-                <p className=" w-[220px]  md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
-                  Carbon debt
-                </p>
-                <p className=" w-[220px]  md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
-                  Price for carbon debt
+                <p className=" w-[220px] capitalize   md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
+                Total carbon debt ($)
                 </p>
                 <button
                   variant="contained"
-                  className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm   justify-center items-center w-[220px]  md:w-[350px] text-xs md:text-sm mt-5"
+                  className="inline-flex capitalize text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm   justify-center items-center w-[220px] capitalize   md:w-[350px] text-xs md:text-sm mt-5"
                   onClick={handleSubmit}
                 >
-                  Ready to buy
+                 Subscribe to our offset service
                 </button>
               </div>
               <div className="text-center flex gap-3 flex-col">
                 <p className="w-[100px]  md:w-[150px]   bg-primary p-2  font-bold rounded-sm">
                   Value
                 </p>
-                <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
+                {/* <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
                   {adjustmentFactor()}%
-                </p>
+                </p> */}
                 <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
                   {monthlyFootprint()}
                 </p>
@@ -403,7 +403,7 @@ const MultiStepForm = ({ onSubmit }) => {
                   ${carbonPrice()}
                 </p>
                 <button
-                  className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm  justify-center items-center w-[100px]  md:w-[150px]  text-xs md:text-sm mt-5"
+                  className="inline-flex    text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm  justify-center items-center w-[100px]  md:w-[150px]  text-xs md:text-sm mt-5"
                   onClick={handleBack}
                 >
                   Back
@@ -413,13 +413,13 @@ const MultiStepForm = ({ onSubmit }) => {
             {/* <div className="flex gap-5 justify-center items-center mt-10 px-2"> 
                 <button
                   variant="contained"
-                  className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm   justify-center items-center w-[220px]  md:w-[350px] text-xs md:text-sm"
+                  className="inline-flex    text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm   justify-center items-center w-[220px] capitalize   md:w-[350px] text-xs md:text-sm"
                   onClick={handleSubmit}
                 >
                   Ready to buy
                 </button>
                 <button
-                  className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm  justify-center items-center w-[150px]"
+                  className="inline-flex    text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm  justify-center items-center w-[150px]"
                   onClick={handleBack}
                 >
                   Back
@@ -459,7 +459,7 @@ const MultiStepForm = ({ onSubmit }) => {
             <button
               variant="contained"
               onClick={handleNext}
-              className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
+              className="inline-flex    text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
             >
               Next
             </button>

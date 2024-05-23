@@ -21,17 +21,16 @@ import PersonalProfile from "./pages/PersonalProfile";
 import EditProfile from "./pages/EditProfile.js";
 import ActivationPage from "./pages/ActivationPage";
 import axios from "axios";
-import { server } from "./server.js";
-import LoaderContext from "./components/LoaderContext.js/LoaderContext.js";
+import { server } from "./server.js"; 
 import StartShredding from "./components/StartShredding.js";
 import PlaidIntegration from "./components/PlaidIntegeration.js";
 import SubcriptionPage from "./pages/SubcriptionPage.js";
 import CnaughtCreateSubaccount from "./components/CnaughtCreationSuccess.js";
-
+import PlaidTransactionsCalculator from "./pages/PlaidTransactionsCalculator.js";
+import SinglePurchase from "./pages/SinglePurchase.js";
 function App() {
   // const location = useLocation();
-  const [IsAuthenticated, setIsAuthenticated] = useState(false);
-  const { isLoading, setIsLoading } = useContext(LoaderContext);
+  const [IsAuthenticated, setIsAuthenticated] = useState(false); 
 
   useEffect(() => {
     const fetchUserAuthStatus = async () => {
@@ -65,19 +64,6 @@ function App() {
 
     fetchUserAuthStatus();
   }, []);
-
-  // useEffect(() => {
-  //   if (
-  //     location.pathname.includes("/sign-up") ||
-  //     location.pathname.includes("/forget-pass") ||
-  //     location.pathname.includes("/activation") ||
-  //     location.pathname === "/"
-  //   ) {
-  //     setLogin(true);
-  //   } else {
-  //     setLogin(false);
-  //   }
-  // }, [location.pathname]);
 
   return (
     <>
@@ -122,7 +108,18 @@ function App() {
           />
           <Route exact path="/plaid-connect" element={<PlaidIntegration />} />
           <Route exact path="/subcription-plan" element={<SubcriptionPage />} />
-          <Route exact path="/success-payment" element={<CnaughtCreateSubaccount />} />
+          <Route
+            exact
+            path="/success-payment"
+            element={<CnaughtCreateSubaccount />}
+          />
+
+          <Route
+            exact
+            path="/linked-transactions-data"
+            element={<PlaidTransactionsCalculator />}
+          />
+          <Route path="/single-purchase" element={<SinglePurchase />} />
         </Routes>
         <Footer />
       </div>

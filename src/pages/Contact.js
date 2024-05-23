@@ -35,12 +35,12 @@ export default function Contact() {
   };
 
   return (
-    <>
-      <section className="h-96  bg-primary bg-opacity-10 mt-10 md:mt-0 bg-no-repeat ">
-        <div className="conatiner mx-auto px-4 h-full ">
+    <> 
+      <section className="h-80 md:96 bg-primary bg-opacity-10 mt-5  md:mt-15 lg:mt-0">
+        <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
-            <h1 className=" text-5xl mb-20 text-black capitalize text-center">
-              Contact our support team
+            <h1 className="md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase mb-10 ">
+            Contact our support team
             </h1>
           </div>
         </div>
@@ -48,10 +48,10 @@ export default function Contact() {
       <section>
         <div className="container mx-auto py-20 max-w-4xl   p-4">
           <div className="flex flex-col items-center justify-center">
-            <h1 className="text-2xl capitalize   ">
+            <h1 className="md:text-2xl leading-[40px] text-center uppercase ">
               Get In Touch With Our Support Team Here At Carbon Shredder.
             </h1>
-            <p className="text-lg py-5 text-start md:text-center">
+            <p className="text-lg py-5 text-start md:text-center text-gray-600">
               We're here to help you with a smaller carbon footprint. Whether
               you have questions, need support, or want to share your thoughts,
               we'd love to hear from you.

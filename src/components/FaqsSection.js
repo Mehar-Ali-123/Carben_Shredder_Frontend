@@ -18,7 +18,7 @@ export default function FaqsSection() {
       <div className="container mx-auto px-5 py-20">
         <div className="flex flex-col">
           <div className="max-w-5xl mx-auto">
-            <h1 className="text-black text-3xl md:text-[40px] leading-[50px] text-center ">
+            <h1 className=" text-[#101110] text-3xl md:text-[40px] leading-[50px] text-center ">
               Frequently asked <span className="text-primary">questions</span>
             </h1>
           </div>

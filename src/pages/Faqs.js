@@ -8,7 +8,7 @@ export default function Faqs() {
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
             
-            <h1 className="text-black text-3xl md:text-5xl leading-[50px] text-center capitalize mb-20 ">
+            <h1 className=" text-[#101110] text-3xl md:text-5xl leading-[50px] text-center capitalize mb-20 ">
               Frequently asked <span className="text-primary">questions</span>
             </h1>
           </div>

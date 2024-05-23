@@ -10,24 +10,24 @@ import icon6 from "../assets/images/icon-6.png";
 
 export default function Goals() {
   return (
-    <section className="bg-primary bg-opacity-10">
+    <section className="bg-primary bg-opacity-10 mb-20">
       <div className="container mx-auto px-5 py-20 ">
         <div className="flex flex-col">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-black text-3xl md:text-[40px] leading-[50px] text-center ">
+            <h1 className=" text-[#101110] md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase ">
               Our goal is to provide real-time carbon insights and offsets.
             </h1>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-10">
             <div className="flex justify-center items-center">
-              <h1 className="text-2xl md:text-3xl   leading-10 text-center">
+              <h1 className="text-xl md:text-3xl text-center md:text-start   leading-10 ">
                 Track & Offset Your Carbon Emissions
               </h1>
             </div>
             <div>
-              <div className=" bg-white rounded-lg p-5 text-center h-full hover:transform hover:rotate-1  transition-transform duration-300 hover:bg-[#FBF4DB]">
-                <h1 className="flex flex-col justify-center  items-center text-2xl pb-3">
+              <div className=" bg-white rounded-lg p-5 text-center h-full hover:transform hover:rotate-1  transition-transform duration-300 hover:bg-[#DDCDD0]">
+                <h1 className="flex flex-col justify-center  items-center text-xl md:text-2xl leading-[30px] capitalize pb-3">
                   <img src={icon1} className="w-12 h-12" alt="icon" />
                   Baseline your carbon footprint
                 </h1>
@@ -40,8 +40,8 @@ export default function Goals() {
             </div>
 
             <div>
-              <div className=" bg-white rounded-lg p-5 text-center h-full hover:transform hover:rotate-1  transition-transform duration-300 hover:bg-[#FBF4DB]">
-                <h1 className="flex flex-col justify-center  items-center text-2xl pb-3">
+              <div className=" bg-white rounded-lg p-5 text-center h-full hover:transform hover:rotate-1  transition-transform duration-300 hover:bg-[#DDCDD0]">
+                <h1 className="flex flex-col justify-center  items-center text-xl md:text-2xl leading-[30px] capitalize pb-3">
                   <img src={icon2} className="w-12 h-12" alt="icon" />
                   Track your lifestyle changes
                 </h1>
@@ -53,8 +53,8 @@ export default function Goals() {
             </div>
 
             <div>
-              <div className="bg-white rounded-lg p-5 text-center h-full hover:transform hover:rotate-1  transition-transform duration-300 hover:bg-[#FBF4DB]">
-                <h1 className="flex flex-col justify-center  items-center text-2xl pb-3">
+              <div className="bg-white rounded-lg p-5 text-center h-full hover:transform hover:rotate-1  transition-transform duration-300 hover:bg-[#DDCDD0]">
+                <h1 className="flex flex-col justify-center  items-center text-xl md:text-2xl leading-[30px] capitalize pb-3">
                   <img src={icon3} className="w-12 h-12" alt="icon" />
                   Small contributions can have a big impact
                 </h1>
@@ -69,13 +69,13 @@ export default function Goals() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-10">
             <div className="flex justify-center items-center">
-              <h1 className="text-2xl md:text-3xl text-center  leading-10 ">
+              <h1 className="text-xl md:text-3xl text-center md:text-start    leading-10 ">
                 Our Core Values That Drive Positive Impact
               </h1>
             </div>
             <div>
-              <div className="bg-white rounded-lg p-5 text-center h-full hover:transform hover:rotate-1  transition-transform duration-300 hover:bg-[#FBF4DB]">
-                <h1 className="flex flex-col justify-center  items-center text-2xl pb-3">
+              <div className="bg-white rounded-lg p-5 text-center h-full hover:transform hover:rotate-1  transition-transform duration-300 hover:bg-[#DDCDD0]">
+                <h1 className="flex flex-col justify-center  items-center text-xl md:text-2xl leading-[30px] capitalize pb-3">
                   <img src={icon4} className="w-12 h-12" alt="icon" />
                   Sustainability
                 </h1>
@@ -88,8 +88,8 @@ export default function Goals() {
             </div>
 
             <div>
-              <div className="bg-white rounded-lg p-5 text-center h-full hover:transform hover:rotate-1  transition-transform duration-300 hover:bg-[#FBF4DB] ">
-                <h1 className="flex flex-col justify-center  items-center text-2xl pb-3">
+              <div className="bg-white rounded-lg p-5 text-center h-full hover:transform hover:rotate-1  transition-transform duration-300 hover:bg-[#DDCDD0] ">
+                <h1 className="flex flex-col justify-center  items-center text-xl md:text-2xl leading-[30px] capitalize pb-3">
                   <img src={icon5} className="w-16 h-12" alt="icon" />
                   Transparency
                 </h1>
@@ -101,8 +101,8 @@ export default function Goals() {
               </div>
             </div>
             <div>
-              <div className="bg-white rounded-lg p-5 text-center h-full hover:transform hover:rotate-1  transition-transform duration-300 hover:bg-[#FBF4DB]">
-                <h1 className="flex flex-col justify-center  items-center text-2xl pb-3">
+              <div className="bg-white rounded-lg p-5 text-center h-full hover:transform hover:rotate-1  transition-transform duration-300 hover:bg-[#DDCDD0]">
+                <h1 className="flex flex-col justify-center  items-center text-xl md:text-2xl leading-[30px] capitalize pb-3">
                   <img src={icon6} className="w-20 h-12" alt="icon" />
                   Innovation
                 </h1>

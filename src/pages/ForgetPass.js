@@ -21,22 +21,22 @@ function ForgetPass() {
   const email = watch("email");
 
   const handleSendOtp = async (data) => {
-    setLoader(true)
+    setLoader(true);
     try {
       const response = await axios.post(`${server}/forgot-password`, {
         email,
       });
       console.log(response.data);
       setOtpField(true);
-      setLoader(false)
+      setLoader(false);
     } catch (error) {
       console.error("Error sending OTP:", error);
-      setLoader(false)
+      setLoader(false);
     }
   };
 
   const onSubmit = async (data) => {
-    setLoader(true)
+    setLoader(true);
     try {
       const response = await axios.post(`${server}/reset-password`, {
         email,
@@ -45,14 +45,14 @@ function ForgetPass() {
         confirmPassword: data.confirmPassword,
       });
       console.log(response.data);
-      reset(); 
+      reset();
       toast.success("Successfully Changed password", {
         autoClose: 1000,
         style: {
           marginTop: "100px",
         },
       });
-      setLoader(false)
+      setLoader(false);
     } catch (error) {
       console.error("Error setting new password:", error);
       toast.error("Error setting new password", {
@@ -61,16 +61,16 @@ function ForgetPass() {
           marginTop: "100px",
         },
       });
-      setLoader(false)
+      setLoader(false);
     }
   };
 
   return (
     <>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 mt-52">
-        <h1 className="w-full text-center font-extrabold text-3xl mt-5 flex justify-center gap-3">
-          <p className="text-primary">Set Password</p>
-          <p>to unlock Carbon Shredder.</p>
+        <h1 className="w-full md:text-[2rem] leading-[40px] text-center uppercase    ">
+          <span className="text-primary">Set Password </span>
+          to unlock Carbon Shredder.
         </h1>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           {!otpField ? (
@@ -114,7 +114,11 @@ function ForgetPass() {
             </form>
           ) : (
             <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-              <p className="text-sm">Please check your email <span className="text-[blue]">{email}</span> for the OTP to reset your password</p>
+              <p className="text-sm">
+                Please check your email{" "}
+                <span className="text-[blue]">{email}</span> for the OTP to
+                reset your password
+              </p>
               <div className="mt-2">
                 <input
                   id="otp"
@@ -195,7 +199,7 @@ function ForgetPass() {
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-text-primary px-3 py-2 text-md font-semibold leading-6 bg-primary text-white shadow-sm text-sm"
                 >
-                   {loader ? <Loader /> : "Set Password"}
+                  {loader ? <Loader /> : "Set Password"}
                 </button>
               </div>
             </form>
