@@ -4,18 +4,27 @@ import { Disclosure } from "@headlessui/react";
 export default function Faqs() {
   return (
     <>
-      <section className="h-96  bg-primary bg-opacity-10">
+      <section className="h-48 md:h-56 md:96 bg-primary bg-opacity-10 mt-12   md:mt-15 lg:mt-0">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
-            
-            <h1 className=" text-[#101110] text-3xl md:text-5xl leading-[50px] text-center capitalize mb-20 ">
+            <h1 className="md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase mb-10 ">
               Frequently asked <span className="text-primary">questions</span>
             </h1>
           </div>
         </div>
       </section>
+      {/* <section className="h-96  bg-primary bg-opacity-10">
+        <div className="conatiner mx-auto px-4 h-full">
+          <div className="flex flex-col justify-end items-center h-full">
+            
+            <h1 className=" text-[#101110] text-3xl md:text-5xl leading-[50px] text-center  mb-20 ">
+              Frequently asked <span className="text-primary">questions</span>
+            </h1>
+          </div>
+        </div>
+      </section> */}
       <div className="container mx-auto px-5 py-10">
-        <div className="flex flex-col"> 
+        <div className="flex flex-col">
           <div className="flex flex-row ">
             <div className="basis-full  py-10 flex flex-col max-w-4xl mx-auto">
               <Disclosure
@@ -33,7 +42,7 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring items-center  `}
                     >
-                      <span className="capitalize">1. What is Carbon Shredder?</span>
+                      <span className="">1. What is carbon shredder?</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -76,7 +85,7 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring   `}
                     >
-                      <span className="capitalize">
+                      <span className="">
                         2. How does the carbon footprint calculator work?
                       </span>
                       <svg
@@ -122,7 +131,7 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring   `}
                     >
-                      <span className="capitalize">
+                      <span className="">
                         3. What are carbon offsets, and how do they work?
                       </span>
                       <svg
@@ -168,7 +177,9 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring   `}
                     >
-                      <span className="capitalize">4. How do I choose a subscription plan?</span>
+                      <span className="">
+                        4. How do I choose a subscription plan?
+                      </span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -210,7 +221,9 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring   `}
                     >
-                      <span className="capitalize">5. Is my financial information secure?</span>
+                      <span className="">
+                        5. Is my financial information secure?
+                      </span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -251,7 +264,9 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring   `}
                     >
-                      <span className="capitalize">6. Can I change or cancel my subscription?</span>
+                      <span className="">
+                        6. Can I change or cancel my subscription?
+                      </span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -270,9 +285,21 @@ export default function Faqs() {
                       </svg>
                     </Disclosure.Button>
                     <Disclosure.Panel className="px-4 pb-2 pt-4 text-base text-gray-500">
-                      Yes, you can change or cancel your subscription at any
-                      time. Please contact us for assistance with modifying your
-                      subscription.
+                      <p className="mb-2">
+                        Subscriptions are managed entirely through Stripe, so
+                        you can:
+                      </p>
+                      <ul className="list-disc list-inside mb-2">
+                        <li>Cancel or pause anytime</li>
+                        <li>Switch payment methods</li>
+                        <li>See payment history</li>
+                      </ul>
+                      <p>
+                        To switch subscriptions, first cancel your current
+                        subscription and then the start shredding tab will
+                        provide you with a walkthrough to select your new
+                        subscription.
+                      </p>
                     </Disclosure.Panel>
                   </>
                 )}
@@ -292,7 +319,7 @@ export default function Faqs() {
                         open ? " text-primary" : ""
                       } flex w-full justify-between rounded-lg px-4 py-5 text-left text-lg font-medium   focus:outline-none focus-visible:ring   `}
                     >
-                      <span className="capitalize">
+                      <span className="">
                         7. How do you ensure the effectiveness of the offset
                         projects?
                       </span>

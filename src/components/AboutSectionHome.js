@@ -8,9 +8,9 @@ export default function AboutSectionHome() {
       <section className="">
         <div className="container px-5 py-24 pt-16 mx-auto">
           <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-            <h1 className=" text-[#101110] md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase">
+            <h2 className=" text-[#101110] md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase">
               Be part of the change
-            </h1>
+            </h2>
           </div>
           <div className="  flex justify-center ">
             <div className="  w-[95%] lg:w-[70%] grid grid-cols-1 md:grid-cols-3  place-items-center gap-10">
@@ -98,7 +98,7 @@ export default function AboutSectionHome() {
               </div>
             </div>
           </div>
-          <p className=" mt-16  text-md md:text-2xl max-w-4xl mx-auto text-center capitalize text-gray-600">
+          <p className=" mt-16  text-md md:text-2xl max-w-4xl mx-auto text-center text-[#101110]">
             We believe that change is not only necessary but possible. Join us
             on this journey to a more sustainable future, one footprint at a
             time.

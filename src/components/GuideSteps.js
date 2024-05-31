@@ -10,9 +10,9 @@ export default function GuideSteps() {
       <section className="bg-primary bg-opacity-10 text-center">
         <div className="container mx-auto py-20 px-4 ">
           <div className="text-center mb-10">
-            <h4 className=" text-[#101110] md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase">
-              How it works
-            </h4>
+            <h2 className=" text-[#101110] md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase">
+            HOW CARBON SHREDDER WORKS
+            </h2>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500 uppercase text-[14px]">
               Shred your carbon
             </p>
@@ -31,9 +31,9 @@ export default function GuideSteps() {
                 <span className="h-7 w-7 rounded-full border border-primary flex justify-center items-center p-5 text-sm bg-white absolute top-[-15px] left-[-15px]">
                   01
                 </span>
-                <h1 className="text-lg md:text-2xl leading-[30px] mb-6 capitalize">
+                <h2 className="text-lg md:text-2xl leading-[30px] mb-6 ">
                   Estimate carbon footprint
-                </h1>
+                </h2>
                 <p className="text-md md:text-lg">
                   Estimate your carbon footprint by taking a quiz, connecting
                   the app with your bank, or filling in your own estimate. Your
@@ -47,7 +47,7 @@ export default function GuideSteps() {
                   expressed in equivalent tons of carbon dioxide. */}
                   <p className="text-center text-primary underline text-xl">
                     {" "}
-                    <Link to="/calculator-works">
+                    <Link to="/carbon-footprint-calculator">
                       <span>Learn more</span>
                     </Link>
                   </p>
@@ -68,16 +68,15 @@ export default function GuideSteps() {
                 <span className="h-7 w-7 rounded-full border border-primary flex justify-center items-center p-5 text-sm bg-white absolute top-[-15px] left-[-15px]">
                   02
                 </span>
-                <h1 className="text-lg md:text-2xl leading-[30px] mb-6 capitalize">
+                <h2 className="text-lg md:text-2xl leading-[30px] mb-6">
                   Subscribe to monthly carbon offsets
-                </h1>
+                </h2>
                 <p className="text-md md:text-lg">
-                  Shred your carbon footprint by subscribing to our monthly
-                  carbon offset service
+                Shred your carbon footprint by subscribing to our monthly carbon offset service.
                 </p>
                 <p className="text-center text-primary underline text-xl">
                   {" "}
-                  <Link to="/subscription-works">
+                  <Link to="/carbon-offset-subscription-service">
                     <span>Learn more</span>
                   </Link>
                 </p>
@@ -96,9 +95,9 @@ export default function GuideSteps() {
                 <span className="h-7 w-7 rounded-full border border-primary flex justify-center items-center p-5 text-sm bg-white absolute top-[-15px] left-[-15px]">
                   03
                 </span>
-                <h1 className="text-lg md:text-2xl  capitalize leading-[30px] mb-6">
+                <h2 className="text-lg md:text-2xl leading-[30px] mb-6">
                   Track impact
-                </h1>
+                </h2>
                 <p className="text-md md:text-lg">
                   Keep track of your carbon footprint and determine the impact
                   of your offset efforts in your personalized carbon dashboard.
@@ -106,7 +105,7 @@ export default function GuideSteps() {
                 <br />
 
                 <p className="text-center text-primary underline text-xl">
-                  {" "}
+               
                   <Link to="/track-your-carbon-impact">
                     <span>Learn more</span>
                   </Link>

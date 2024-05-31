@@ -4,8 +4,13 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import { useNavigate } from "react-router-dom";
 import countryOptions from "../data";
+import icon4 from "../assets/images/totalCarbon.png";
+import icon3 from "../assets/images/icon-2.png";
+import icon2 from "../assets/images/priceOffset.png";
+import icon1 from "../assets/images/pouchBag.png";
 
 const MultiStepForm = ({ onSubmit }) => {
+  const dollarPerTon = 25;
   const Navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
   const [values, setValues] = useState({
@@ -65,10 +70,15 @@ const MultiStepForm = ({ onSubmit }) => {
       (1 + adjustmentFactor2()) *
       parseFloat(values.country)
     ).toFixed(2);
-    return isNaN(total) ? 0 : total;
+
+    const parsedTotal = isNaN(total) ? 0 : parseFloat(total);
+    localStorage.setItem("carbonPriceTotal", parsedTotal * 25);
+    return parsedTotal;
+    // return isNaN(total) ? 0 : total;
   };
   const offsettingPrice = () => {
-    const total = (monthlyFootprint() * 20).toFixed(2);
+    // 25$ per ton
+    const total = (monthlyFootprint() * dollarPerTon).toFixed(2);
     return isNaN(total) ? 0 : total;
   };
   const carbonDebt = () => {
@@ -76,16 +86,15 @@ const MultiStepForm = ({ onSubmit }) => {
     return isNaN(total) ? 0 : total;
   };
   const carbonPrice = () => {
-    const total = (carbonDebt() * 20).toFixed(2);
-    const parsedTotal = isNaN(total) ? 0 : parseFloat(total);
-    localStorage.setItem("carbonPriceTotal", parsedTotal);
-    return parsedTotal;
+    // 25$ per ton
+    const total = (carbonDebt() * dollarPerTon).toFixed(2);
+    return isNaN(total) ? 0 : total;
   };
 
   // const countryPercentage = values.country * (percentage / 100);
 
   const handleSubmit = () => {
-    Navigate("/subcription-plan");
+    Navigate("/subscription-plan");
   };
 
   const steps = [
@@ -122,22 +131,19 @@ const MultiStepForm = ({ onSubmit }) => {
               </Select>
             </FormControl>
 
-            <FormControl  fullWidth>
+            <FormControl fullWidth>
               <InputLabel id="Country">Country of Residence</InputLabel>
               <Select
                 name="country"
                 value={values.country}
                 onChange={handleChange}
                 label="Country of Residence"
-                MenuProps={{ PaperProps: { style: { maxHeight: 300, width: 250 } } }}
-              
+                MenuProps={{
+                  PaperProps: { style: { maxHeight: 300, width: 250 } },
+                }}
               >
                 {countryOptions.map((option) => (
-                  <MenuItem
-                  
-                    key={option.value}
-                    value={option.value}
-                  >
+                  <MenuItem key={option.value} value={option.value}>
                     {option.label}
                   </MenuItem>
                 ))}
@@ -354,77 +360,92 @@ const MultiStepForm = ({ onSubmit }) => {
                 </button>
               </div>
             </div>  */}
-
-            <div className="flex gap-3 justify-center mt-20">
-              <div className="flex gap-3 flex-col">
-                <p className=" w-[220px] capitalize   md:w-[350px]   bg-primary p-2 font-bold rounded-sm ">
+            <div className="flex gap-3 md:gap-3 justify-center mt-20">
+              <div className="flex gap-3 flex-col w-[65%] md:w-[62%]">
+                <p className=" w-full capitalize   lg:w-[550px]  bg-primary p-2 font-bold rounded-sm text-white">
                   Description
                 </p>
-                {/* <p className=" w-[220px] capitalize   md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
+                {/* <p className=" w-full capitalize   lg:w-[550px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2  text-[#000000d1]">
                   Total adjustment factor
                 </p> */}
-                <p className=" w-[220px] capitalize   md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
-                Estimated monthly footprint (tonne CO2)
+                <p className=" w-full  lg:w-[550px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2  text-[#000000d1] flex justify-between items-center">
+                  <span> Estimated monthly footprint (tonne CO2)</span>
+                  <img
+                    className="h-[35px] w-[55px] object-contain "
+                    src={icon3}
+                    alt="img"
+                  />
                 </p>
-                <p className=" w-[220px] capitalize   md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
-                Price to offset one tonne of CO2
+                <p className=" w-full    lg:w-[550px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2  text-[#000000d1] flex justify-between items-center">
+                  <span>Cost to offset monthly carbon footprint</span>
+                  <img
+                    className="h-[35px] w-[55px] object-cover"
+                    src={icon2}
+                    alt="img"
+                  />
                 </p>
-                <p className=" w-[220px] capitalize   md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
-                Carbon debt (tonne CO2)
+                <p className=" w-full    lg:w-[550px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2  text-[#000000d1] flex justify-between items-center">
+                  <span>
+                    {" "}
+                    Estimated past lifetime carbon footprint (tonne CO2)
+                  </span>
+                  <img
+                    className="h-[35px] w-[55px] object-contain"
+                    src={icon1}
+                    alt="img"
+                  />
                 </p>
-                <p className=" w-[220px] capitalize   md:w-[350px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]">
-                Total carbon debt ($)
+                <p className=" w-full    lg:w-[550px] text-xs md:text-sm bg-white shadow-sm rounded-sm p-2  text-[#000000d1] flex justify-between items-center">
+                  <span>Cost to offset past lifetime carbon footprint</span>
+                  <img
+                    className="h-[35px] w-[55px] object-cover"
+                    src={icon4}
+                    alt="img"
+                  />
                 </p>
                 <button
                   variant="contained"
-                  className="inline-flex capitalize text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm   justify-center items-center w-[220px] capitalize   md:w-[350px] text-xs md:text-sm mt-5"
+                  className="inline-flex  text-white bg-primary border-0 py-3 px-6 focus:outline-none hover:bg-secondary rounded-3xl   justify-center items-center w-full    lg:w-[550px] text-xs mt-5 md:text-[14px] "
                   onClick={handleSubmit}
                 >
-                 Subscribe to our offset service
+                  Subscribe to our offset service
                 </button>
               </div>
-              <div className="text-center flex gap-3 flex-col">
-                <p className="w-[100px]  md:w-[150px]   bg-primary p-2  font-bold rounded-sm">
+              <div className="text-center flex gap-3 flex-col w-[25%] md:w-[25%]">
+                <p className="w-full  lg:w-[250px]   bg-primary p-2  font-bold rounded-sm  text-white">
                   Value
                 </p>
-                {/* <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
+                {/* <p className="w-full  lg:w-[250px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2  text-[#000000d1]  ">
                   {adjustmentFactor()}%
                 </p> */}
-                <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
-                  {monthlyFootprint()}
+                <p className="w-full  lg:w-[250px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2  text-[#000000d1]  flex justify-center items-center">
+                  <span className="h-[35px] flex justify-center items-center">
+                    {monthlyFootprint()}
+                  </span>
                 </p>
-                <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
-                  ${offsettingPrice()}
+                <p className="w-full  lg:w-[250px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2  text-[#000000d1]  ">
+                  <span className="h-[35px] flex justify-center items-center">
+                    ${offsettingPrice()}
+                  </span>
                 </p>
-                <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
-                  {carbonDebt()}
+                <p className="w-full  lg:w-[250px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2  text-[#000000d1]  ">
+                  <span className="h-[35px] flex justify-center items-center">
+                    {carbonDebt()}
+                  </span>
                 </p>
-                <p className="w-[100px]  md:w-[150px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2 text-[#000000d1]  ">
-                  ${carbonPrice()}
+                <p className="w-full  lg:w-[250px]  text-xs md:text-sm bg-white shadow-sm rounded-sm p-2  text-[#000000d1]  ">
+                  <span className="h-[35px] flex justify-center items-center">
+                    ${carbonPrice()}
+                  </span>
                 </p>
                 <button
-                  className="inline-flex    text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm  justify-center items-center w-[100px]  md:w-[150px]  text-xs md:text-sm mt-5"
+                  className="inline-flex    text-white bg-primary border-0 py-3 px-6 focus:outline-none hover:bg-secondary rounded-3xl  justify-center items-center w-full  lg:w-[250px]  text-xs mt-5  md:text-[14px]"
                   onClick={handleBack}
                 >
                   Back
                 </button>
               </div>
             </div>
-            {/* <div className="flex gap-5 justify-center items-center mt-10 px-2"> 
-                <button
-                  variant="contained"
-                  className="inline-flex    text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm   justify-center items-center w-[220px] capitalize   md:w-[350px] text-xs md:text-sm"
-                  onClick={handleSubmit}
-                >
-                  Ready to buy
-                </button>
-                <button
-                  className="inline-flex    text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-sm  justify-center items-center w-[150px]"
-                  onClick={handleBack}
-                >
-                  Back
-                </button>
-              </div> */}
           </div>
         );
       default:
@@ -459,7 +480,7 @@ const MultiStepForm = ({ onSubmit }) => {
             <button
               variant="contained"
               onClick={handleNext}
-              className="inline-flex    text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg justify-center items-center"
+              className="inline-flex    text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded-3xl text-md justify-center items-center "
             >
               Next
             </button>

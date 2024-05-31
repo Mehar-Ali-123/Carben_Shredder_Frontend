@@ -24,9 +24,9 @@ export default function Impact() {
       <div className="overflow-hidden w-[100%] bg-none">
         <section className="text-gray-600">
           <div className="flex flex-col text-center w-full pt-20 pb-52 bg-primary bg-opacity-10">
-            <h1 className=" text-[#101110]  md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase ">
+            <h2 className=" text-[#101110]  md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase ">
               Our CNaught Partnership Helps You Offset Your Footprint
-            </h1>
+            </h2>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base  text-gray-500 uppercase text-[14px]">
               Get to know your offset sources
             </p>
@@ -41,9 +41,9 @@ export default function Impact() {
                 // src="https://static6.depositphotos.com/1004370/666/i/600/depositphotos_6664945-stock-photo-tree-in-hands.jpg"
               />
               <div className=" flex flex-col md:items-start md:text-left items-center text-center">
-                <h1 className=" text-[#101110] text-lg md:text-2xl leading-[30px] mb-3 capitalize px-3">
-                  Offset Portfolio:
-                </h1>
+                <h2 className=" text-[#101110] text-lg md:text-2xl leading-[30px] mb-3 px-3">
+                  Offset portfolio:
+                </h2>
                 <p className=" text-gray-600 text-md md:text-lg  leading-relaxed px-3">
                   We partner with CNaught to purchase a diversified portfolio of
                   high-quality carbon credits that is designed to maximize
@@ -73,7 +73,7 @@ export default function Impact() {
                               : "bg-white  text-[#101110]  text-lg  md:text-xl py-5 px-5  rounded"
                           }
                         >
-                          Emissions Reductions * 55%
+                          Emissions reductions * 55%
                         </button>
                       )}
                     </Tab>
@@ -99,7 +99,7 @@ export default function Impact() {
                               : "bg-white  text-[#101110]  text-lg  md:text-xl py-5 px-5  rounded"
                           }
                         >
-                          Short-Lived Removal * 9.5%
+                          Short-lived removal * 9.5%
                         </button>
                       )}
                     </Tab>
@@ -112,7 +112,7 @@ export default function Impact() {
                               : "bg-white  text-[#101110]  text-lg  md:text-xl py-5 px-5  rounded"
                           }
                         >
-                          Long-Lived Removal * 0.5%
+                          Long-lived removal * 0.5%
                         </button>
                       )}
                     </Tab>
@@ -121,9 +121,9 @@ export default function Impact() {
                 <div className="basis-full lg:basis-8/12 px-0 md:px-10 mt-7">
                   <Tab.Panels>
                     <Tab.Panel>
-                      <h1 className=" text-lg md:text-2xl">
+                      <h2 className=" text-lg md:text-2xl">
                         Emissions Reductions
-                      </h1>
+                      </h2>
                       <p className="text-md md:text-lg mt-5 ">
                         This category covers a wide range of projects that aim
                         to reduce and avoid emissions versus business as usual.
@@ -153,7 +153,7 @@ export default function Impact() {
                             and displace dirtier fossil-fuel-driven power in the
                             electric grid.
                           </p>
-                          <Link to="/partnership-with-cnaught">
+                          <Link to="/carbon-offsets-partnership-with-cnaught">
                             <a class="text-primary inline-flex items-center mt-4">
                               Learn More
                               <svg
@@ -174,7 +174,7 @@ export default function Impact() {
                       </div>
                     </Tab.Panel>
                     <Tab.Panel>
-                      <h1 className=" text-lg md:text-2xl">Conservation</h1>
+                      <h2 className=" text-lg md:text-2xl">Conservation</h2>
                       <p className="text-md md:text-lg mt-5 ">
                         This category typically consists of nature-based
                         projects that help retain an existing source of natural
@@ -203,7 +203,7 @@ export default function Impact() {
                             Indonesia that would likely otherwise have been
                             converted to palm and other plantations.
                           </p>
-                          <Link to="/partnership-with-cnaught">
+                          <Link to="/carbon-offsets-partnership-with-cnaught">
                             <a class="text-primary inline-flex items-center mt-4">
                               Learn More
                               <svg
@@ -224,9 +224,9 @@ export default function Impact() {
                       </div>
                     </Tab.Panel>
                     <Tab.Panel>
-                      <h1 className=" text-lg md:text-2xl">
+                      <h2 className=" text-lg md:text-2xl">
                         Short-Lived Removal
-                      </h1>
+                      </h2>
                       <p className="text-md md:text-lg mt-5 ">
                         This category typically consists of nature-based
                         projects that remove existing carbon and store it in new
@@ -251,7 +251,7 @@ export default function Impact() {
                             Kootznoowoo protects 20,159 acres of forest across
                             four areas on Prince of Wales Island, Alaska.
                           </p>
-                          <Link to="/partnership-with-cnaught">
+                          <Link to="/carbon-offsets-partnership-with-cnaught">
                             <a class="text-primary inline-flex items-center mt-4">
                               Learn More
                               <svg
@@ -272,9 +272,9 @@ export default function Impact() {
                       </div>
                     </Tab.Panel>
                     <Tab.Panel>
-                      <h1 className=" text-lg md:text-2xl">
+                      <h2 className=" text-lg md:text-2xl">
                         Long-Lived Removal
-                      </h1>
+                      </h2>
                       <p className="text-md md:text-lg mt-5 ">
                         This is a highly diverse category of projects that
                         includes cutting-edge engineered solutions that hold
@@ -303,7 +303,7 @@ export default function Impact() {
                             to researchers, entrepreneurs, and investors that
                             there is a growing market for these technologies.{" "}
                           </p>
-                          <Link to="/partnership-with-cnaught">
+                          <Link to="/carbon-offsets-partnership-with-cnaught">
                             <a class="text-primary inline-flex items-center mt-4">
                               Learn More
                               <svg

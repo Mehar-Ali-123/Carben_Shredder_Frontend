@@ -8,9 +8,9 @@ export default function StartedSection() {
       <section className="bg-white pb-10">
         <div className="container mx-auto py-10 max-w-5xl">
           <div className="text-center mb-10">
-            <h1 className=" text-[#101110]  md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase ">
+            <h2 className=" text-[#101110]  md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase ">
               Did you know
-            </h1>
+            </h2>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base  text-gray-500 uppercase text-[14px]">
               Join our journey in understanding your carbon footprint
             </p>

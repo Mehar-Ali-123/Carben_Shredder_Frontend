@@ -2,13 +2,20 @@ import React from "react";
 import Hero from "../components/Hero";
 import { LiaSlideshare } from "react-icons/lia";
 import { GrGrow } from "react-icons/gr";
-import AboutImg from "../assets/images/bgAbout.jpg";
+import { Helmet } from "react-helmet-async";
 
 export default function About() {
   return (
     <>
+      <Helmet>
+        <title>Our Mission - Carbon Shredder</title>
+        <meta
+          name="description"
+          content="Discover our mission at Carbon Shredder: revolutionizing carbon footprint engagement with real-time tracking. Join our collective effort for a sustainable future."
+        /> 
+      </Helmet>
       <section
-        className={`h-80 md:96 bg-primary bg-opacity-10 mt-5  md:mt-15 lg:mt-0  bg-cover bg-center`}
+        className={`h-48 md:h-56 md:96 bg-primary bg-opacity-10 mt-5  md:mt-15 lg:mt-0  bg-cover bg-center`}
         // style={{ backgroundImage: `url(${AboutImg})` }}
       >
         <div className="conatiner mx-auto px-4 h-full">
@@ -51,40 +58,12 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {/**
-      <OurMission OurMission="Our vision is crystal clear: to be at the forefront of a global movement towards carbon neutrality. We envision a future where individuals and businesses are equipped to make informed choices that positively impact the environment. Through our cutting-edge carbon credit platform and user-friendly app, we are reshaping the way people engage with their carbon footprint. Our goal is to contribute to a healthier, greener planet for generations to come." />
-      <Goals />
-      <FounderProfile />
-      <Hero />
-      <section>
-        <div className="container mx-auto px-4">
-          <div className="flex flex-row gap-20 py-20">
-            <div className="basis-full md:basis-6/12 my-auto">
-              <h1 className="text-[40px]  mb-5">About Us</h1>
-              <p className="text-lg ">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Sapiente itaque accusamus minima dolore quos ad cum, tenetur
-                eaque distinctio consequuntur hic rem commodi, nesciunt officia,
-                sint esse eius consequatur? Porro consequatur officiis similique
-                asperiores ipsum dolor corrupti. Suscipit animi illo in
-                obcaecati asperiores nostrum voluptates enim dolores praesentium
-                eum laudantium porro natus facere necessitatibus, quaerat
-                repudiandae vitae corporis? Ab, voluptatem.
-              </p>
-            </div>
-            <div className="basis-full md:basis-6/12">
-              <img src={AboutImage} className="rounded" alt="" /> 
-            </div>
-          </div>
-        </div>
-      </section>*/}
       <section className="bg-white">
         <div className="container px-5 py-24 mx-auto">
           <div className="text-center mb-20">
-            <h1 className="sm:text-3xl text-2xl font-medium  text-gray-900 mb-4">
-              Investing in our mission
-            </h1>
+            <h2 className="sm:text-3xl text-2xl font-medium  text-gray-900 mb-4">
+              Investing in our mission to support carbon reduction
+            </h2>
           </div>
           <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6 ">
             <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
@@ -177,9 +156,9 @@ export default function About() {
       <section className="">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-            <h1 className="sm:text-3xl text-2xl font-medium  mb-2 text-gray-900">
+            <h2 className="sm:text-3xl text-2xl font-medium  mb-2 text-gray-900">
               Be part of the change
-            </h1>
+            </h2>
           </div>
           <div className="  flex justify-center ">
             <div className="  w-[95%] lg:w-[70%] grid grid-cols-1 md:grid-cols-3  place-items-center gap-10">

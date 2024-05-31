@@ -28,7 +28,7 @@ export default function Footer() {
     <footer className="text-gray-800 body-font bg-primary bg-opacity-20 w-[100%] overflow-hidden">
       <div className="container px-5 pt-24 mx-auto ">
         <div className="flex flex-row flex-wrap md:flex-nowrap">
-          <div className="   md:mx-0 mx-auto text-center md:text-left pr-0 md:pr-24 ">
+          <div className="md:mx-0 mx-auto text-center md:text-left pr-0 md:pr-24 flex justify-start items-center flex-col ">
             <Link
               to="/"
               className="flex flex-col font-medium items-start md:justify-start justify-center text-gray-800"
@@ -36,7 +36,12 @@ export default function Footer() {
               <img src={Logo} className="w-32 " alt="Logo" />
             </Link>
             <span className="inline-flex sm:ml-auto  mt-3 justify-center sm:justify-start">
-              <a className="text-gray-500">
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                to="https://www.facebook.com/carbonshredder"
+                className="text-gray-500  p-1 rounded-md border-2 border-transparent hover:border-primary"
+              >
                 <svg
                   fill="currentColor"
                   strokeLinecap="round"
@@ -47,8 +52,13 @@ export default function Footer() {
                 >
                   <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
                 </svg>
-              </a>
-              <a className="ml-3 text-gray-500">
+              </Link>
+              <Link
+                // target="_blank"
+                // rel="noopener noreferrer"
+                // to=""
+                className="ml-3 text-gray-500  p-1 rounded-md border-2 border-transparent hover:border-primary"
+              >
                 <svg
                   fill="currentColor"
                   strokeLinecap="round"
@@ -59,8 +69,13 @@ export default function Footer() {
                 >
                   <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
                 </svg>
-              </a>
-              <a className="ml-3 text-gray-500">
+              </Link>
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                to="https://www.instagram.com/carbonshredder/"
+                className="ml-3 text-gray-500  p-1 rounded-md border-2 border-transparent hover:border-primary"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -72,8 +87,13 @@ export default function Footer() {
                     fill="#6B7280"
                   />
                 </svg>
-              </a>
-              <a className="ml-3 text-gray-500">
+              </Link>
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                to="https://www.linkedin.com/company/carbonshredder/"
+                className="ml-3 text-gray-500  p-1 rounded-md border-2 border-transparent hover:border-primary"
+              >
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
@@ -89,19 +109,19 @@ export default function Footer() {
                   />
                   <circle cx={4} cy={4} r={2} stroke="none" />
                 </svg>
-              </a>
+              </Link>
             </span>
           </div>
           <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3    md:mt-0 mt-10  md:text-left w-[100%]">
             <div className=" lg:basis-1/3 basis-full  px-0 md:px-4 py-0 md:py-6    ">
               <h2 className=" font-bold text-gray-800 tracking-widest text-2xl mb-3">
-                Quick Links
+                Quick links
               </h2>
               <nav className="list-none pb-10">
                 <li>
                   <Link
                     to="/"
-                    className="mb-3 text-gray-800   text-[14px] uppercase  tracking-[2px] footer-link hover:text-primary hover:underline"
+                    className="mb-3 text-gray-800   text-[15px]    tracking-[2px] footer-link hover:text-primary hover:underline"
                   >
                     Home
                   </Link>
@@ -109,7 +129,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/how-it-works"
-                    className="mb-3 text-gray-800   text-[14px] uppercase  tracking-[2px] footer-link hover:text-primary hover:underline"
+                    className="mb-3 text-gray-800   text-[15px]    tracking-[2px] footer-link hover:text-primary hover:underline"
                   >
                     How it works
                   </Link>
@@ -117,15 +137,15 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/faqs"
-                    className="mb-3 text-gray-800   text-[14px] uppercase  tracking-[2px] footer-link hover:text-primary hover:underline"
+                    className="mb-3 text-gray-800   text-[15px]    tracking-[2px] footer-link hover:text-primary hover:underline"
                   >
-                    Faq's
+                    FAQ's
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/about"
-                    className="mb-3 text-gray-800   text-[14px] uppercase  tracking-[2px] footer-link hover:text-primary hover:underline"
+                    to="/about-our-mission"
+                    className="mb-3 text-gray-800   text-[15px]    tracking-[2px] footer-link hover:text-primary hover:underline"
                   >
                     Our mission
                   </Link>
@@ -133,7 +153,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/contact"
-                    className="mb-3 text-gray-800   text-[14px] uppercase  tracking-[2px] footer-link hover:text-primary hover:underline"
+                    className="mb-3 text-gray-800   text-[15px]    tracking-[2px] footer-link hover:text-primary hover:underline"
                   >
                     Connect
                   </Link>
@@ -141,9 +161,9 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/privacy-policy"
-                    className="mb-3 text-gray-800   text-[14px] uppercase  tracking-[2px] footer-link hover:text-primary hover:underline"
+                    className="mb-3 text-gray-800   text-[15px]    tracking-[2px] footer-link hover:text-primary hover:underline"
                   >
-                    Privacy Policy
+                    Privacy policy
                   </Link>
                 </li>
               </nav>
@@ -152,9 +172,9 @@ export default function Footer() {
               <ul className="flex flex-col gap-8 ">
                 <li className="flex gap-5">
                   <div>
-                    <h1 className="font-bold text-gray-800 tracking-widest text-2xl mb-0  py-0 md:pb-3 md:pt-6   ">
+                    <h2 className="font-bold text-gray-800 tracking-widest text-2xl mb-0  py-0 md:pb-3 md:pt-6   ">
                       Address
-                    </h1>
+                    </h2>
                     <div className="flex justify-center items-center gap-2  ">
                       <p className=" pr-10 text-[15px] tracking-[2px]">
                         Emission Reduction <br /> OÜ Sakala tn 7-2 10141

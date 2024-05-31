@@ -1,44 +1,53 @@
 import React from "react";
 import Hero from "../components/Hero";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export default function SubscriptionWorks() {
   return (
-    <> 
-      <section className="h-80 md:96 bg-primary bg-opacity-10 mt-5  md:mt-15 lg:mt-0">
+    <>
+      <Helmet>
+        <title>Carbon Offset Subscription Service | The Carbon Shredder</title>
+        <meta
+          name="description"
+          content="Join our carbon offset subscription service to reduce global carbon emissions. Choose from Basic, Standard, or Ultimate plans. Start your journey today!"
+        /> 
+      </Helmet>
+
+      <section className="h-48 md:h-56 md:96 bg-primary bg-opacity-10 mt-12   md:mt-15 lg:mt-0">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
             <h1 className="md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase mb-10 ">
-            How our carbon subscription works
+            HOW OUR CARBON OFFSET SUBSCRIPTION WORKS
             </h1>
           </div>
         </div>
       </section>
-     
+
       <section className=" text-[#101110] body-font overflow-hidden">
         <div className="container px-5 py-0 pb-10 md:py-24 mx-auto max-w-5xl">
           <div className="  mb-8">
             <p className="text-lg  text-[#101110] text-center">
-              <b> Shred Your Carbon Footprint:</b> our monthly carbon offset
+              <b>Shred your carbon footprint:</b> our monthly carbon offset
               subscription service At Carbon Shredder, we understand the
               importance of taking action against climate change. That's why we
               offer an innovative carbon offset subscription service, allowing
               you to proactively contribute to reducing global carbon emissions.
-              The cost to offset is $20 USD per tonne of CO2, excluding taxes
+              The cost to offset is $25 USD per tonne of CO2, excluding taxes
               and payment fees.
             </p>
             <br />
-            <p className="text-lg  text-[#101110] text-center">
+            <h2 className="text-lg  text-[#101110] text-center">
               Based on your calculated footprint, you can choose a subscription
               level that suits your goals:
-            </p>
+            </h2>
           </div>
           <div className="grid  grid-cols-1 lg:grid-cols-3 gap-10 px-0 md:px-36 lg:px-0">
             <div className=" bg-white shadow-lg rounded-lg w-full transform transition-transform duration-300 ease-in-out hover:scale-105">
               <div className="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col justify-between  relative overflow-hidden">
-                <h1 className="text-5xl text-gray-900 pb-4 mb-4 border-b border-gray-200  leading-none  text-center">
+                <h2 className="text-5xl text-gray-900 pb-4 mb-4 border-b border-gray-200  leading-none  text-center">
                   <span> Basic shredder </span>
-                </h1>
+                </h2>
                 <p className="text-sm  text-[#101110] my-3  text-center ">
                   Ideal for individuals taking their first step in carbon
                   offsetting. This plan offsets up to 50% of your estimated
@@ -92,7 +101,7 @@ export default function SubscriptionWorks() {
                   </span>
                   Email support for any queries
                 </p>
-                <Link to="/calculator">
+                <Link to="/start-shredding">
                   <button className="flex gap-3 justify-center items-center bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded w-full">
                     Start Plan
                     <svg
@@ -106,15 +115,15 @@ export default function SubscriptionWorks() {
                     >
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
-                  </button> 
+                  </button>
                 </Link>
               </div>
             </div>
             <div className=" bg-white shadow-lg rounded-lg w-full transform transition-transform duration-300 ease-in-out hover:scale-105">
               <div className="h-full p-6 rounded-lg border-2 border-primary flex flex-col justify-between  relative overflow-hidden">
-                <h1 className="text-5xl text-gray-900  leading-none  text-center flex items-center pb-4 mb-4 border-b border-gray-200">
+                <h2 className="text-5xl text-gray-900  leading-none  text-center flex items-center pb-4 mb-4 border-b border-gray-200">
                   <span>Standard shredder</span>
-                </h1>
+                </h2>
 
                 <p className="text-sm  text-[#101110] my-3  text-center">
                   Perfect for those committed to fully neutralizing their carbon
@@ -154,7 +163,7 @@ export default function SubscriptionWorks() {
                   with the added benefit of achieving carbon neutrality each
                   month.
                 </p>
-                <Link to="/calculator">
+                <Link to="/start-shredding">
                   <button className="flex gap-3 justify-center items-center bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded w-full">
                     Start Plan
                     <svg
@@ -168,15 +177,15 @@ export default function SubscriptionWorks() {
                     >
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
-                  </button> 
+                  </button>
                 </Link>
               </div>
             </div>
             <div className="bg-white shadow-lg rounded-lg w-full transform transition-transform duration-300 ease-in-out hover:scale-105">
               <div className="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden justify-between ">
-                <h1 className="text-5xl text-gray-900  leading-none  text-center flex items-center pb-4 mb-4 border-b border-gray-200">
+                <h2 className="text-5xl text-gray-900  leading-none  text-center flex items-center pb-4 mb-4 border-b border-gray-200">
                   <span>Ultimate shredder</span>
-                </h1>
+                </h2>
 
                 <p className="text-sm  text-[#101110] my-3  text-center">
                   For the environmentally conscious looking to make a greater
@@ -232,7 +241,7 @@ export default function SubscriptionWorks() {
                   but with the focus on making a more substantial impact by
                   offsetting 200% of your monthly emissions.
                 </p>
-                <Link to="/calculator ">
+                <Link to="/start-shredding ">
                   <button className="flex gap-3 justify-center items-center bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded w-full ">
                     Start Plan
                     <svg
@@ -246,7 +255,7 @@ export default function SubscriptionWorks() {
                     >
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
-                  </button> 
+                  </button>
                 </Link>
               </div>
             </div>

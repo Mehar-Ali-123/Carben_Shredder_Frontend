@@ -8,7 +8,7 @@ import axios from "axios";
 import { server } from "../server";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-function SubcriptionCard() {
+function SubcriptionCard({ setIsLoading }) {
   // const carbonPrice = localStorage.getItem("carbonPriceTotal");
   const totalPrice = localStorage.getItem("carbonPriceTotal");
 
@@ -19,6 +19,7 @@ function SubcriptionCard() {
   const [error, setError] = useState(null);
   const Navigate = useNavigate();
   const handlePayment = async (paymentPrice) => {
+    setIsLoading(true);
     const roundedPayment = Math.round(paymentPrice);
     console.log("paymentPrice", paymentPrice);
     try {
@@ -30,7 +31,8 @@ function SubcriptionCard() {
       const response = await axios.post(
         `${server}/create-checkout-session`,
         {
-          payAmount: roundedPayment,
+          ...(roundedPayment > 0 && { payAmount: roundedPayment }),
+          // payAmount: roundedPayment ,
           productName: "Carbon Offsets",
           productDescription:
             "At Carbon Shredder, we are not just a service; we are a mission-driven movement. Our goal is to revolutionize the way individuals and communities engage with their carbon footprint. ",
@@ -46,7 +48,7 @@ function SubcriptionCard() {
       const sessionId = response.data.sessionId;
       localStorage.setItem("clientSecret", sessionId);
 
-      localStorage.setItem("ammountPayToStripe", paymentPrice);
+      localStorage.setItem("ammountPayToStripe", roundedPayment);
 
       console.log("sessionId", sessionId);
 
@@ -57,14 +59,16 @@ function SubcriptionCard() {
       const result = await stripe.redirectToCheckout({
         sessionId: sessionId,
       });
-
+      setIsLoading(false);
       if (result.error) {
+        setIsLoading(false);
         throw new Error(
           `Error redirecting to checkout: ${result.error.message}`
         );
       } else {
       }
     } catch (error) {
+      setIsLoading(false);
       console.error("Error handling payment:", error);
       setError("An error occurred during payment");
       if (error?.response?.data?.error.includes("at least 50 cents")) {
@@ -75,6 +79,7 @@ function SubcriptionCard() {
           },
         });
       } else {
+        setIsLoading(false);
         toast.error("Something Went Wrong,Try Again Later", {
           autoClose: 3000,
           style: {
@@ -84,6 +89,7 @@ function SubcriptionCard() {
       }
     }
   };
+
   return (
     <>
       <section className="text-gray-700 body-font overflow-hidden">
@@ -261,8 +267,8 @@ function SubcriptionCard() {
                 </p>
               </div>
             </div>
-            <div className="lg:w-1/3 lg:-mt-px w-full mb-10 lg:mb-0 border-2 rounded-lg border-primary relative">
-              <span className="bg-primary text-white px-3 py-1  text-xs absolute rounded-md right-3 top-[-15px] ">
+            <div className="lg:w-1/3 lg:-mt-px w-full mb-10 lg:mb-0 border-2 rounded-lg border-[#FBB15F] relative">
+              <span className="bg-[#FBB15F] text-white px-3 py-1  text-xs absolute rounded-md right-3 top-[-15px] ">
                 POPULAR
               </span>
               <div className="px-2 text-center h-48 flex flex-col items-center justify-center">
@@ -375,7 +381,7 @@ function SubcriptionCard() {
               <p className="text-gray-600 text-center h-12 text-sm px-2 flex items-center   justify-between lg:justify-center">
                 <span className="flex lg:hidden">
                   Reducing overall climate debt
-                </span> 
+                </span>
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -580,7 +586,7 @@ function SubcriptionCard() {
             <div className="flex justify-end gap-4">
               <button
                 onClick={() => setShowConfirmation(false)}
-                className="text-sm text-gray-500 hover:text-gray-700 text-white"
+                className="text-sm  hover:text-gray-700 text-white"
               >
                 Cancel
               </button>

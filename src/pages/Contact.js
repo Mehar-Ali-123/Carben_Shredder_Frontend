@@ -4,6 +4,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { server } from "../server";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 export default function Contact() {
   const {
     register,
@@ -35,23 +36,31 @@ export default function Contact() {
   };
 
   return (
-    <> 
-      <section className="h-80 md:96 bg-primary bg-opacity-10 mt-5  md:mt-15 lg:mt-0">
+    <>
+      <Helmet>
+        <title>Contact Us - Carbon Shredder</title>
+        <meta
+          name="description"
+          content="Reach out to Carbon Shredder for assistance, support, or feedback. Connect with us for help reducing your carbon footprint and shaping a sustainable future."
+        />
+      </Helmet>
+
+      <section className="h-48 md:h-56 md:96 bg-primary bg-opacity-10 mt-5  md:mt-15 lg:mt-0">
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
             <h1 className="md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase mb-10 ">
-            Contact our support team
+              Contact our support team
             </h1>
           </div>
         </div>
       </section>
       <section>
-        <div className="container mx-auto py-20 max-w-4xl   p-4">
+        <div className="container mx-auto py-16 max-w-4xl   p-4">
           <div className="flex flex-col items-center justify-center">
-            <h1 className="md:text-2xl leading-[40px] text-center uppercase ">
+            <h2 className="md:text-2xl leading-[40px] text-center uppercase ">
               Get In Touch With Our Support Team Here At Carbon Shredder.
-            </h1>
-            <p className="text-lg py-5 text-start md:text-center text-gray-600">
+            </h2>
+            <p className="text-[18px] py-5 text-start md:text-center text-gray-600 font-thin">
               We're here to help you with a smaller carbon footprint. Whether
               you have questions, need support, or want to share your thoughts,
               we'd love to hear from you.
@@ -61,14 +70,14 @@ export default function Contact() {
       </section>
       <section>
         <div className="container-fluid lg:container mx-auto px-4">
-          <div className="flex flex-row py-0 pb-5 md:py-20 gap-20 flex-wrap md:flex-nowrap">
+          <div className="flex flex-row py-0 pb-5 md:py-10 md:pt-0 gap-20 flex-wrap md:flex-nowrap">
             <div className="basis-full md:basis-6/12 my-auto px-0 md:pr-10">
               <ul className="flex flex-col gap-8    w-[100%] md:w-auto">
                 <li className="flex gap-5  ">
                   <div className="flex justify-center items-center "></div>
                   <div className=" ">
-                    <h1 className="text-2xl capitalize">General inquiries: </h1>
-                    <p className="text-lg leading-10">
+                    <h2 className="text-2xl">General inquiries: </h2>
+                    <p className="  leading-7 text-[16px]">
                       For any general questions about Carbon Shredder, our
                       services, or how we can assist you, please feel free to
                       reach out.
@@ -78,8 +87,8 @@ export default function Contact() {
                 <li className="flex gap-5">
                   <div className="flex justify-center items-center"></div>
                   <div>
-                    <h1 className="text-2xl capitalize ">Support requests: </h1>
-                    <p className="text-lg leading-10">
+                    <h2 className="text-2xl">Support requests: </h2>
+                    <p className="  leading-7 text-[16px]">
                       If you're encountering issues or need assistance with our
                       calculator or subscription service, our dedicated team is
                       ready to offer you personalized support.
@@ -89,10 +98,8 @@ export default function Contact() {
                 <li className="flex gap-5">
                   <div className="flex justify-center items-center"></div>
                   <div>
-                    <h1 className="text-2xl capitalize ">
-                      Feedback and suggestions:{" "}
-                    </h1>
-                    <p className="text-lg leading-10">
+                    <h2 className="text-2xl ">Feedback and suggestions:</h2>
+                    <p className="  leading-7 text-[16px]">
                       Your feedback is invaluable to us. If you have
                       suggestions, ideas, or feedback on how we can improve,
                       please don't hesitate to share.
@@ -102,8 +109,8 @@ export default function Contact() {
                 <li className="flex gap-5">
                   <div className="flex justify-center items-center"></div>
                   <div>
-                    <h1 className="text-2xl capitalize ">Stay connected: </h1>
-                    <p className="text-lg leading-10">
+                    <h2 className="text-2xl ">Stay connected: </h2>
+                    <p className="  leading-7 text-[16px]">
                       Follow us on our social media channels to stay updated on
                       the latest news, tips, and insights in carbon reduction
                       and sustainability. At Carbon Shredder, your input is
@@ -173,7 +180,7 @@ export default function Contact() {
                 <div className="relative mb-4">
                   <label
                     htmlFor="name"
-                    className="leading-7 text-sm text-gray-600"
+                    className=" leading-7 text-[16px] text-sm text-gray-600"
                   >
                     Name
                   </label>
@@ -194,7 +201,7 @@ export default function Contact() {
                 <div className="relative mb-4">
                   <label
                     htmlFor="email"
-                    className="leading-7 text-sm text-gray-600"
+                    className=" leading-7 text-[16px] text-sm text-gray-600"
                   >
                     Email
                   </label>
@@ -222,7 +229,7 @@ export default function Contact() {
                 <div className="relative mb-4">
                   <label
                     htmlFor="message"
-                    className="leading-7 text-sm text-gray-600"
+                    className=" leading-7 text-[16px] text-sm text-gray-600"
                   >
                     Message
                   </label>
@@ -245,7 +252,7 @@ export default function Contact() {
                 {/* Submit button */}
                 <button
                   type="submit"
-                  className="text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded text-lg"
+                  className="text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-secondary rounded "
                 >
                   Submit
                 </button>

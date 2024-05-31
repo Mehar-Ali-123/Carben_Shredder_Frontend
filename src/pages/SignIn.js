@@ -43,7 +43,7 @@ function SignIn() {
           localStorage.setItem("isSubaccountCnaught", false);
         }
         toast.success("Successful Login", {
-          autoClose: 1000,
+          autoClose: 500,
           style: {
             marginTop: "100px",
           },
@@ -51,7 +51,7 @@ function SignIn() {
         Navigate("/");
         setTimeout(() => {
           window.location.reload();
-        }, [1000]);
+        }, [500]);
         setLoader(false);
       } else {
         console.log("Error Server:");

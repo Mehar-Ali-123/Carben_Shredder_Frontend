@@ -4,7 +4,10 @@ import CalculatorForm from "../components/CalculatorForm";
 export default function Calculator() {
   return (
     <>
-      <section className="h-80 md:96 bg-primary bg-opacity-10 mt-5  md:mt-15 lg:mt-0">
+      <section
+        className={`h-48 md:h-56 md:96 bg-primary bg-opacity-10 mt-5  md:mt-15 lg:mt-0  bg-cover bg-center`}
+        // style={{ backgroundImage: `url(${AboutImg})` }}
+      >
         <div className="conatiner mx-auto px-4 h-full">
           <div className="flex flex-col justify-end items-center h-full">
             <h1 className="md:text-[2rem] leading-[30px] md:leading-[50px] text-center uppercase mb-10 ">

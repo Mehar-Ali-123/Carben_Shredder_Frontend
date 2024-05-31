@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { server } from "../server";
 import Loader from "../components/Loader/Loader";
 import countryOptions from "../data";
+import DefaultImage from "../assets/images/unknownAvatar.png";
 
 function SignUp() {
   const Navigate = useNavigate();
@@ -46,8 +47,14 @@ function SignUp() {
       formData.append("name", data.name);
       formData.append("email", data.email);
       formData.append("password", data.password);
-      formData.append("country", data.country || "ali");
-      formData.append("file", data.avatar[0]);
+      formData.append("country", data.country || "country");
+      if (data.avatar && data.avatar.length > 0) {
+        formData.append("file", data.avatar[0]);
+      } else {
+        const response = await fetch(DefaultImage);
+        const blob = await response.blob();
+        formData.append("file", blob, "unknownAvatar.png");
+      }
       formData.append("signupDate", getCurrentDate());
 
       const response = await axios.post(`${server}/create-user`, formData, {
@@ -89,7 +96,7 @@ function SignUp() {
 
   return (
     <>
-      <section className="max-w-4xl p-6 mx-auto mt-52"> 
+      <section className="max-w-4xl p-6 mx-auto mt-52">
         <h1 className="w-full  md:text-[2rem] leading-[40px] text-center uppercase    text-3xl mt-5 ">
           <span className="text-primary">Sign Up</span> Carbon Shredder.
         </h1>
@@ -253,7 +260,7 @@ function SignUp() {
                       id="avatar"
                       type="file"
                       accept=".jpg,.jpeg,.png"
-                      {...register("avatar", { required: true })}
+                      {...register("avatar", { required: false })}
                       className="sr-only"
                       onChange={handleImageChange}
                     />
@@ -266,12 +273,12 @@ function SignUp() {
                   PNG, JPG, GIF up to 10MB
                 </p>
                 {errors.avatar && (
-                <p className="text-red-500 text-sm mt-1">Image is required</p>
-              )}
-              </div> 
+                  <p className="text-red-500 text-sm mt-1">Image is required</p>
+                )}
+              </div>
             </div>
           </div>
-         
+
           <div className="mt-6">
             <button
               type="submit"

@@ -15,6 +15,15 @@ import AboutSectionHome from "../components/AboutSectionHome.js";
 export default function Home() {
   return (
     <>
+      <Helmet>
+        <title>
+          Carbon Footprint Tracker & Offset Service - The Carbon Shredder
+        </title>
+        <meta
+          name="description"
+          content="Track and offset your carbon footprint with The Carbon Shredder. Subscribe for real-time insights & make a positive environmental impact today!"
+        />
+      </Helmet>
       <Hero />
       {/* <PlaidIntegeration/> */}
       <OurMission OurMission="Our mission is to offer customers ease of mind by providing an easy way to track and offset carbon emissions, tailored to your lifestyle." />
